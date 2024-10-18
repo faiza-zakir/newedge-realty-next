@@ -16,7 +16,7 @@ const Developers = () => {
 
   useEffect(() => {
     setDeveloperData(developersData);
-  }, [developersData]);
+  }, []);
 
   return (
     <>

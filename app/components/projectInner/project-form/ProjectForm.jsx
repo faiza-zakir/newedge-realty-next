@@ -40,7 +40,7 @@ const ProjectForm = ({ show, handleClose }) => {
 
   useEffect(() => {
     setPropertyData(projectsData);
-  }, [projectsData]);
+  }, []);
 
   useEffect(() => {
     if (id && propertyData.length > 0) {

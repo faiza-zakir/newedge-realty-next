@@ -21,7 +21,7 @@ const Blog = () => {
       setBlogData(blogsData);
       setIsLoading(false);
     }, 1000);
-  }, [blogsData]);
+  }, []);
 
   // useEffect(() => {
   //   const fetchBlogListData = async () => {

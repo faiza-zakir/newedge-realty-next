@@ -39,7 +39,7 @@ const Home = () => {
     );
     setResidentialProjects(residentialData);
     setCommercialProjects(commercialData);
-  }, [projectsData]);
+  }, []);
 
   return (
     <>

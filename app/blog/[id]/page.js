@@ -54,7 +54,7 @@ const BlogInner = () => {
   useEffect(() => {
     setSingleBlog(blogsData?.find((x) => x?.id == id));
     setRelatedBlog(blogsData?.filter((x) => x?.id !== id));
-  }, [id, blogsData]);
+  }, [id]);
 
   return (
     <div>
