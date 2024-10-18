@@ -8,7 +8,7 @@ const CommonBanner = ({ bgImg, name, indexvisit, indexpage, activepage }) => {
   return (
     <div
       className="common_banner_area"
-      style={{ backgroundImage: `url(${bgImg})`, height: !name && "250px" }}
+      style={{ backgroundImage: `url(${bgImg.src})`, height: !name && "250px" }}
     >
       <Container>
         <div className="common_banner_content">
