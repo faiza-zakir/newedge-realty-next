@@ -1,34 +1,40 @@
 import ProjectsInner from "../../components/projectInner/ProjectsInner";
-import projectsData from "../../db/projectsData";
 
-export default function FarmHouseInner({ singleProject }) {
-  return <ProjectsInner singleProject={singleProject} />;
+export default function FarmHouseInner() {
+  return <ProjectsInner />;
 }
 
-// Static Params for Commercial Project Pages
-export function generateStaticParams() {
-  // Get all possible commercial project routes
-  const paths = projectsData
-    .filter((project) => project.property_type.route === "commercial")
-    .map((project) => ({
-      params: { id: project.route },
-    }));
+// import ProjectsInner from "../../components/projectInner/ProjectsInner";
+// import projectsData from "../../db/projectsData";
 
-  return {
-    paths,
-    fallback: false, // No fallback for missing pages
-  };
-}
+// export default function FarmHouseInner({ singleProject }) {
+//   return <ProjectsInner singleProject={singleProject} />;
+// }
 
-// Static Props to Fetch Commercial Project Data Based on Route
-export async function generateStaticProps({ params }) {
-  const { id } = params;
-  // Fetch the commercial project details by route
-  const singleProject = projectsData.find((project) => project.route === id);
+// // Static Params for Commercial Project Pages
+// export function generateStaticParams() {
+//   // Get all possible commercial project routes
+//   const paths = projectsData
+//     .filter((project) => project.property_type.route === "commercial")
+//     .map((project) => ({
+//       params: { id: project.route },
+//     }));
 
-  return {
-    props: {
-      singleProject,
-    },
-  };
-}
+//   return {
+//     paths,
+//     fallback: false, // No fallback for missing pages
+//   };
+// }
+
+// // Static Props to Fetch Commercial Project Data Based on Route
+// export async function generateStaticProps({ params }) {
+//   const { id } = params;
+//   // Fetch the commercial project details by route
+//   const singleProject = projectsData.find((project) => project.route === id);
+
+//   return {
+//     props: {
+//       singleProject,
+//     },
+//   };
+// }
