@@ -24,16 +24,16 @@ const TermsIntro = () => {
             Our team of professionals continuously strives to provide an
             extensive support to our clients with end to end solution in
             discovering and delivering their dream homes and commercial space.
-            Our expertise and flexible approach understands our client's
+            Our expertise and flexible approach understands our clients
             requirements and leverages their investment venture to provide cent
             percent satisfaction to them.
           </p>
           <p>
             We constantly adapt and update with rapid developments in real
-            estate and property industry to serve and respond to our customer's
+            estate and property industry to serve and respond to our customers
             requirement instantaneously. NEWEDGE Realty Pvt. Ltd. has gained
             foot hold in providing housing and property solutions with a
-            commitment to excel and serve at par to our customer's expectations.
+            commitment to excel and serve at par to our customers expectations.
             We take immense pleasure in providing highest quality and best value
             for money to our clients. Explore your endeavor of dream property
             plan with Parikh Real Estate.

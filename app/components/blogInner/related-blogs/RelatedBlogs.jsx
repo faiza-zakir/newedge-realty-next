@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -113,7 +114,7 @@ const RelatedBlogs = ({ blogData }) => {
                 {/* <p className="para_comm">{item?.category}</p> */}
                 <h3
                   className="sub_heading"
-                  onClick={() => router.push(`/blog/${item?.id}`)}
+                  onClick={() => router.push(`/blog/${item?.route}`)}
                 >
                   {item?.title}
                 </h3>

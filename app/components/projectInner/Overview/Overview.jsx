@@ -1,3 +1,4 @@
+"use client";
 import { Container } from "react-bootstrap";
 import { FaBath, FaBed, FaChartArea } from "react-icons/fa";
 import { PiLineVertical } from "react-icons/pi";

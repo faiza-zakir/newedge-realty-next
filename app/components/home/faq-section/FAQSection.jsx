@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 import { Accordion, Container } from "react-bootstrap";
 // css

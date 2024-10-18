@@ -23,7 +23,7 @@ const Projects = () => {
       (project) => project?.property_type?.route === route
     );
     setProjectData(projectsList);
-  }, [pathname]);
+  }, [pathname, route]);
 
   // Function to update filters based on user input
   const handleFilterChange = (newFilters) => {

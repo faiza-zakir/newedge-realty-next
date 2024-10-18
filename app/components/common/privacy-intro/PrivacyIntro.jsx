@@ -21,7 +21,7 @@ const PrivacyIntro = () => {
           <ul>
             <li>The identity of NEWEDGE Realty Pvt. Ltd.</li>
             <li>The purpose of collecting the information.</li>
-            <li>The individual's right to access the information.</li>
+            <li>The individuals right to access the information.</li>
             <li>
               The types of organizations to which NEWEDGE Realty Pvt. Ltd.
               discloses the information.
@@ -93,7 +93,7 @@ const PrivacyIntro = () => {
           <p>
             NEWEDGE Realty Pvt. Ltd. will not disclose personal information to a
             recipient in a foreign country who is not subject to comparable
-            privacy obligations as those contained in the NPP's unless NEWEDGE
+            privacy obligations as those contained in the NPPs unless NEWEDGE
             Realty Pvt. Ltd. has the consent of the relevant individual.
           </p>
           <h3>Sensitive information</h3>
@@ -101,8 +101,8 @@ const PrivacyIntro = () => {
             As a general rule, NEWEDGE Realty Pvt. Ltd. will not collect
             sensitive information. However, where sensitive information is to be
             collected, it will only be collected, used and disclosed with the
-            individual's consent or in accordance with the requirements under
-            the NPP's.
+            individuals consent or in accordance with the requirements under the
+            NPPs.
           </p>
         </div>
       </Container>

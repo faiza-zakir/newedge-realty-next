@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Button, Col, Modal, Form, Row } from "react-bootstrap";

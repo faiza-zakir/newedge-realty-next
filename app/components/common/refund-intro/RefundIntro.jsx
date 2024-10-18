@@ -11,7 +11,7 @@ const RefundIntro = () => {
         <div className="content_wrap">
           <h3>The prohibition of cancellations and forfeiture</h3>
           <p>
-            By accepting this application, you’re aware that the Provisional
+            By accepting this application, you are aware that the Provisional
             Reservation cannot be canceled. You also do not have the right to a
             refund of the Provisional Allotment Money. However, if cancellations
             are made for reasons that may be attributed to you, including
@@ -47,7 +47,7 @@ const RefundIntro = () => {
           </p>
           <p>
             The remaining funds will be refunded to the applicant after
-            deducting forfeited amounts based on the builder’s prevailing
+            deducting forfeited amounts based on the builders prevailing
             cancellation policy. Refunds will normally occur in about 45-90 days
             in cheque form without payment of interest or compensation when the
             unit has been allocated to another applicant.

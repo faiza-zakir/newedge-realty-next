@@ -50,7 +50,7 @@ const BlogList = ({ blogsList, isLoading }) => {
                     {/* <p className="para_comm">{blog?.category}</p> */}
                     <h3
                       className="sub_heading"
-                      onClick={() => router.push(`/blog/${blog?.id}`)}
+                      onClick={() => router.push(`/blog/${blog?.route}`)}
                     >
                       {blog?.title}
                     </h3>

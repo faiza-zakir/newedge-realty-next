@@ -21,7 +21,7 @@ const Locations = () => {
       return project?.location?.zone?.route === filters.zone;
     });
     setLocationData(locationsList);
-  }, [filters.zone, projectsData]);
+  }, [filters.zone]);
 
   // Function to update filters based on user input
   const handleFilterChange = (newFilters) => {

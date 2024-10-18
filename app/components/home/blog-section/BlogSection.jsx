@@ -138,7 +138,7 @@ const BlogSection = ({ blogData }) => {
                 {/* <p className="para_comm">{item?.category}</p> */}
                 <h3
                   className="sub_heading"
-                  onClick={() => router.push(`/blog/${item?.id}`)}
+                  onClick={() => router.push(`/blog/${item?.route}`)}
                 >
                   {item?.title}
                 </h3>

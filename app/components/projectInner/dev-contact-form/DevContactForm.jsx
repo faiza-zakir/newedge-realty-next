@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Button, Col, Modal, Form, Row } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
