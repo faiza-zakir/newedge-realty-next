@@ -1,95 +1,85 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import Head from "next/head";
+import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
+import AboutSection from "./components/home/about-section/AboutSection";
+import AppointmentSection from "./components/home/appointment-section/AppointmentSection";
+import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
+import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
+import BlogSection from "./components/home/blog-section/BlogSection";
+import ContactSection from "./components/home/contact-section/ContactSection";
+import FAQSection from "./components/home/faq-section/FAQSection";
+import TestimonialsSection from "./components/home/testimonials-section/TestimonialsSection";
+import VideoTestimonialsSection from "./components/home/video-testimonials-section/VideoTestimonialsSection";
+import ProjectSlider from "./components/home/project-slider/ProjectSlider";
+import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
+// data
+import { homeData } from "./db/homeData";
+import projectsData from "./db/projectsData";
+import blogsData from "./db/blogsData";
 
-export default function Home() {
+const Home = () => {
+  const {
+    about,
+    counts,
+    appointment,
+    whyChoose,
+    testimonials,
+    testimonialsVideo,
+  } = homeData;
+  const [residentialProjects, setResidentialProjects] = useState([]);
+  const [commercialProjects, setCommercialProjects] = useState([]);
+
+  useEffect(() => {
+    const residentialData = projectsData?.filter(
+      (project) => project?.property_type?.route === "residential"
+    );
+    const commercialData = projectsData?.filter(
+      (project) => project?.property_type?.route === "commercial"
+    );
+    setResidentialProjects(residentialData);
+    setCommercialProjects(commercialData);
+  }, [projectsData]);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      <Head>
+        <title>
+          Newedge Realty Affordable Housing | Property at Exciting Rates
+        </title>
+        <meta
+          name="description"
+          content="Prime commercial properties for sale, affordable housing options, and office spaces for rent with Newedge Realty! Get yours now!"
         />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </Head>
+      <BannerVideo />
+      <section className="form_mobile_view mt-60">
+        <Container>
+          <BannerForm />
+        </Container>
+      </section>
+      <AboutSection aboutData={about} countsData={counts} />
+      <ProjectSlider
+        tagLine="Discover"
+        title="Residential Properties"
+        link="/residential"
+        projectsData={residentialProjects?.slice(0, 4)}
+      />
+      <AppointmentSection appointmentData={appointment} />
+      <ProjectSlider
+        tagLine="Discover"
+        title="Commercial Properties"
+        link="/residential"
+        projectsData={commercialProjects?.slice(0, 4)}
+      />
+      <WhyChooseSection whyChooseData={whyChoose} />
+      <TestimonialsSection testimonialsData={testimonials} />
+      <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
+      <BlogSection blogData={blogsData?.slice(0, 5)} />
+      <ContactSection />
+      <FAQSection />
+    </>
   );
-}
+};
+
+export default Home;

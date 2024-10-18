@@ -1,0 +1,56 @@
+import Image from "next/image";
+import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import DevContactForm from "../dev-contact-form/DevContactForm";
+import BrochureForm from "../../common/brochure-form/BrochureForm";
+// css
+import "./styles.scss";
+
+const AboutDeveloper = ({ developerData }) => {
+  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleModalClose = () => setShowModal(false);
+  const handleModalShow = () => setShowModal(true);
+  return (
+    <div className="dev_detail_sec mt-60">
+      <Container>
+        <Row className="gy-5 gx-lg-5">
+          <Col lg={6} className="order-last order-lg-first">
+            <h2 className="sub_heading">About Developers</h2>
+            <div
+              className="general-details"
+              dangerouslySetInnerHTML={{
+                __html: developerData?.description,
+              }}
+            />
+            <div className="btn_wrap">
+              <button className="theme_btn2" onClick={handleModalShow}>
+                Download Brochure
+              </button>
+              <button className="theme_btn3" onClick={handleShow}>
+                Contact Us
+              </button>
+            </div>
+          </Col>
+          <Col lg={6}>
+            <figure>
+              <Image src={developerData?.inner_page_image} alt="developer" />
+            </figure>
+          </Col>
+        </Row>
+        <DevContactForm show={show} handleClose={handleClose} />
+        <BrochureForm
+          show={showModal}
+          handleClose={handleModalClose}
+          brochureLink={developerData?.brochure}
+        />
+      </Container>
+    </div>
+  );
+};
+
+export default AboutDeveloper;
