@@ -10,7 +10,12 @@ const Mission = ({ missionData }) => {
         <Row className="gy-5 gx-lg-5">
           <Col lg={6}>
             <figure>
-              <Image src={missionData?.featured_img} alt="mission" />
+              <Image
+                src={missionData?.featured_img}
+                alt="mission"
+                layout="fill"
+                objectFit="cover"
+              />
             </figure>
           </Col>
           <Col lg={6}>

@@ -11,7 +11,12 @@ const CountsSection = ({ countsData }) => {
         <Row className="gy-5 gx-lg-5 align-items-center">
           <Col lg={6} className="order-last order-lg-first">
             <figure>
-              <Image src={countsData?.featured_img} alt="count" />
+              <Image
+                src={countsData?.featured_img}
+                alt="count"
+                layout="fill"
+                objectFit="cover"
+              />
             </figure>
           </Col>
           <Col lg={6}>

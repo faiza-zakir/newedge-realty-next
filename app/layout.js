@@ -1,8 +1,33 @@
+// import localFont from "next/font/local";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/custom.scss";
 import "./globals.scss";
+
+// const geistPoppinsRegular = localFont({
+//   src: "./fonts/Poppins-Regular.ttf",
+//   variable: "--font-poppins-regular",
+//   weight: "400",
+// });
+
+// const geistPoppinsMedium = localFont({
+//   src: "./fonts/Poppins-Medium.ttf",
+//   variable: "--font-poppins-medium",
+//   weight: "500",
+// });
+
+// const geistPoppinsSemiBold = localFont({
+//   src: "./fonts/Poppins-SemiBold.ttf",
+//   variable: "--font-poppins-semibold",
+//   weight: "600",
+// });
+
+// const geistPoppinsBold = localFont({
+//   src: "./fonts/Poppins-Bold.ttf",
+//   variable: "--font-poppins-bold",
+//   weight: "700",
+// });
 
 export const metadata = {
   title: "NewEdge Realty",
@@ -47,7 +72,11 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body
+      // className={`${geistPoppinsRegular.variable} ${geistPoppinsSemiBold.variable} ${geistPoppinsMedium.variable} ${geistPoppinsBold.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

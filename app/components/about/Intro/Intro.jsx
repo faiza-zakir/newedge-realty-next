@@ -15,7 +15,12 @@ const Intro = ({ introData }) => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={introData?.featured_img} alt="about" />
+              <Image
+                src={introData?.featured_img}
+                alt="about"
+                layout="fill"
+                objectFit="cover"
+              />
             </figure>
           </Col>
         </Row>

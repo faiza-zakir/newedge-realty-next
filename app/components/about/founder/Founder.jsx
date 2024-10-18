@@ -10,7 +10,12 @@ const Founder = ({ founderData }) => {
         <Row className="gy-5 gx-lg-5">
           <Col lg={6}>
             <figure>
-              <Image src={founderData?.featured_img} alt="founder" />
+              <Image
+                src={founderData?.featured_img}
+                alt="founder"
+                layout="fill"
+                objectFit="cover"
+              />
             </figure>
           </Col>
           <Col lg={6}>
