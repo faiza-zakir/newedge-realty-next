@@ -66,39 +66,6 @@ const WhyChooseSection = ({ whyChooseData }) => {
     visible: { opacity: 1, scale: 1, y: 0 },
   };
 
-  // Hook for controlling animation for each item
-  const useItemAnimation = () => {
-    const controls = useAnimation();
-    const ref = useRef(null);
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              controls.start("visible");
-            } else {
-              controls.start("hidden");
-            }
-          });
-        },
-        { threshold: 0.5 } // Trigger animation when 50% of the item is visible
-      );
-
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-
-      return () => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      };
-    }, [controls]);
-
-    return { ref, controls };
-  };
-
   return (
     <div className="why-choose-sec mt-60" ref={sectionRef}>
       <Container>
@@ -117,7 +84,6 @@ const WhyChooseSection = ({ whyChooseData }) => {
                   item={item}
                   i={i}
                   itemVariant={itemVariant}
-                  useItemAnimation={useItemAnimation}
                   key={"konDI" + i}
                 />
               );
