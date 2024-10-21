@@ -1,29 +1,29 @@
 import API from "./config";
 
-export const postContactUs = (formData) => {
-  return API.post("/contact", formData);
+export const postLeadForm = (formData) => {
+  return API.post("/forms", formData);
 };
 
 // Faqs API
 
 export const fetchFaqData = () => {
-  return API.get("/get-faqs");
+  return API.get("/faqs");
 };
 
 // Blogs API
 
 export const fetchBlogData = () => {
-  return API.get("/blog");
+  return API.get("/blogs");
 };
 
 export const fetchBlogDeatilsData = (id) => {
-  return API.get(`/blog/${id}`);
+  return API.get(`/blogs/${id}`);
 };
 
 // Testimonials API
 
 export const fetchTestimonialData = () => {
-  return API.get("/get-testimonials");
+  return API.get("/testimonials");
 };
 
 // Project Inner API
