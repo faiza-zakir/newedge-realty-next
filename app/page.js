@@ -12,7 +12,7 @@ import FAQSection from "./components/home/faq-section/FAQSection";
 import TestimonialsSection from "./components/home/testimonials-section/TestimonialsSection";
 import VideoTestimonialsSection from "./components/home/video-testimonials-section/VideoTestimonialsSection";
 import ProjectSlider from "./components/home/project-slider/ProjectSlider";
-// import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
+import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
 // data
 import { homeData } from "./db/homeData";
 import projectsData from "./db/projectsData";
@@ -72,7 +72,7 @@ const Home = () => {
         link="/residential"
         projectsData={commercialProjects?.slice(0, 4)}
       />
-      {/* <WhyChooseSection whyChooseData={whyChoose} /> */}
+      <WhyChooseSection whyChooseData={whyChoose} />
       <TestimonialsSection testimonialsData={testimonials} />
       <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
       <BlogSection blogData={blogsData?.slice(0, 5)} />
