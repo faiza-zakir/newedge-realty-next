@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 // css
 import "./styles.scss";
+import { postDeveloperContact } from "@/app/apis/commonApi";
 
 const initailObject = {
   first_name: "",
@@ -37,7 +38,6 @@ const DevContactForm = ({ show, handleClose }) => {
   };
 
   const PostFormContactFormData = async (updatedData) => {
-    // try {
     const payload = {
       first_name: updatedData?.first_name,
       last_name: updatedData?.last_name,
@@ -46,13 +46,26 @@ const DevContactForm = ({ show, handleClose }) => {
       message: updatedData?.message,
     };
 
-    // const response = await postContactUs(payload);
-    // if (response.status === 200 || response.status === 201) {
-    setTimeout(() => {
+    try {
+      const response = await postDeveloperContact(payload);
+      console.log("🚀 ~ PostFormContactFormData ~ response:", response);
+      if (response?.status == 200 || response?.status == 201) {
+        setLoading(false);
+        setFormValues({ ...initailObject });
+        toast.success("Data Submitted Successfully!");
+      }
+    } catch (err) {
       setLoading(false);
-      setFormValues({ ...initailObject });
-      toast.success("Data has been Submitted Successfully!");
-    }, 1000);
+      console.error("Error contact form:", err);
+      toast.error("Something Went wrong!");
+    }
+
+    // if (response.status === 200 || response.status === 201) {
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   setFormValues({ ...initailObject });
+    //   toast.success("Data has been Submitted Successfully!");
+    // }, 1000);
     //   }
     // } catch (error) {
     //   console.error("Error posting Data:", error);
@@ -88,6 +101,7 @@ const DevContactForm = ({ show, handleClose }) => {
     }
 
     let updatedData = { ...formValues };
+    updatedData.phone = mobileValue;
     setLoading(true);
 
     PostFormContactFormData(updatedData);

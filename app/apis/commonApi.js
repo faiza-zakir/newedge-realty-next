@@ -25,3 +25,9 @@ export const fetchBlogDeatilsData = (id) => {
 export const fetchTestimonialData = () => {
   return API.get("/get-testimonials");
 };
+
+// Project Inner API
+
+export const postDeveloperContact = (formData) => {
+  return API.post("/developer-contact-form", formData);
+};

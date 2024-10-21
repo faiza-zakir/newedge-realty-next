@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/custom.scss";
 import "./globals.scss";
+import NextTopLoader from "nextjs-toploader";
 
 // const geistPoppinsRegular = localFont({
 //   src: "./fonts/Poppins-Regular.ttf",
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
       <body
       // className={`${geistPoppinsRegular.variable} ${geistPoppinsSemiBold.variable} ${geistPoppinsMedium.variable} ${geistPoppinsBold.variable}`}
       >
+        <NextTopLoader color="#fff" />
         {children}
       </body>
     </html>
