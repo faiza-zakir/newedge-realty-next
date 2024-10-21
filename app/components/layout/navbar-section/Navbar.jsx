@@ -350,16 +350,7 @@ const MainNavbar = () => {
                   >
                     Pre-Leased <FaAngleRight className="angle-arrow" />
                   </NavDropdown.Item>
-                  <NavDropdown.Item
-                    as={Link}
-                    onClick={closeToggler}
-                    href="/industrial"
-                    className={`nav-drop-link ${
-                      pathname === "/industrial" ? "active" : ""
-                    }`}
-                  >
-                    Industrial <FaAngleRight className="angle-arrow" />
-                  </NavDropdown.Item>
+
                   <NavDropdown.Item
                     as={Link}
                     onClick={closeToggler}
@@ -369,16 +360,6 @@ const MainNavbar = () => {
                     }`}
                   >
                     Farmhouse <FaAngleRight className="angle-arrow" />
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    as={Link}
-                    onClick={closeToggler}
-                    href="/land"
-                    className={`nav-drop-link ${
-                      pathname === "/land" ? "active" : ""
-                    }`}
-                  >
-                    Land <FaAngleRight className="angle-arrow" />
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link
