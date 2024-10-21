@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import useItemAnimation from "@/app/Hooks/useItemAnimation";
 
 function ChooseusCard(props) {
-  const { useItemAnimation, itemVariant, i, item, key } = props;
+  const { itemVariant, i, item, key } = props;
   const { ref, controls } = useItemAnimation();
 
   return (
