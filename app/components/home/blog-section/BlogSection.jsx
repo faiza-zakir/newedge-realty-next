@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
-
+import moment from "moment";
 import { Container } from "react-bootstrap";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // img
@@ -42,29 +42,28 @@ const settings = {
   ],
 };
 
-const BlogSection = ({ blogData }) => {
+const BlogSection = () => {
   const router = useRouter();
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
-  // const [blogData, setBlogData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [blogData, setBlogData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchBlogListData = async () => {
-  //     try {
-  //       setIsLoading(true); // Show the loader
+  useEffect(() => {
+    const fetchBlogListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fetchBlogData();
+        setBlogData(data?.slice(0, 5));
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
 
-  //       const { data } = await fetchBlogData();
-  //       setBlogData(data?.slice(0, 5));
-  //     } catch (error) {
-  //       console.error("Error fetching Data:", error);
-  //     } finally {
-  //       setIsLoading(false); // Hide the loader
-  //     }
-  //   };
-
-  //   fetchBlogListData();
-  // }, []);
+    fetchBlogListData();
+  }, []);
 
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -117,36 +116,39 @@ const BlogSection = ({ blogData }) => {
             </button>
           </div>
         </div>
-        {/* {isLoading ? (
+        {isLoading ? (
           <p className="para_comm text-center">loading...</p>
-        ) : ( */}
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {blogData?.map((item, i) => (
-            <div className="blog_item" key={item?.id}>
-              <figure>
-                <Image
-                  src={item?.feature_image ? item?.feature_image : blogImg}
-                  alt="blog"
-                />
-                <span className="date">{item?.date}</span>
-              </figure>
-              <div>
-                {/* <p className="para_comm">{item?.category}</p> */}
-                <h3
-                  className="sub_heading"
-                  onClick={() => router.push(`/blog/${item?.route}`)}
-                >
-                  {item?.title}
-                </h3>
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {blogData?.map((item, i) => (
+              <div className="blog_item" key={item?.id}>
+                <figure>
+                  <Image
+                    // src={item?.feature_image ? item?.feature_image : blogImg}
+                    src={blogImg}
+                    alt="blog"
+                  />
+                  <span className="date">
+                    {moment(item?.date)?.format("MMMM D")}
+                  </span>
+                </figure>
+                <div>
+                  {/* <p className="para_comm">{item?.category}</p> */}
+                  <h3
+                    className="sub_heading"
+                    onClick={() => router.push(`/blog/${item?.route}`)}
+                  >
+                    {item?.title}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-        {/* )} */}
+            ))}
+          </Slider>
+        )}
         <div className="mobile_view">
           <button className="theme_btn2" onClick={() => router.push(`/blogs`)}>
             See More

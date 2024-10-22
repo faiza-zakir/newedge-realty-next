@@ -9,51 +9,45 @@ import ContactSection from "../../components/home/contact-section/ContactSection
 import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fetchBlogData, fetchBlogDeatilsData } from "../../apis/commonApi";
-import blogsData from "../../db/blogsData";
 // img
 import bannerImg from "../../assets/banner/blogbanner.webp";
 
 const BlogInner = () => {
   const { id } = useParams();
   const [singleBlog, setSingleBlog] = useState({});
-  const [relatedBlog, setRelatedBlog] = useState(blogsData);
+  const [relatedBlog, setRelatedBlog] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // const fetchBlogListData = async () => {
-  //   try {
-  //     setIsLoading(true); // Show the loader
+  const fetchBlogListData = async () => {
+    try {
+      setIsLoading(true); // Show the loader
 
-  //     const { data } = await fetchBlogData();
-  //     const relBlogData = data?.filter((item) => item?.id !== id);
-  //     setRelatedBlog(relBlogData);
-  //   } catch (error) {
-  //     console.error("Error fetching Data:", error);
-  //   } finally {
-  //     setIsLoading(false); // Hide the loader
-  //   }
-  // };
+      const { data } = await fetchBlogData();
+      const relBlogData = data?.filter((item) => item?.id !== id);
+      setRelatedBlog(relBlogData);
+    } catch (error) {
+      console.error("Error fetching Data:", error);
+    } finally {
+      setIsLoading(false); // Hide the loader
+    }
+  };
 
-  // const fetchSingleBlogData = async () => {
-  //   try {
-  //     setIsLoading(true); // Show the loader
+  const fetchSingleBlogData = async () => {
+    try {
+      setIsLoading(true); // Show the loader
 
-  //     const { data } = await fetchBlogDeatilsData(id);
-  //     setSingleBlog(data);
-  //   } catch (error) {
-  //     console.error("Error fetching Data:", error);
-  //   } finally {
-  //     setIsLoading(false); // Hide the loader
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchBlogListData();
-  //   fetchSingleBlogData();
-  // }, [id]);
+      const { data } = await fetchBlogDeatilsData(id);
+      setSingleBlog(data);
+    } catch (error) {
+      console.error("Error fetching Data:", error);
+    } finally {
+      setIsLoading(false); // Hide the loader
+    }
+  };
 
   useEffect(() => {
-    setSingleBlog(blogsData?.find((x) => x?.route == id));
-    setRelatedBlog(blogsData?.filter((x) => x?.route !== id));
+    fetchBlogListData();
+    fetchSingleBlogData();
   }, [id]);
 
   return (

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
-
+import moment from "moment";
 import { Container } from "react-bootstrap";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // img
@@ -105,10 +105,13 @@ const RelatedBlogs = ({ blogData }) => {
             <div className="blog_item" key={item?.id}>
               <figure>
                 <Image
-                  src={item?.feature_image ? item?.feature_image : blogImg}
+                  // src={item?.feature_image ? item?.feature_image : blogImg}
+                  src={blogImg}
                   alt="blog"
                 />
-                <span className="date">{item?.date}</span>
+                <span className="date">
+                  {moment(item?.date)?.format("MMMM D")}
+                </span>
               </figure>
               <div>
                 {/* <p className="para_comm">{item?.category}</p> */}

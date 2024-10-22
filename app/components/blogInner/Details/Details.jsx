@@ -2,6 +2,7 @@ import Image from "next/image";
 import MainImg from "../../../assets/home/blogImg.jpg";
 import { Container } from "react-bootstrap";
 import { PiLineVertical } from "react-icons/pi";
+import moment from "moment";
 // css
 import "./styles.scss";
 
@@ -19,14 +20,15 @@ const Details = ({ singleBlog }) => {
           <li>
             <PiLineVertical />
           </li> */}
-          <li>{singleBlog?.date}</li>
+          <li>{moment(singleBlog?.date)?.format("MMMM D")}</li>
         </ul>
       </Container>
       <figure>
         <Image
-          src={
-            singleBlog?.inner_page_img ? singleBlog?.inner_page_img : MainImg
-          }
+          src={MainImg}
+          // src={
+          //   singleBlog?.inner_page_img ? singleBlog?.inner_page_img : MainImg
+          // }
           alt="Main Image"
         />
       </figure>

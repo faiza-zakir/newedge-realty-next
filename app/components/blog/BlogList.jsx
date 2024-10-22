@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Container, Row, Col } from "react-bootstrap";
+import moment from "moment";
 // img
 import blogImg from "../../assets/blog/blog1.jpg";
 // css
@@ -41,10 +42,13 @@ const BlogList = ({ blogsList, isLoading }) => {
                 <div className="blog_item">
                   <figure>
                     <Image
-                      src={blog?.feature_image ? blog?.feature_image : blogImg}
+                      src={blogImg}
+                      // src={blog?.feature_image ? blog?.feature_image : blogImg}
                       alt="blog"
                     />
-                    <span className="date">{blog?.date}</span>
+                    <span className="date">
+                      {moment(blog?.date)?.format("MMMM D")}
+                    </span>
                   </figure>
                   <div>
                     {/* <p className="para_comm">{blog?.category}</p> */}
