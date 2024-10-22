@@ -53,7 +53,7 @@ function FilterSection({ onFilterChange }) {
           <div className="zone_wrap">
             <span className="main-label">Filter</span>
             <Form.Select
-              aria-label="Location"
+              aria-label="Zone"
               onChange={handleZoneChange}
               value={selectedZone}
             >

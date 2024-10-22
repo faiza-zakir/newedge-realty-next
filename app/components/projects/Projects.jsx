@@ -44,11 +44,12 @@ const Projects = () => {
 
   // Apply filters to the project list
   const filteredProjects = projectData?.filter((project) => {
+    debugger;
+    // Check for Zone filter
+    if (filters?.zone && project?.location?.zone?.route !== filters?.zone)
+      return false;
     // Check for location filter
-    if (
-      filters?.location &&
-      project?.location?.zone?.route !== filters?.location
-    )
+    if (filters?.location && project?.location?.route !== filters?.location)
       return false;
     // Check for price filter
     if (filters?.price && project?.price !== formatPrice(filters?.price))
