@@ -71,6 +71,7 @@ const initailObject = {
   company: "",
   phone: "",
   city_name: "",
+  property_for: "",
   min_budget: "",
   max_budget: "",
   recordType: "",
@@ -138,6 +139,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
         company: updatedData?.company,
         phone: updatedData?.phone,
         city_name: updatedData?.city_name,
+        property_for: updatedData?.property_for,
         min_budget: parseFloat(updatedData?.min_budget).toFixed(2),
         max_budget: parseFloat(updatedData?.max_budget).toFixed(2),
         recordType: updatedData?.recordType,
@@ -165,6 +167,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       email,
       company,
       city_name,
+      property_for,
       min_budget,
       max_budget,
     } = formValues;
@@ -183,6 +186,8 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       errors.phone = "Please Enter Phone Number.";
     } else if (!city_name) {
       errors.city_name = "Please Enter City.";
+    } else if (!property_for) {
+      errors.property_for = "Please Select Property For.";
     } else if (!min_budget) {
       errors.min_budget = "Please Select Min. Budget.";
     } else if (!max_budget) {
@@ -249,6 +254,12 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
             id="city"
             name="city"
             value={formValues?.city_name}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s4JZ"
+            name="00N9I000000s4JZ"
+            value={formValues?.property_for}
           />
           <input
             type="hidden"
@@ -351,26 +362,25 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
                 <p className="mt-2 form_error_msg">{errors?.city_name}</p>
               </Form.Group>
             </Col>
-            {/* <Col lg={12}>
-              <Form.Group controlId="property" className="mb-3">
+            <Col lg={12}>
+              <Form.Group controlId="property_for" className="mb-3">
                 <Form.Select
-                  name="property"
-                  value={formValues.property}
+                  id="property_for"
+                  name="property_for"
+                  value={formValues.property_for}
                   onChange={handleInputChange}
-                  disabled={!!formValues.property}
                 >
                   <option value="" disabled>
-                    Property
+                    Property For
                   </option>
-                  {propertyData?.map((property, i) => (
-                    <option key={"pro" + i} value={property?.title}>
-                      {property?.title}
-                    </option>
-                  ))}
+                  <option value="Buy">Buy</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Buy/Rent">Buy/Rent</option>
+                  <option value="PG">PG</option>
                 </Form.Select>
-                <p className="mt-2 form_error_msg">{errors?.property}</p>
+                <p className="mt-2 form_error_msg">{errors?.property_for}</p>
               </Form.Group>
-            </Col> */}
+            </Col>
             <Col md={6} lg={6}>
               <Form.Group controlId="min_budget" className="mb-3">
                 <Form.Select
