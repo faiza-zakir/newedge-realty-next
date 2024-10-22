@@ -44,7 +44,6 @@ const Projects = () => {
 
   // Apply filters to the project list
   const filteredProjects = projectData?.filter((project) => {
-    debugger;
     // Check for Zone filter
     if (filters?.zone && project?.location?.zone?.route !== filters?.zone)
       return false;
