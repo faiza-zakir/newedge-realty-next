@@ -1,7 +1,15 @@
 import API from "./config";
 
+// Lead Form
+
 export const postLeadForm = (formData) => {
   return API.post("/forms", formData);
+};
+
+// Project Inner API
+
+export const postDeveloperContact = (formData) => {
+  return API.post("/developer-contact-form", formData);
 };
 
 // Faqs API
@@ -24,10 +32,4 @@ export const fetchBlogDeatilsData = (id) => {
 
 export const fetchTestimonialData = () => {
   return API.get("/testimonials");
-};
-
-// Project Inner API
-
-export const postDeveloperContact = (formData) => {
-  return API.post("/developer-contact-form", formData);
 };

@@ -8,7 +8,7 @@ import Select from "react-select";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 import contactImg from "../../../assets/contact/contactImg.jpg";
 // api
-import { postLeadForm } from "../../../../apis/commonApi";
+import { postLeadForm } from "../../../apis/commonApi";
 // data
 import { citiesData } from "../../../db/citiesData";
 // css

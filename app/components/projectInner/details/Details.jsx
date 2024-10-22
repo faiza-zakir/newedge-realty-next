@@ -33,7 +33,11 @@ const Details = ({ singleProject }) => {
             </button>
           </Col>
         </Row>
-        <ProjectForm show={show} handleClose={handleClose} />
+        <ProjectForm
+          show={show}
+          handleClose={handleClose}
+          propertyType={singleProject?.property_type?.route}
+        />
       </Container>
     </div>
   );
