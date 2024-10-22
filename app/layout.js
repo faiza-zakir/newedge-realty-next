@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
       <body
       // className={`${geistPoppinsRegular.variable} ${geistPoppinsSemiBold.variable} ${geistPoppinsMedium.variable} ${geistPoppinsBold.variable}`}
       >
-        <NextTopLoader color="#fff" />
+        <NextTopLoader color="#fff" showSpinner={false} />
         {children}
       </body>
     </html>
