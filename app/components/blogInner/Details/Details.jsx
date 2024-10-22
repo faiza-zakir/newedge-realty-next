@@ -25,10 +25,14 @@ const Details = ({ singleBlog }) => {
       </Container>
       <figure>
         <Image
-          src={MainImg}
-          // src={
-          //   singleBlog?.inner_page_img ? singleBlog?.inner_page_img : MainImg
-          // }
+          src={
+            singleBlog?.inner_page_img
+              ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                singleBlog?.inner_page_img
+              : MainImg
+          }
+          layout="fill"
+          objectFit="cover"
           alt="Main Image"
         />
       </figure>

@@ -127,9 +127,14 @@ const BlogSection = () => {
             {blogData?.map((item, i) => (
               <div className="blog_item" key={item?.id}>
                 <figure>
-                  <Image
-                    // src={item?.feature_image ? item?.feature_image : blogImg}
-                    src={blogImg}
+                  <img
+                    src={
+                      item?.feature_image
+                        ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.feature_image}`
+                        : blogImg
+                    }
+                    // layout="fill"
+                    // objectFit="cover"
                     alt="blog"
                   />
                   <span className="date">

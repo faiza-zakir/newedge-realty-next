@@ -42,8 +42,14 @@ const BlogList = ({ blogsList, isLoading }) => {
                 <div className="blog_item">
                   <figure>
                     <Image
-                      src={blogImg}
-                      // src={blog?.feature_image ? blog?.feature_image : blogImg}
+                      src={
+                        blog?.feature_image
+                          ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                            blog?.feature_image
+                          : blogImg
+                      }
+                      layout="fill"
+                      objectFit="cover"
                       alt="blog"
                     />
                     <span className="date">
