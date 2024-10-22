@@ -75,7 +75,7 @@ const Home = () => {
       <WhyChooseSection whyChooseData={whyChoose} />
       <TestimonialsSection testimonialsData={testimonials} />
       <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
-      <BlogSection  />
+      <BlogSection />
       <ContactSection />
       <FAQSection />
     </>
