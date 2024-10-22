@@ -7,11 +7,12 @@ import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 import contactImg from "../../../assets/contact/contactImg.jpg";
+// api
+import { postLeadForm } from "../../../../apis/commonApi";
 // data
 import { citiesData } from "../../../db/citiesData";
 // css
 import "./style.scss";
-// import { postContactUs } from "../../../apis/commonApi";
 
 // Set max visible options
 const maxVisibleOptions = 5;
@@ -129,34 +130,33 @@ const ContactFormSection = () => {
     setErrors({ ...errors, captcha: "" }); // Clear CAPTCHA error on success
   };
 
-  // const PostFormContactFormData = async (updatedData) => {
-  //   // try {
-  //   const payload = {
-  //     first_name: updatedData?.first_name,
-  //     last_name: updatedData?.last_name,
-  //     company: updatedData?.company,
-  //     phone: updatedData?.phone,
-  //     email: updatedData?.email,
-  //     project: updatedData?.project,
-  //     min_budget: updatedData?.min_budget,
-  //     max_budget: updatedData?.max_budget,
-  //     message: updatedData?.message,
-  //   };
+  const PostLeadFormData = async (updatedData, form) => {
+    try {
+      const payload = {
+        first_name: updatedData?.first_name,
+        last_name: updatedData?.last_name,
+        email: updatedData?.email,
+        company: updatedData?.company,
+        phone: updatedData?.phone,
+        city_name: updatedData?.city_name,
+        min_budget: parseFloat(updatedData?.min_budget).toFixed(2),
+        max_budget: parseFloat(updatedData?.max_budget).toFixed(2),
+        recordType: updatedData?.recordType,
+      };
 
-  //   // const response = await postContactUs(payload);
-  //   // if (response.status === 200 || response.status === 201) {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //     setFormValues({ ...initailObject });
-  //     toast.success("Data has been Submitted Successfully!");
-  //   }, 1000);
-  //   //   }
-  //   // } catch (error) {
-  //   //   console.error("Error posting Data:", error);
-  //   //   setLoading(false);
-  //   //   toast.error("Something Went wrong!");
-  //   // }
-  // };
+      const response = await postLeadForm(payload);
+      if (response.status === 200 || response.status === 201) {
+        // Submit to Salesforce Web-to-Lead form
+        form.submit();
+        setLoading(false);
+        setFormValues({ ...initailObject });
+      }
+    } catch (error) {
+      console.error("Error posting Data:", error);
+      setLoading(false);
+      toast.error("Something Went wrong!");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -201,15 +201,10 @@ const ContactFormSection = () => {
       return;
     }
 
-    // let updatedData = { ...formValues };
-    setLoading(true);
-
-    // Submit to Salesforce Web-to-Lead form
     const form = e.target;
-    form.submit();
-    setLoading(false);
-
-    // PostFormContactFormData(updatedData);
+    let updatedData = { ...formValues, phone: mobileValue };
+    setLoading(true);
+    PostLeadFormData(updatedData, form);
   };
 
   return (
