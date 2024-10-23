@@ -104,16 +104,16 @@ const RelatedBlogs = ({ blogData }) => {
           {blogData?.map((item, i) => (
             <div className="blog_item" key={item?.id}>
               <figure>
-                <Image
+                <img
                   src={
                     item?.feature_image
                       ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
                         item?.feature_image
                       : blogImg
                   }
-                  layout="fill"
-                  objectFit="cover"
-                  alt="blog"
+                  // layout="fill"
+                  // objectFit="cover"
+                  alt={item?.title}
                 />
                 <span className="date">
                   {moment(item?.date)?.format("MMMM D")}

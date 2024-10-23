@@ -140,15 +140,15 @@ const TestimonialsSection = () => {
                 <div className="video_testimonial_item">
                   <div className="gap-3 mt-4">
                     <figure>
-                      <Image
+                      <img
                         src={
                           item?.user_img
                             ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.user_img}`
                             : userImg
                         }
-                        alt={"avatar"}
-                        width="100"
-                        height={"100"}
+                        alt={item?.name}
+                        // width="100"
+                        // height={"100"}
                       />
                     </figure>
                     <div className="content_sec">
@@ -160,7 +160,7 @@ const TestimonialsSection = () => {
                         className="icon_wrape"
                         onClick={() => {
                           setOpen(true);
-                          setVideoLink(item?.url);
+                          setVideoLink(item?.video_url);
                         }}
                       >
                         <FaCirclePlay

@@ -41,16 +41,16 @@ const BlogList = ({ blogsList, isLoading }) => {
               <Col md={6} lg={4} key={blog?.id}>
                 <div className="blog_item">
                   <figure>
-                    <Image
+                    <img
                       src={
                         blog?.feature_image
                           ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
                             blog?.feature_image
                           : blogImg
                       }
-                      layout="fill"
-                      objectFit="cover"
-                      alt="blog"
+                      // layout="fill"
+                      // objectFit="cover"
+                      alt={blog?.title}
                     />
                     <span className="date">
                       {moment(blog?.date)?.format("MMMM D")}
