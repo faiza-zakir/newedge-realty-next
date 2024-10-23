@@ -1,33 +1,35 @@
 import API from "./config";
 
-export const postContactUs = (formData) => {
-  return API.post("/contact", formData);
-};
+// Lead Form
 
-// Faqs API
-
-export const fetchFaqData = () => {
-  return API.get("/get-faqs");
-};
-
-// Blogs API
-
-export const fetchBlogData = () => {
-  return API.get("/blog");
-};
-
-export const fetchBlogDeatilsData = (id) => {
-  return API.get(`/blog/${id}`);
-};
-
-// Testimonials API
-
-export const fetchTestimonialData = () => {
-  return API.get("/get-testimonials");
+export const postLeadForm = (formData) => {
+  return API.post("/forms", formData);
 };
 
 // Project Inner API
 
 export const postDeveloperContact = (formData) => {
   return API.post("/developer-contact-form", formData);
+};
+
+// Faqs API
+
+export const fetchFaqData = () => {
+  return API.get("/faqs");
+};
+
+// Blogs API
+
+export const fetchBlogData = () => {
+  return API.get("/blogs");
+};
+
+export const fetchBlogDeatilsData = (id) => {
+  return API.get(`/blogs/${id}`);
+};
+
+// Testimonials API
+
+export const fetchTestimonialData = () => {
+  return API.get("/testimonials");
 };

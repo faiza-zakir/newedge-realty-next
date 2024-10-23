@@ -8,8 +8,36 @@ import zoneData from "../../../db/zoneData";
 import "./styles.scss";
 
 function FilterSection({ onFilterChange }) {
+  const [selectedZone, setSelectedZone] = useState("");
   const [price, setPrice] = useState(5000000);
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [locations, setLocations] = useState(zoneData[0]?.locations || []);
+
+  useEffect(() => {
+    // Set locations based on the default selected zone (first zone)
+    if (zoneData[0]) {
+      setLocations(zoneData[0].locations);
+    }
+  }, []);
+
+  const handleZoneChange = (e) => {
+    const zoneRoute = e.target.value;
+    setSelectedZone(zoneRoute);
+
+    // Find the zone data based on the selected title
+    const zone = zoneData.find((zone) => zone.route === zoneRoute);
+
+    // Reset the selected location & type when the zone changes
+    setSelectedLocation("");
+    setPrice(5000000);
+
+    // Set the locations state based on the selected zone
+    if (zone && zone.locations.length > 0) {
+      setLocations(zone.locations);
+    } else {
+      setLocations([]); // No locations available for this zone
+    }
+  };
 
   // useEffect(() => {
   //   const rangeInput = document.querySelector(
@@ -40,6 +68,7 @@ function FilterSection({ onFilterChange }) {
 
   const handleApplyFilters = () => {
     onFilterChange({
+      zone: selectedZone,
       location: selectedLocation,
       price: price,
     });
@@ -52,16 +81,35 @@ function FilterSection({ onFilterChange }) {
           <div className="zone_wrap">
             <span className="main-label">Filter</span>
             <Form.Select
-              aria-label="Location"
-              onChange={(e) => setSelectedLocation(e.target.value)}
-              value={selectedLocation}
+              aria-label="Zone"
+              onChange={handleZoneChange}
+              value={selectedZone}
             >
-              <option value="">Location</option>
+              <option value="" disabled>
+                Zone
+              </option>
               {zoneData?.map((zone) => (
                 <option key={zone?.id} value={zone?.route}>
                   {zone?.title}
                 </option>
               ))}
+            </Form.Select>
+          </div>
+          <div className="zone_wrap">
+            <Form.Select
+              aria-label="Location"
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              value={selectedLocation}
+            >
+              <option value="" disabled>
+                {locations.length > 0 ? "Location" : "No Locations available"}
+              </option>
+              {locations.length > 0 &&
+                locations.map((location) => (
+                  <option key={location.id} value={location.route}>
+                    {location.title}
+                  </option>
+                ))}
             </Form.Select>
           </div>
           <div className="d-flex align-items-center gap-3 price_wrap w-100">
