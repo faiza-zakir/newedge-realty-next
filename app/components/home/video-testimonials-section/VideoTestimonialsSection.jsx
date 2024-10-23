@@ -7,7 +7,7 @@ import ModalVideo from "react-modal-video";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
 // api
-// import { fetchTestimonialData } from "../../../apis/commonApi";
+import { fetchTestimonialData } from "../../../apis/commonApi";
 // img
 import userImg from "../../../assets/home/userImg.jpg";
 // css
@@ -43,29 +43,36 @@ const settings = {
   ],
 };
 
-const TestimonialsSection = ({ testimonialsData }) => {
+// const TestimonialsSection = ({ testimonialsData }) => {
+const TestimonialsSection = () => {
   const sliderRef = useRef();
   const [isOpen, setOpen] = useState(false);
   const [videoLink, setVideoLink] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
-  // const [testimonialsData, setTestimonialsData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [testimonialsData, setTestimonialsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchTestimonialListData = async () => {
-  //     try {
-  //       setIsLoading(true); // Show the loader
-  //       const { data } = await fetchTestimonialData();
-  //       setTestimonialsData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching Data:", error);
-  //     } finally {
-  //       setIsLoading(false); // Hide the loader
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchTestimonialListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fetchTestimonialData();
 
-  //   fetchTestimonialListData();
-  // }, []);
+        let updatedData = [...data]?.filter((item) => item?.type == "video");
+        console.log(
+          "🚀 ~ fetchTestimonialListData ~ updatedData:",
+          updatedData
+        );
+        setTestimonialsData(updatedData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+
+    fetchTestimonialListData();
+  }, []);
 
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -104,6 +111,7 @@ const TestimonialsSection = ({ testimonialsData }) => {
       <FaAngleRight fontSize={"24px"} />
     </button>
   );
+
   return (
     <div className="video-testimonials-sec mt-60">
       <Container>
@@ -119,45 +127,54 @@ const TestimonialsSection = ({ testimonialsData }) => {
             </div>
           )}
         </div>
-        {/* {isLoading ? (
+        {isLoading ? (
           <p className="para_comm text-center">loading...</p>
-        ) : ( */}
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {testimonialsData?.map((item) => (
-            <div className="video_testimonial_wrap" key={item?.id}>
-              <div className="video_testimonial_item">
-                <div className="gap-3 mt-4">
-                  <figure>
-                    <Image
-                      src={item?.user_img ? item?.user_img : userImg}
-                      alt={item?.name}
-                    />
-                  </figure>
-                  <div className="content_sec">
-                    <div>
-                      <h3 className="sub_heading">{item?.name}</h3>
-                      <p className="para_comm">{item?.designation}</p>
-                    </div>
-                    <div
-                      className="icon_wrape"
-                      onClick={() => {
-                        setOpen(true);
-                        setVideoLink(item?.url);
-                      }}
-                    >
-                      <FaCirclePlay fontSize={"30px"} className="icon_style" />
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {testimonialsData?.map((item) => (
+              <div className="video_testimonial_wrap" key={item?.id}>
+                <div className="video_testimonial_item">
+                  <div className="gap-3 mt-4">
+                    <figure>
+                      <Image
+                        src={
+                          item?.user_img
+                            ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.user_img}`
+                            : userImg
+                        }
+                        alt={"avatar"}
+                        width="100"
+                        height={"100"}
+                      />
+                    </figure>
+                    <div className="content_sec">
+                      <div>
+                        <h3 className="sub_heading">{item?.name}</h3>
+                        <p className="para_comm">{item?.designation}</p>
+                      </div>
+                      <div
+                        className="icon_wrape"
+                        onClick={() => {
+                          setOpen(true);
+                          setVideoLink(item?.url);
+                        }}
+                      >
+                        <FaCirclePlay
+                          fontSize={"30px"}
+                          className="icon_style"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-        {/* )} */}
+            ))}
+          </Slider>
+        )}
         <ModalVideo
           channel={"vimeo"}
           isOpen={isOpen}

@@ -53,7 +53,9 @@ const TestimonialsSection = () => {
       try {
         setIsLoading(true); // Show the loader
         const { data } = await fetchTestimonialData();
-        setTestimonialsData(data);
+
+        let updatedData = [...data]?.filter((item) => item?.type == "text");
+        setTestimonialsData(updatedData);
       } catch (error) {
         console.error("Error fetching Data:", error);
       } finally {
@@ -134,8 +136,14 @@ const TestimonialsSection = () => {
                   <hr />
                   <div className="d-flex align-items-center gap-3 mt-4">
                     <Image
-                      src={item?.user_img ? item?.user_img : userImg}
+                      src={
+                        item?.user_img
+                          ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.user_img}`
+                          : userImg
+                      }
                       alt="avatar"
+                      width="100"
+                      height={"100"}
                     />
                     <div className="content_sec">
                       <h3 className="sub_heading">{item?.name}</h3>

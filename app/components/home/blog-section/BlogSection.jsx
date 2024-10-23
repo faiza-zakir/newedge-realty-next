@@ -135,7 +135,6 @@ const BlogSection = () => {
           >
             {blogData?.map((item, i) => (
               <div className="blog_item" key={item?.id}>
-                {console.log("IMge Test: ", imgeGenerate(item))}
                 <figure>
                   <Image
                     src={imgeGenerate(item)}
