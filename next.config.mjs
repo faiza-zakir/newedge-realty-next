@@ -2,15 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    // domains: ["prismcloudhosting.com"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "prismcloudhosting.com",
-        port: "",
-        pathname: "**",
-      },
-    ],
+    domains: ["prismcloudhosting.com"],
   },
 };
 

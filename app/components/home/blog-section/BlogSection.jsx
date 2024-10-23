@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -79,6 +80,7 @@ const BlogSection = () => {
     }
   };
   const showArrows = blogData?.length > settings.slidesToShow;
+
   const PrevArrow = () => (
     <button
       className="slider_custom2_arrows"
@@ -99,6 +101,13 @@ const BlogSection = () => {
     </button>
   );
 
+  const imgeGenerate = (item) => {
+    if (item?.feature_image) {
+      return `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.feature_image}`;
+    } else {
+      return blogImg;
+    }
+  };
   return (
     <div className="mt-60 blog-sec-area">
       <Container>
@@ -126,21 +135,20 @@ const BlogSection = () => {
           >
             {blogData?.map((item, i) => (
               <div className="blog_item" key={item?.id}>
+                {console.log("IMge Test: ", imgeGenerate(item))}
                 <figure>
-                  <img
-                    src={
-                      item?.feature_image
-                        ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.feature_image}`
-                        : blogImg
-                    }
+                  <Image
+                    src={imgeGenerate(item)}
                     // layout="fill"
                     // objectFit="cover"
+                    height={"100"}
+                    width={"100"}
                     alt="blog"
                   />
-                  <span className="date">
-                    {moment(item?.date)?.format("MMMM D")}
-                  </span>
                 </figure>
+                <span className="date">
+                  {moment(item?.date)?.format("MMMM D")}
+                </span>
                 <div>
                   {/* <p className="para_comm">{item?.category}</p> */}
                   <h3
