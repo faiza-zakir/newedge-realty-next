@@ -12,11 +12,30 @@ const Overview = ({ singleProject }) => {
         <div className="overview_wrap">
           <div>
             <h2 className="main_sec_heading">{singleProject?.title}</h2>
-            <p className="para_comm mb-3">
-              {singleProject?.location?.title},{" "}
-              {singleProject?.location?.zone?.title}
-            </p>
-            <p className="para_comm">Apartment, Retail</p>
+            {!singleProject?.property_location && (
+              <p className="para_comm mb-3">
+                <strong>Location:</strong> {singleProject?.location?.title},{" "}
+                {singleProject?.location?.zone?.title}
+              </p>
+            )}
+            {singleProject?.property_sub_type && (
+              <p className="para_comm">{singleProject?.property_sub_type}</p>
+            )}
+            {singleProject?.company_type && (
+              <p className="para_comm">
+                <strong>Company Type:</strong> {singleProject?.company_type}
+              </p>
+            )}
+            {singleProject?.property_location && (
+              <p className="para_comm mb-3">
+                <strong>Location:</strong> {singleProject?.property_location}
+              </p>
+            )}
+            {singleProject?.area && (
+              <p className="para_comm mb-3">
+                <strong>Area Size:</strong> {singleProject?.area}
+              </p>
+            )}
             {/* <ul>
               <li>
                 {singleProject?.location?.title},{" "}
@@ -44,11 +63,39 @@ const Overview = ({ singleProject }) => {
             </ul> */}
           </div>
           <div className="price_wrap">
-            <h4>
-              <span>Starting from</span> ₹{singleProject?.price}
-            </h4>
-            <p className="para_comm mb-3">Under construction</p>
-            <p className="para_comm">RERA No. PBRERA-ASR03-PR0498</p>
+            {singleProject?.price && (
+              <h4>
+                <span>Starting from</span> ₹{singleProject?.price}
+              </h4>
+            )}
+            {singleProject?.project_status && (
+              <p className="para_comm mb-3">
+                <strong>Project Status:</strong> {singleProject?.project_status}
+              </p>
+            )}
+            {singleProject?.rera && (
+              <p className="para_comm">
+                <strong>RERA No:</strong> {singleProject?.rera}
+              </p>
+            )}
+            {singleProject?.lease_duration && (
+              <p className="para_comm mb-3">
+                <strong>Lease Duration:</strong> {singleProject?.lease_duration}
+              </p>
+            )}
+            {singleProject?.monthly_rent && (
+              <p className="para_comm mb-3">
+                <strong>Monthly Rent:</strong> {singleProject?.monthly_rent}
+              </p>
+            )}
+            {singleProject?.roi && (
+              <p className="para_comm mb-3">
+                <strong>ROI%:</strong> {singleProject?.roi}
+              </p>
+            )}
+            {singleProject?.tagline && (
+              <p className="para_comm mb-3">{singleProject?.tagline}</p>
+            )}
           </div>
         </div>
       </Container>
