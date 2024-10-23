@@ -41,27 +41,28 @@ const settings = {
   ],
 };
 
-const TestimonialsSection = ({ testimonialsData }) => {
+// const TestimonialsSection = ({ testimonialsData }) => {
+const TestimonialsSection = () => {
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
-  // const [testimonialsData, setTestimonialsData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [testimonialsData, setTestimonialsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchTestimonialListData = async () => {
-  //     try {
-  //       setIsLoading(true); // Show the loader
-  //       const { data } = await fetchTestimonialData();
-  //       setTestimonialsData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching Data:", error);
-  //     } finally {
-  //       setIsLoading(false); // Hide the loader
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchTestimonialListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fetchTestimonialData();
+        setTestimonialsData(data);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
 
-  //   fetchTestimonialListData();
-  // }, []);
+    fetchTestimonialListData();
+  }, []);
 
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -115,37 +116,37 @@ const TestimonialsSection = ({ testimonialsData }) => {
             </div>
           )}
         </div>
-        {/* {isLoading ? (
+        {isLoading ? (
           <p className="para_comm text-center">loading...</p>
-        ) : ( */}
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {testimonialsData?.map((item) => (
-            <div className="testimonial_wrap" key={item?.id}>
-              <div className="testimonial_item">
-                <div
-                  className="general-details"
-                  dangerouslySetInnerHTML={{ __html: item?.review }}
-                />
-                <hr />
-                <div className="d-flex align-items-center gap-3 mt-4">
-                  <Image
-                    src={item?.user_img ? item?.user_img : userImg}
-                    alt="avatar"
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {testimonialsData?.map((item) => (
+              <div className="testimonial_wrap" key={item?.id}>
+                <div className="testimonial_item">
+                  <div
+                    className="general-details"
+                    dangerouslySetInnerHTML={{ __html: item?.review }}
                   />
-                  <div className="content_sec">
-                    <h3 className="sub_heading">{item?.name}</h3>
-                    <p className="para_comm">{item?.designation}</p>
+                  <hr />
+                  <div className="d-flex align-items-center gap-3 mt-4">
+                    <Image
+                      src={item?.user_img ? item?.user_img : userImg}
+                      alt="avatar"
+                    />
+                    <div className="content_sec">
+                      <h3 className="sub_heading">{item?.name}</h3>
+                      <p className="para_comm">{item?.designation}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-        {/* )} */}
+            ))}
+          </Slider>
+        )}
         {showArrows && (
           <div className="mobile_view">
             <PrevArrow />
