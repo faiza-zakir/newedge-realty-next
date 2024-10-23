@@ -12,7 +12,12 @@ const Overview = ({ singleProject }) => {
         <div className="overview_wrap">
           <div>
             <h2 className="main_sec_heading">{singleProject?.title}</h2>
-            <ul>
+            <p className="para_comm mb-3">
+              {singleProject?.location?.title},{" "}
+              {singleProject?.location?.zone?.title}
+            </p>
+            <p className="para_comm">Apartment, Retail</p>
+            {/* <ul>
               <li>
                 {singleProject?.location?.title},{" "}
                 {singleProject?.location?.zone?.title}
@@ -36,13 +41,13 @@ const Overview = ({ singleProject }) => {
               <li>
                 <FaChartArea /> 1200sqft
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="price_wrap">
             <h4>
               <span>Starting from</span> ₹{singleProject?.price}
             </h4>
-            <p className="para_comm mb-3">₹ 4,200/Sq-ft</p>
+            <p className="para_comm mb-3">Under construction</p>
             <p className="para_comm">RERA No. PBRERA-ASR03-PR0498</p>
           </div>
         </div>
