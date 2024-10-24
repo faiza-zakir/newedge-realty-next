@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectForm from "../project-form/ProjectForm";
+// img
+import projectImg from "../../../assets/home/commercial1.jpg";
 // css
 import "./styles.scss";
 
@@ -17,7 +19,18 @@ const Details = ({ singleProject }) => {
         <Row className="gy-5 gx-lg-5">
           <Col lg={6} className="order-last order-lg-first">
             <figure>
-              <Image src={singleProject?.featured_img} alt="project" />
+              <Image
+                src={
+                  singleProject?.featured_img
+                    ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${singleProject?.featured_img}`
+                    : projectImg
+                }
+                layout="fill"
+                objectFit="cover"
+                // width="300"
+                // height={"400"}
+                alt={singleProject?.title}
+              />
             </figure>
           </Col>
           <Col lg={6}>
@@ -25,7 +38,7 @@ const Details = ({ singleProject }) => {
             <div
               className="general-details"
               dangerouslySetInnerHTML={{
-                __html: singleProject?.long_description,
+                __html: singleProject?.description,
               }}
             />
             <button className="theme_btn2" onClick={handleShow}>

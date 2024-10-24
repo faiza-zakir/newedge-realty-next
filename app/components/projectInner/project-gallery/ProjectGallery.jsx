@@ -27,7 +27,14 @@ function ProjectGallery({ galleryData }) {
         {galleryData?.map((item, i) => (
           <div key={i}>
             <figure>
-              <Image src={item} alt="project gallery" />
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item}`}
+                alt="project gallery"
+                layout="fill"
+                objectFit="cover"
+                // width="300"
+                // height={"400"}
+              />
             </figure>
           </div>
         ))}

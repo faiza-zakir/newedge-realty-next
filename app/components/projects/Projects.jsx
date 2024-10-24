@@ -10,7 +10,7 @@ import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fatchProjectList } from "../../apis/commonApi";
 // data
-import projectsData from "../../db/projectsData";
+// import projectsData from "../../db/projectsData";
 // img
 import bannerImg from "../../assets/banner/contactbanner.webp";
 

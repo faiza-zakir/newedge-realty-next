@@ -39,7 +39,14 @@ const AboutDeveloper = ({ developerData }) => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={developerData?.inner_page_image} alt="developer" />
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${developerData?.inner_page_image}`}
+                alt="developer"
+                layout="fill"
+                objectFit="cover"
+                // width="300"
+                // height={"400"}
+              />
             </figure>
           </Col>
         </Row>

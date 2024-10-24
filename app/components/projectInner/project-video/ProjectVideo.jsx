@@ -10,7 +10,7 @@ import posterImg from "../../../assets/home/comslider1.jpg";
 // css
 import "./styles.scss";
 
-const ProjectVideo = () => {
+const ProjectVideo = ({ projectVideo }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (

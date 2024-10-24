@@ -12,20 +12,31 @@ import MoreDetails from "../../components/projectInner/more-details/MoreDetails"
 import ProjectGallery from "../../components/projectInner/project-gallery/ProjectGallery";
 import ContactSection from "../../components/home/contact-section/ContactSection";
 import FAQSection from "../../components/home/faq-section/FAQSection";
+// api
+import { fatchProjectSingle } from "../../apis/commonApi";
 // data
-import projectsData from "../../db/projectsData";
+// import projectsData from "../../db/projectsData";
 // img
 import bannerImg from "../../assets/banner/contactbanner.webp";
 
 const ProjectsInner = () => {
   const { id } = useParams();
   const [singleProject, setSingleProject] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const projectDetails = projectsData?.find(
-      (project) => project?.route === id
-    );
-    setSingleProject(projectDetails);
+    const fetchSingleProjectData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectSingle(id);
+        setSingleProject(data);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    fetchSingleProjectData();
   }, [id]);
 
   return (
@@ -52,7 +63,7 @@ const ProjectsInner = () => {
         }
       />
       <Overview singleProject={singleProject} />
-      <ProjectVideo />
+      <ProjectVideo projectVideo={singleProject?.video_url} />
       {/* <ProjectSlider sliderData={singleProject?.slider_image} /> */}
       <Details singleProject={singleProject} />
       <MoreDetails
