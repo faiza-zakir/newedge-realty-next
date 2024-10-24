@@ -11,17 +11,38 @@ import FAQSection from "../../components/home/faq-section/FAQSection";
 import developersData from "../../db/developersData";
 // img
 import bannerImg from "../../assets/banner/developerinnerbanner.webp";
+import { fatchDeveloperSingle } from "@/app/apis/commonApi";
 
 const DevelopersInner = () => {
   const { id } = useParams();
-  const [singleDeveloper, setSingleDeveloper] = useState({});
+  // const [singleDeveloper, setSingleDeveloper] = useState({});
+
+  // useEffect(() => {
+  //   const developerDetails = developersData?.find(
+  //     (developer) => developer?.route === id
+  //   );
+  //   setSingleDeveloper(developerDetails);
+  // }, [id]);
+
+  const [singleDeveloper, setsingleDeveloper] = useState([]);
+  console.log("🚀 ~ DevelopersInner ~ singleDeveloper:", singleDeveloper);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const developerDetails = developersData?.find(
-      (developer) => developer?.route === id
-    );
-    setSingleDeveloper(developerDetails);
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchDeveloperSingle(id);
+        setsingleDeveloper(data);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -43,7 +64,9 @@ const DevelopersInner = () => {
         bgImg={bannerImg}
       />
       <Overview singleDeveloper={singleDeveloper} />
-      <PortfolioSlider sliderData={singleDeveloper?.related_projects} />
+      {singleDeveloper?.related_projects && (
+        <PortfolioSlider sliderData={singleDeveloper?.related_projects} />
+      )}
       <ContactSection />
       <FAQSection />
     </div>

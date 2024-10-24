@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { PiLineVertical } from "react-icons/pi";
 import BrochureForm from "../../common/brochure-form/BrochureForm";
@@ -18,13 +18,19 @@ const Overview = ({ singleDeveloper }) => {
         <Row className="gy-5 gx-lg-5">
           <Col lg={6}>
             <figure>
-              <Image src={singleDeveloper?.inner_page_image} alt="developer" />
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${singleDeveloper?.inner_page_image}`}
+                // src={singleDeveloper?.inner_page_image}
+                alt="developer"
+                height={"100"}
+                width={"100"}
+              />
             </figure>
           </Col>
           <Col lg={6}>
-            <h2 className="sub_heading">{singleDeveloper?.title}</h2>
+            <h2 className="sub_heading">{singleDeveloper?.name}</h2>
             <ul>
-              <li>{singleDeveloper?.location}</li>
+              {/* <li>{singleDeveloper?.location}</li> */}
               <li>
                 <PiLineVertical />
               </li>
@@ -37,7 +43,9 @@ const Overview = ({ singleDeveloper }) => {
               }}
             />
             <div className="btn_wrap">
-              <button className="theme_btn2">View Available Projects</button>
+              {singleDeveloper?.related_projects && (
+                <button className="theme_btn2">View Available Projects</button>
+              )}
               <button className="theme_btn3" onClick={handleModalShow}>
                 Download Brochure
               </button>
