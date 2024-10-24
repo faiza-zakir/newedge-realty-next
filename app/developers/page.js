@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Banner from "../components/common/common-banner/CommonBanner";
-import FilterSection from "../components/developers/filter-section/FilterSection";
+// import FilterSection from "../components/developers/filter-section/FilterSection";
 import DevelopersList from "../components/developers/developers-list/DevelopersList";
 import ContactSection from "../components/home/contact-section/ContactSection";
 import FAQSection from "../components/home/faq-section/FAQSection";
@@ -36,7 +36,7 @@ const Developers = () => {
         activepage="Developers"
         bgImg={bannerImg}
       />
-      <FilterSection />
+      {/* <FilterSection /> */}
       <DevelopersList developerList={developerData} />
       <ContactSection />
       <FAQSection />

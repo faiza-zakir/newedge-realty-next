@@ -73,9 +73,9 @@ const Overview = ({ singleProject }) => {
                 <strong>Project Status:</strong> {singleProject?.project_status}
               </p>
             )}
-            {singleProject?.rera && (
+            {singleProject?.rera_no && (
               <p className="para_comm">
-                <strong>RERA No:</strong> {singleProject?.rera}
+                <strong>RERA No:</strong> {singleProject?.rera_no}
               </p>
             )}
             {singleProject?.lease_duration && (

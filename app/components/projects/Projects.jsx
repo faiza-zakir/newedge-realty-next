@@ -7,8 +7,10 @@ import FilterSection from "../../components/projects/filter-section/FilterSectio
 import ProjectsList from "../../components/projects/projects-list/ProjectsList";
 import ContactSection from "../../components/home/contact-section/ContactSection";
 import FAQSection from "../../components/home/faq-section/FAQSection";
+// api
+import { fatchProjectList } from "../../apis/commonApi";
 // data
-import projectsData from "../../db/projectsData";
+// import projectsData from "../../db/projectsData";
 // img
 import bannerImg from "../../assets/banner/contactbanner.webp";
 
@@ -17,12 +19,24 @@ const Projects = () => {
   const route = pathname?.split("/")?.[1];
   const [projectData, setProjectData] = useState([]);
   const [filters, setFilters] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const projectsList = projectsData?.filter(
-      (project) => project?.property_type?.route === route
-    );
-    setProjectData(projectsList);
+    const fetchProjectListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectList();
+        const projectsList = data?.filter(
+          (project) => project?.property_type?.route === route
+        );
+        setProjectData(projectsList);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    fetchProjectListData();
   }, [pathname, route]);
 
   // Function to update filters based on user input
@@ -84,7 +98,11 @@ const Projects = () => {
         }
       />
       <FilterSection onFilterChange={handleFilterChange} />
-      <ProjectsList projectsData={filteredProjects} route={route} />
+      <ProjectsList
+        projectsData={filteredProjects}
+        route={route}
+        isLoading={isLoading}
+      />
       <ContactSection />
       <FAQSection />
     </>
