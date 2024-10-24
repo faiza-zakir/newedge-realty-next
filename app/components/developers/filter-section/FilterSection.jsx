@@ -36,9 +36,7 @@ function FilterSection() {
               <option value="residential">Residential</option>
               <option value="commercial">Commercial</option>
               <option value="pre-leased">Pre-Leased</option>
-              <option value="industrial">Industrial</option>
               <option value="farmhouse">Farmhouse</option>
-              <option value="land">Land</option>
             </Form.Select>
           </div>
           <button className="theme_btn2">
