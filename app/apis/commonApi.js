@@ -33,3 +33,10 @@ export const fetchBlogDeatilsData = (id) => {
 export const fetchTestimonialData = () => {
   return API.get("/testimonials");
 };
+
+export const fatchDeveloperList = () => {
+  return API.get("/developers");
+};
+export const fatchDeveloperSingle = (id) => {
+  return API.get(`/developers/${id}`);
+};
