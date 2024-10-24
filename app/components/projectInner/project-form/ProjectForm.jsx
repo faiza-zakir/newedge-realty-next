@@ -151,6 +151,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
         form.submit();
         setLoading(false);
         setFormValues({ ...initailObject });
+        setMobileValue("");
       }
     } catch (error) {
       console.error("Error posting Data:", error);

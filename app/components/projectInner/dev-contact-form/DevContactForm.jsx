@@ -52,6 +52,8 @@ const DevContactForm = ({ show, handleClose }) => {
       if (response?.status == 200 || response?.status == 201) {
         setLoading(false);
         setFormValues({ ...initailObject });
+        setMobileValue("");
+        handleClose();
         toast.success("Data Submitted Successfully!");
       }
     } catch (err) {
