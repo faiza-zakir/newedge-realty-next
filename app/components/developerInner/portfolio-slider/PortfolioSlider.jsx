@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // css
 import "./style.scss";
+import { fatchProjectsrList } from "@/app/apis/commonApi";
 
 const settings = {
   dots: false,
@@ -39,10 +40,34 @@ const settings = {
   ],
 };
 
-const PortfolioSlider = ({ sliderData }) => {
+const PortfolioSlider = ({ singleDeveloper }) => {
   const router = useRouter();
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const [sliderData, setSliderData] = useState([]);
+  console.log("🚀 ~ PortfolioSlider ~ sliderData:", sliderData);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectsrList();
+        let UpdatedData = data?.filter(
+          (item) => item?.developer_id == singleDeveloper?.id
+        );
+        setSliderData(UpdatedData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    if (singleDeveloper?.id) {
+      fetchData();
+    }
+  }, [singleDeveloper?.id]);
 
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -77,7 +102,12 @@ const PortfolioSlider = ({ sliderData }) => {
       <FaAngleRight fontSize={"24px"} />
     </button>
   );
-
+  if (isLoading) {
+    return <p className="para_comm text-center">loading...</p>;
+  }
+  if (!sliderData?.length) {
+    return null;
+  }
   return (
     <div className="portfolio_slider_sec mt-60">
       <Container>
@@ -103,7 +133,13 @@ const PortfolioSlider = ({ sliderData }) => {
                 onClick={() => router.push(`/commercial/${item?.route}`)}
               >
                 <figure>
-                  <Image src={item?.featured_img} alt="residential" />
+                  <Image
+                    //  src={item?.featured_img}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`}
+                    alt="residential"
+                    width={"100"}
+                    height={"100"}
+                  />
                 </figure>
                 <div className="content_sec">
                   <p className="location">

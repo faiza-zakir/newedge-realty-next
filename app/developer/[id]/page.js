@@ -25,7 +25,6 @@ const DevelopersInner = () => {
   // }, [id]);
 
   const [singleDeveloper, setsingleDeveloper] = useState([]);
-  console.log("🚀 ~ DevelopersInner ~ singleDeveloper:", singleDeveloper);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -64,9 +63,7 @@ const DevelopersInner = () => {
         bgImg={bannerImg}
       />
       <Overview singleDeveloper={singleDeveloper} />
-      {singleDeveloper?.related_projects && (
-        <PortfolioSlider sliderData={singleDeveloper?.related_projects} />
-      )}
+      <PortfolioSlider singleDeveloper={singleDeveloper} />
       <ContactSection />
       <FAQSection />
     </div>

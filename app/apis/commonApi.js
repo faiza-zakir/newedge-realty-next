@@ -37,6 +37,11 @@ export const fetchTestimonialData = () => {
 export const fatchDeveloperList = () => {
   return API.get("/developers");
 };
+
 export const fatchDeveloperSingle = (id) => {
   return API.get(`/developers/${id}`);
+};
+
+export const fatchProjectsrList = () => {
+  return API.get("/projects");
 };
