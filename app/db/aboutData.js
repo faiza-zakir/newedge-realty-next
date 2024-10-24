@@ -7,7 +7,7 @@ import missionImg from "../assets/about/missionImg.jpg";
 // vision
 import visionImg from "../assets/about/visionImg.jpg";
 // founder
-import founderImg from "../assets/about/founderImg.jpg";
+import founderImg from "../assets/about/founderImg.webp";
 // team
 import memberImg2 from "../assets/about/teamImg2.jpg";
 import memberImg3 from "../assets/about/teamImg3.jpg";

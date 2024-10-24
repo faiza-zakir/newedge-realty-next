@@ -12,6 +12,12 @@ export const postDeveloperContact = (formData) => {
   return API.post("/developer-contact-form", formData);
 };
 
+// brochure form
+
+export const postBrochureForm = (formData) => {
+  return API.post("/brochure-forms", formData);
+};
+
 // Faqs API
 
 export const fetchFaqData = () => {

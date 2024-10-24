@@ -2,8 +2,10 @@ import { useState, useRef } from "react";
 import { Button, Col, Modal, Form, Row } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
+// api
+import { postBrochureForm } from "../../../apis/commonApi";
 // css
 import "./styles.scss";
 
@@ -35,18 +37,34 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
     setErrors({ ...errors, captcha: "" }); // Clear CAPTCHA error on success
   };
 
-  const PostFormContactFormData = async (updatedData) => {
-    setTimeout(() => {
+  const PostBrochureData = async (updatedData) => {
+    const payload = {
+      first_name: updatedData?.first_name,
+      last_name: updatedData?.last_name,
+      phone: updatedData?.phone,
+      email: updatedData?.email,
+    };
+    try {
+      const response = await postBrochureForm(payload);
+      if (response?.status == 200 || response?.status == 201) {
+        setLoading(false);
+        setFormValues({ ...initailObject });
+        setMobileValue("");
+        setFormValues({ ...initailObject });
+        // toast.success("Data has been Submitted Successfully!");
+        pdfDownloadLink.current.click(); // Simulate click to download PDF
+        handleClose();
+      }
+    } catch (err) {
       setLoading(false);
-      setFormValues({ ...initailObject });
-      // toast.success("Data has been Submitted Successfully!");
-      pdfDownloadLink.current.click(); // Simulate click to download PDF
-    }, 1000);
+      console.error("Error contact form:", err);
+      toast.error("Something Went wrong!");
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { first_name, last_name, email, phone } = formValues;
+    const { first_name, last_name, email } = formValues;
     const errors = {};
     if (!first_name) {
       errors.first_name = "Please Enter First Name.";
@@ -68,10 +86,9 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
       return;
     }
 
-    let updatedData = { ...formValues };
+    let updatedData = { ...formValues, phone: mobileValue };
     setLoading(true);
-
-    PostFormContactFormData(updatedData);
+    PostBrochureData(updatedData);
   };
 
   return (
