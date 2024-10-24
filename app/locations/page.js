@@ -6,6 +6,8 @@ import FilterSection from "../components/locations/filter-section/FilterSection"
 import LocationsList from "../components/locations/locations-list/LocationsList";
 import ContactSection from "../components/home/contact-section/ContactSection";
 import FAQSection from "../components/home/faq-section/FAQSection";
+// api
+import { fatchProjectList } from "../apis/commonApi";
 // data
 import projectsData from "../db/projectsData";
 // img
@@ -14,6 +16,26 @@ import bannerImg from "../assets/banner/locationsbanner.webp";
 const Locations = () => {
   const [locationData, setLocationData] = useState([]);
   const [filters, setFilters] = useState({ zone: "zone-1" });
+  const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   const fetchProjectListData = async () => {
+  //     try {
+  //       setIsLoading(true); // Show the loader
+  //       const { data } = await fatchProjectList();
+  //       const locationsList = data?.filter((project) => {
+  //         // Apply the default zone filter or user-selected zone
+  //         return project?.location?.zone?.route === filters.zone;
+  //       });
+  //       setLocationData(locationsList);
+  //     } catch (error) {
+  //       console.error("Error fetching Data:", error);
+  //     } finally {
+  //       setIsLoading(false); // Hide the loader
+  //     }
+  //   };
+  //   fetchProjectListData();
+  // }, [filters.zone]);
 
   useEffect(() => {
     const locationsList = projectsData?.filter((project) => {
