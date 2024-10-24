@@ -18,32 +18,32 @@ const Locations = () => {
   const [filters, setFilters] = useState({ zone: "zone-1" });
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchProjectListData = async () => {
-  //     try {
-  //       setIsLoading(true); // Show the loader
-  //       const { data } = await fatchProjectList();
-  //       const locationsList = data?.filter((project) => {
-  //         // Apply the default zone filter or user-selected zone
-  //         return project?.location?.zone?.route === filters.zone;
-  //       });
-  //       setLocationData(locationsList);
-  //     } catch (error) {
-  //       console.error("Error fetching Data:", error);
-  //     } finally {
-  //       setIsLoading(false); // Hide the loader
-  //     }
-  //   };
-  //   fetchProjectListData();
-  // }, [filters.zone]);
-
   useEffect(() => {
-    const locationsList = projectsData?.filter((project) => {
-      // Apply the default zone filter or user-selected zone
-      return project?.location?.zone?.route === filters.zone;
-    });
-    setLocationData(locationsList);
+    const fetchProjectListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectList();
+        const locationsList = data?.filter((project) => {
+          // Apply the default zone filter or user-selected zone
+          return project?.location?.zone?.route === filters.zone;
+        });
+        setLocationData(locationsList);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    fetchProjectListData();
   }, [filters.zone]);
+
+  // useEffect(() => {
+  //   const locationsList = projectsData?.filter((project) => {
+  //     // Apply the default zone filter or user-selected zone
+  //     return project?.location?.zone?.route === filters.zone;
+  //   });
+  //   setLocationData(locationsList);
+  // }, [filters.zone]);
 
   // Function to update filters based on user input
   const handleFilterChange = (newFilters) => {
