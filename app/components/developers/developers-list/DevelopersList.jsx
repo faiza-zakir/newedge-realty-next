@@ -37,7 +37,7 @@ const DevelopersList = () => {
   };
 
   return (
-    <div className="developer_list_area mt-5">
+    <div className="developer_list_area mt-60">
       <Container>
         <Row className="gy-4 gx-lg-3">
           {isLoading ? (
