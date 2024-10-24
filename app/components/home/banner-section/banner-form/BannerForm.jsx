@@ -226,7 +226,7 @@ const BannerForm = () => {
       <input
         type="hidden"
         name="retURL"
-        value="https://newedge-realty.prismcloudhosting.com/thankyou.html"
+        value="https://newedge-realty-next.vercel.app/thankyou.html"
       />
       {/* <input type="hidden" name="debug" value="1" />
       <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
