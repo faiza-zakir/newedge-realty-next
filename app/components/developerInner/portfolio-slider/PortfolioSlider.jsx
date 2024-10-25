@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
+import placeholder from "@/app/assets/placeholder.webp";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // css
@@ -46,7 +47,6 @@ const PortfolioSlider = ({ singleDeveloper }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [sliderData, setSliderData] = useState([]);
-  console.log("🚀 ~ PortfolioSlider ~ sliderData:", sliderData);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const PortfolioSlider = ({ singleDeveloper }) => {
           afterChange={(index) => setCurrentSlide(index)}
         >
           {sliderData?.map((item, i) => (
-            <div key={item?.id}>
+            <div>
               <div
                 className="portfolio_item"
                 onClick={() => router.push(`/commercial/${item?.route}`)}
@@ -135,7 +135,11 @@ const PortfolioSlider = ({ singleDeveloper }) => {
                 <figure>
                   <Image
                     //  src={item?.featured_img}
-                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`}
+                    src={
+                      item?.featured_img
+                        ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`
+                        : placeholder
+                    }
                     alt="residential"
                     width={"100"}
                     height={"100"}
@@ -146,7 +150,7 @@ const PortfolioSlider = ({ singleDeveloper }) => {
                     <span>Starting from</span> ₹{item?.price}
                   </p>
                   <h3 className="sub_heading">{item?.title}</h3>
-                  <p className="para_comm">{item?.location}</p>
+                  <p className="para_comm">{item?.location?.title}</p>
                 </div>
               </div>
             </div>
