@@ -1,11 +1,11 @@
 import { Form } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 // data
-import zoneData from "../../../db/zoneData";
+// import zoneData from "../../../db/zoneData";
 // css
 import "./styles.scss";
 
-function FilterSection() {
+function FilterSection({ developerList }) {
   return (
     <div className="developer_filter_sec mt-60">
       <div className="container">
@@ -13,15 +13,15 @@ function FilterSection() {
           <div className="zone_wrap">
             <span className="main-label">Filter</span>
             <Form.Select aria-label="Location">
-              <option value="">Location</option>
-              {zoneData?.map((zone) => (
-                <option key={zone?.id} value={zone?.title}>
-                  {zone?.title}
+              <option value="">Developer</option>
+              {developerList?.map((dev) => (
+                <option key={dev?.route} value={dev?.name}>
+                  {dev?.name}
                 </option>
               ))}
             </Form.Select>
           </div>
-          <div className="d-flex align-items-center gap-3 w-100">
+          {/* <div className="d-flex align-items-center gap-3 w-100">
             <Form.Select aria-label="Location">
               <option>Developer</option>
               <option value="Developer 1">Developer 1</option>
@@ -38,7 +38,7 @@ function FilterSection() {
               <option value="pre-leased">Pre-Leased</option>
               <option value="farmhouse">Farmhouse</option>
             </Form.Select>
-          </div>
+          </div> */}
           <button className="theme_btn2">
             <FaSearch /> Search
           </button>
