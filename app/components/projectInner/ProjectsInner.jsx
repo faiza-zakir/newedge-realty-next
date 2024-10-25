@@ -71,7 +71,12 @@ const ProjectsInner = () => {
         featuresData={singleProject?.key_details}
       />
       <ProjectGallery galleryData={singleProject?.gallery_image} />
-      <MoreDetails title="Amenities" featuresData={singleProject?.amenities} />
+      {singleProject?.amenities?.length > 0 && (
+        <MoreDetails
+          title="Amenities"
+          featuresData={singleProject?.amenities}
+        />
+      )}
       <AboutDeveloper developerData={singleProject?.developer} />
       <ContactSection />
       <FAQSection />
