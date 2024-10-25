@@ -67,6 +67,12 @@ const Projects = () => {
     // Check for price filter
     if (filters?.price && project?.price !== formatPrice(filters?.price))
       return false;
+    // Check for Property location filter
+    if (
+      filters?.property_location &&
+      project?.property_location !== filters?.property_location
+    )
+      return false;
 
     return true;
   });
@@ -97,7 +103,10 @@ const Projects = () => {
             : bannerImg
         }
       />
-      <FilterSection onFilterChange={handleFilterChange} />
+      <FilterSection
+        onFilterChange={handleFilterChange}
+        projectsData={projectData}
+      />
       <ProjectsList
         projectsData={filteredProjects}
         route={route}
