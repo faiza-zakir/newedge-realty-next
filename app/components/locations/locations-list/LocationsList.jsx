@@ -52,8 +52,8 @@ const LocationsList = ({ locationList }) => {
                     </p>
                     <h3 className="sub_heading">{location?.title}</h3>
                     <p className="para_comm">
-                      {location?.location?.title},{" "}
-                      {location?.location?.zone?.title}
+                      {location?.location?.zone?.title},{" "}
+                      {location?.location?.title}
                     </p>
                   </div>
                 </div>

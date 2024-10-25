@@ -53,10 +53,16 @@ const ProjectsList = ({ projectsData, route, isLoading }) => {
                         <span>Starting from</span> ₹{project?.price}
                       </p>
                       <h3 className="sub_heading">{project?.title}</h3>
-                      <p className="para_comm">
-                        {project?.location?.title},{" "}
-                        {project?.location?.zone?.title}
-                      </p>
+                      {project?.property_location ? (
+                        <p className="para_comm">
+                          {project?.property_location}
+                        </p>
+                      ) : (
+                        <p className="para_comm">
+                          {project?.location?.zone?.title},{" "}
+                          {project?.location?.title}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </Col>

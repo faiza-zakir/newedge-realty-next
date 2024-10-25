@@ -114,7 +114,7 @@ const ProjectSlider = ({ tagLine, title, link, projectsData }) => {
                   </p>
                   <h3 className="sub_heading">{project?.title}</h3>
                   <p className="para_comm">
-                    {project?.location?.title}, {project?.location?.zone?.title}
+                    {project?.location?.zone?.title}, {project?.location?.title}
                   </p>
                 </div>
               </div>
