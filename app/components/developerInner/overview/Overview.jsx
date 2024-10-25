@@ -42,12 +42,12 @@ const Overview = ({ singleDeveloper }) => {
                 __html: singleDeveloper?.description,
               }}
             />
-            <div className="btn_wrap">
-              {/* <button className="theme_btn2">View Available Projects</button> */}
+            {/* <div className="btn_wrap">
+              <button className="theme_btn2">View Available Projects</button>
               <button className="theme_btn3" onClick={handleModalShow}>
                 Download Brochure
               </button>
-            </div>
+            </div> */}
           </Col>
         </Row>
         <BrochureForm show={showModal} handleClose={handleModalClose} />
