@@ -16,7 +16,7 @@ const initailObject = {
   email: "",
   message: "",
 };
-const DevContactForm = ({ show, handleClose }) => {
+const DevContactForm = ({ show, handleClose, propertyType }) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -37,7 +37,7 @@ const DevContactForm = ({ show, handleClose }) => {
     setErrors({ ...errors, captcha: "" }); // Clear CAPTCHA error on success
   };
 
-  const PostFormContactFormData = async (updatedData) => {
+  const PostFormContactFormData = async (updatedData, form) => {
     const payload = {
       first_name: updatedData?.first_name,
       last_name: updatedData?.last_name,
@@ -48,32 +48,19 @@ const DevContactForm = ({ show, handleClose }) => {
 
     try {
       const response = await postDeveloperContact(payload);
-      console.log("🚀 ~ PostFormContactFormData ~ response:", response);
       if (response?.status == 200 || response?.status == 201) {
+        // Submit to Salesforce Web-to-Lead form
+        form.submit();
         setLoading(false);
-        setFormValues({ ...initailObject });
         setMobileValue("");
+        setFormValues({ ...initailObject });
         handleClose();
-        toast.success("Data Submitted Successfully!");
       }
     } catch (err) {
       setLoading(false);
       console.error("Error contact form:", err);
       toast.error("Something Went wrong!");
     }
-
-    // if (response.status === 200 || response.status === 201) {
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   setFormValues({ ...initailObject });
-    //   toast.success("Data has been Submitted Successfully!");
-    // }, 1000);
-    //   }
-    // } catch (error) {
-    //   console.error("Error posting Data:", error);
-    //   setLoading(false);
-    //   toast.error("Something Went wrong!");
-    // }
   };
 
   const handleSubmit = async (e) => {
@@ -102,11 +89,13 @@ const DevContactForm = ({ show, handleClose }) => {
       return;
     }
 
-    let updatedData = { ...formValues };
-    updatedData.phone = mobileValue;
-    setLoading(true);
-
-    PostFormContactFormData(updatedData);
+    const form = e.target;
+    let updatedData = {
+      ...formValues,
+      phone: mobileValue,
+      recordType: propertyType,
+    };
+    PostFormContactFormData(updatedData, form);
   };
 
   return (
@@ -123,13 +112,42 @@ const DevContactForm = ({ show, handleClose }) => {
         <Modal.Title>Contact Us</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form className="dev_form_sec">
+        <Form
+          className="dev_form_sec"
+          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+          method="POST"
+          onSubmit={handleSubmit}
+        >
           <p className="para_comm">Fill the below form to contact us:</p>
+          {/* Hidden Salesforce fields */}
+          <input type="hidden" name="oid" value="00D9I0000016bIr" />
+          <input
+            type="hidden"
+            name="retURL"
+            value="https://newedge-realty-next.vercel.app/thankyou.html"
+          />
+          {/* <input type="hidden" name="debug" value="1" />
+      <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
+          <input
+            type="hidden"
+            id="lead_source"
+            name="lead_source"
+            value="Website"
+          />
+          {/* Hidden field to pass  values */}
+          <input type="hidden" id="phone" name="phone" value={mobileValue} />
+          <input
+            type="hidden"
+            id="00N9I000000vPGD"
+            name="00N9I000000vPGD"
+            value={formValues?.recordType}
+          />
           <Row className="g-0 gx-lg-2">
             <Col lg={6}>
               <Form.Group controlId="first_name" className="mb-3">
                 <Form.Control
                   type="text"
+                  id="first_name"
                   name="first_name"
                   value={formValues.first_name}
                   onChange={handleInputChange}
@@ -142,6 +160,7 @@ const DevContactForm = ({ show, handleClose }) => {
               <Form.Group controlId="last_name" className="mb-3">
                 <Form.Control
                   type="text"
+                  id="last_name"
                   name="last_name"
                   value={formValues.last_name}
                   onChange={handleInputChange}
@@ -166,6 +185,7 @@ const DevContactForm = ({ show, handleClose }) => {
               <Form.Group controlId="email" className="mb-3">
                 <Form.Control
                   type="email"
+                  id="email"
                   name="email"
                   value={formValues.email}
                   onChange={handleInputChange}
@@ -178,6 +198,7 @@ const DevContactForm = ({ show, handleClose }) => {
               <Form.Group controlId="message" className="mb-3">
                 <Form.Control
                   as="textarea"
+                  id="message"
                   name="message"
                   value={formValues.message}
                   onChange={handleInputChange}
@@ -188,26 +209,24 @@ const DevContactForm = ({ show, handleClose }) => {
                 <p className="mt-2 form_error_msg">{errors?.message}</p>
               </Form.Group>
             </Col>
+            <Col sm={12}>
+              {/* Google reCAPTCHA */}
+              <div className="mb-4">
+                <ReCAPTCHA
+                  sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
+                  onChange={onCaptchaChange}
+                />
+                <p className="mt-2 form_error_msg">{errors?.captcha}</p>
+              </div>
+            </Col>
+            <Col sm={12}>
+              <div className="text-center">
+                <Button className="theme_btn2" disabled={loading} type="submit">
+                  {loading ? "Sending..." : "Submit"}
+                </Button>
+              </div>
+            </Col>
           </Row>
-
-          {/* Google reCAPTCHA */}
-          <div className="mb-4">
-            <ReCAPTCHA
-              sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
-              onChange={onCaptchaChange}
-            />
-            <p className="mt-2 form_error_msg">{errors?.captcha}</p>
-          </div>
-
-          <div className="text-center">
-            <Button
-              className="theme_btn2"
-              disabled={loading}
-              onClick={handleSubmit}
-            >
-              {loading ? "Sending..." : "Submit"}
-            </Button>
-          </div>
         </Form>
       </Modal.Body>
     </Modal>

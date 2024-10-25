@@ -49,7 +49,7 @@ const Details = ({ singleProject }) => {
         <ProjectForm
           show={show}
           handleClose={handleClose}
-          propertyType={singleProject?.property_type?.route}
+          propertyType={singleProject?.property_type?.title}
         />
       </Container>
     </div>

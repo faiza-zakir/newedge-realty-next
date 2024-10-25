@@ -16,7 +16,7 @@ const initailObject = {
   email: "",
 };
 
-const BrochureForm = ({ show, handleClose, brochureLink }) => {
+const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -37,7 +37,7 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
     setErrors({ ...errors, captcha: "" }); // Clear CAPTCHA error on success
   };
 
-  const PostBrochureData = async (updatedData) => {
+  const PostBrochureData = async (updatedData, form) => {
     const payload = {
       first_name: updatedData?.first_name,
       last_name: updatedData?.last_name,
@@ -47,6 +47,8 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
     try {
       const response = await postBrochureForm(payload);
       if (response?.status == 200 || response?.status == 201) {
+        // Submit to Salesforce Web-to-Lead form
+        form.submit();
         setLoading(false);
         setFormValues({ ...initailObject });
         setMobileValue("");
@@ -86,9 +88,14 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
       return;
     }
 
-    let updatedData = { ...formValues, phone: mobileValue };
+    const form = e.target;
+    let updatedData = {
+      ...formValues,
+      phone: mobileValue,
+      recordType: propertyType,
+    };
     setLoading(true);
-    PostBrochureData(updatedData);
+    PostBrochureData(updatedData, form);
   };
 
   return (
@@ -105,13 +112,42 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
         <Modal.Title>Download Brochure</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form className="brochure_form_sec">
+        <Form
+          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+          method="POST"
+          className="brochure_form_sec"
+          onSubmit={handleSubmit}
+        >
           <p className="para_comm">Fill the below form to get your copy.</p>
+          {/* Hidden Salesforce fields */}
+          <input type="hidden" name="oid" value="00D9I0000016bIr" />
+          <input
+            type="hidden"
+            name="retURL"
+            value="https://newedge-realty-next.vercel.app/thankyou.html"
+          />
+          {/* <input type="hidden" name="debug" value="1" />
+      <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
+          <input
+            type="hidden"
+            id="lead_source"
+            name="lead_source"
+            value="Website"
+          />
+          {/* Hidden field to pass  values */}
+          <input type="hidden" id="phone" name="phone" value={mobileValue} />
+          <input
+            type="hidden"
+            id="00N9I000000vPGD"
+            name="00N9I000000vPGD"
+            value={formValues?.recordType}
+          />
           <Row className="g-0 gx-lg-2">
             <Col lg={6}>
               <Form.Group controlId="first_name" className="mb-3">
                 <Form.Control
                   type="text"
+                  id="first_name"
                   name="first_name"
                   value={formValues.first_name}
                   onChange={handleInputChange}
@@ -124,6 +160,7 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
               <Form.Group controlId="last_name" className="mb-3">
                 <Form.Control
                   type="text"
+                  id="last_name"
                   name="last_name"
                   value={formValues.last_name}
                   onChange={handleInputChange}
@@ -148,6 +185,7 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
               <Form.Group controlId="email" className="mb-3">
                 <Form.Control
                   type="email"
+                  id="email"
                   name="email"
                   value={formValues.email}
                   onChange={handleInputChange}
@@ -156,26 +194,24 @@ const BrochureForm = ({ show, handleClose, brochureLink }) => {
                 <p className="mt-2 form_error_msg">{errors?.email}</p>
               </Form.Group>
             </Col>
+            <Col sm={12}>
+              {/* Google reCAPTCHA */}
+              <div className="mb-4">
+                <ReCAPTCHA
+                  sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
+                  onChange={onCaptchaChange}
+                />
+                <p className="mt-2 form_error_msg">{errors?.captcha}</p>
+              </div>
+            </Col>
+            <Col sm={12}>
+              <div className="text-center">
+                <Button className="theme_btn2" disabled={loading} type="submit">
+                  {loading ? "downloading..." : "Download"}
+                </Button>
+              </div>
+            </Col>
           </Row>
-
-          {/* Google reCAPTCHA */}
-          <div className="mb-4">
-            <ReCAPTCHA
-              sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
-              onChange={onCaptchaChange}
-            />
-            <p className="mt-2 form_error_msg">{errors?.captcha}</p>
-          </div>
-
-          <div className="text-center">
-            <Button
-              className="theme_btn2"
-              disabled={loading}
-              onClick={handleSubmit}
-            >
-              {loading ? "downloading..." : "Download"}
-            </Button>
-          </div>
 
           {/* Hidden link for PDF download */}
           <a

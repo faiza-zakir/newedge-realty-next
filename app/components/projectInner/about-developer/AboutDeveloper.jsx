@@ -7,7 +7,7 @@ import BrochureForm from "../../common/brochure-form/BrochureForm";
 // css
 import "./styles.scss";
 
-const AboutDeveloper = ({ developerData }) => {
+const AboutDeveloper = ({ developerData, propertyType }) => {
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -50,11 +50,16 @@ const AboutDeveloper = ({ developerData }) => {
             </figure>
           </Col>
         </Row>
-        <DevContactForm show={show} handleClose={handleClose} />
+        <DevContactForm
+          show={show}
+          handleClose={handleClose}
+          propertyType={propertyType}
+        />
         <BrochureForm
           show={showModal}
           handleClose={handleModalClose}
           brochureLink={developerData?.brochure}
+          propertyType={propertyType}
         />
       </Container>
     </div>

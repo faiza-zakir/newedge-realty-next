@@ -77,7 +77,10 @@ const ProjectsInner = () => {
           featuresData={singleProject?.amenities}
         />
       )}
-      <AboutDeveloper developerData={singleProject?.developer} />
+      <AboutDeveloper
+        developerData={singleProject?.developer}
+        propertyType={singleProject?.property_type?.title}
+      />
       <ContactSection />
       <FAQSection />
     </div>
