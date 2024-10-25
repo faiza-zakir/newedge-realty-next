@@ -42,6 +42,7 @@ const Developers = () => {
 
   // Apply filters to the developer list
   const filteredDevelopers = developerData?.filter((dev) => {
+    debugger;
     // Check for Developer filter
     if (filters?.developer && dev?.route !== filters?.developer) return false;
 

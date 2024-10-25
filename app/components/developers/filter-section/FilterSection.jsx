@@ -32,7 +32,7 @@ function FilterSection({ developerList, onFilterChange }) {
             >
               <option value="">Developer</option>
               {developerList?.map((dev) => (
-                <option key={dev?.route} value={dev?.name}>
+                <option key={dev?.route} value={dev?.route}>
                   {dev?.name}
                 </option>
               ))}
