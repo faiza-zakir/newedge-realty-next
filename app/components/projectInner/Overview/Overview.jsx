@@ -14,8 +14,9 @@ const Overview = ({ singleProject }) => {
             <h2 className="main_sec_heading">{singleProject?.title}</h2>
             {!singleProject?.property_location && (
               <p className="para_comm mb-3">
-                <strong>Location:</strong> {singleProject?.location?.title},{" "}
-                {singleProject?.location?.zone?.title}
+                <strong>Location:</strong>{" "}
+                {singleProject?.location?.zone?.title},{" "}
+                {singleProject?.location?.title}
               </p>
             )}
             {singleProject?.property_sub_type && (
