@@ -15,7 +15,7 @@ const Overview = ({ singleDeveloper }) => {
   return (
     <div className="developer_detail_sec mt-60">
       <Container>
-        <Row className="gy-5 gx-lg-5">
+        <Row className="gy-5 gx-lg-5 align-items-center">
           <Col lg={6}>
             <figure>
               <Image
