@@ -34,10 +34,11 @@ const DevelopersList = ({ developerList, isLoading }) => {
                     <figure>
                       <Image
                         src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${developer?.featured_img}`}
-                        // src={developer?.featured_img }
                         alt="developer"
-                        height={"100"}
-                        width={"100"}
+                        layout="fill"
+                        objectFit="cover"
+                        // height={"100"}
+                        // width={"100"}
                       />
                     </figure>
                     <div className="content_sec">

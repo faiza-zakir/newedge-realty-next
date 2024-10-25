@@ -21,9 +21,11 @@ const Overview = ({ singleDeveloper }) => {
               <Image
                 src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${singleDeveloper?.inner_page_image}`}
                 // src={singleDeveloper?.inner_page_image}
-                alt="developer"
-                height={"100"}
-                width={"100"}
+                alt={singleDeveloper?.name}
+                layout="fill"
+                objectFit="cover"
+                // height={"100"}
+                // width={"100"}
               />
             </figure>
           </Col>

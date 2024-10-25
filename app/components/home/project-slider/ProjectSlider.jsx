@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // css
 import "./style.scss";

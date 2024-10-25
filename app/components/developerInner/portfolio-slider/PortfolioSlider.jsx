@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import placeholder from "@/app/assets/placeholder.webp";
-
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // css
 import "./style.scss";
@@ -45,7 +44,6 @@ const PortfolioSlider = ({ singleDeveloper }) => {
   const router = useRouter();
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const [sliderData, setSliderData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -83,6 +81,8 @@ const PortfolioSlider = ({ singleDeveloper }) => {
     }
   };
 
+  const showArrows = sliderData?.length > settings.slidesToShow;
+
   const PrevArrow = () => (
     <button
       className="slider_custom_arrows"
@@ -116,10 +116,12 @@ const PortfolioSlider = ({ singleDeveloper }) => {
             <span className="tag_line">Discover</span>
             <h3 className="main_sec_heading">Portfolio Highlights</h3>
           </div>
-          <div className="desktop_view">
-            <PrevArrow />
-            <NextArrow />
-          </div>
+          {showArrows && (
+            <div className="desktop_view">
+              <PrevArrow />
+              <NextArrow />
+            </div>
+          )}
         </div>
         <Slider
           {...settings}
@@ -134,32 +136,36 @@ const PortfolioSlider = ({ singleDeveloper }) => {
               >
                 <figure>
                   <Image
-                    //  src={item?.featured_img}
                     src={
                       item?.featured_img
                         ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`
                         : placeholder
                     }
                     alt="residential"
-                    width={"100"}
-                    height={"100"}
+                    layout="fill"
+                    objectFit="cover"
                   />
+                  <span className="category">{item?.property_type?.title}</span>
                 </figure>
                 <div className="content_sec">
                   <p className="location">
                     <span>Starting from</span> ₹{item?.price}
                   </p>
                   <h3 className="sub_heading">{item?.title}</h3>
-                  <p className="para_comm">{item?.location?.title}</p>
+                  <p className="para_comm">
+                    {item?.location?.zone?.title}, {item?.location?.title}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </Slider>
-        <div className="mobile_view">
-          <PrevArrow />
-          <NextArrow />
-        </div>
+        {showArrows && (
+          <div className="mobile_view">
+            <PrevArrow />
+            <NextArrow />
+          </div>
+        )}
       </Container>
     </div>
   );
