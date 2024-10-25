@@ -193,7 +193,7 @@ const DevContactForm = ({ show, handleClose }) => {
           {/* Google reCAPTCHA */}
           <div className="mb-4">
             <ReCAPTCHA
-              sitekey="6LetJTcqAAAAANWLtBjs1VFwsWNuZwGlnXC0Cice" // Add your site key here
+              sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
               onChange={onCaptchaChange}
             />
             <p className="mt-2 form_error_msg">{errors?.captcha}</p>

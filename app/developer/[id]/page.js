@@ -59,7 +59,7 @@ const DevelopersInner = () => {
         name=""
         indexpage="Home"
         indexvisit="/"
-        activepage={singleDeveloper?.title}
+        activepage={singleDeveloper?.name}
         bgImg={bannerImg}
       />
       <Overview singleDeveloper={singleDeveloper} />

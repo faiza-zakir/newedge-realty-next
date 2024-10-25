@@ -1,35 +1,14 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
 // css
 import "./styles.scss";
-import { fatchDeveloperList } from "@/app/apis/commonApi";
 
-// const DevelopersList = ({ developerList }) => {
-const DevelopersList = () => {
+const DevelopersList = ({ developerList, isLoading }) => {
   const router = useRouter();
   const [visibleList, setVisibleList] = useState(12);
-  const [developerList, setdeveloperList] = useState([]);
-  console.log("🚀 ~ DevelopersList ~ developerList:", developerList);
-  const [isLoading, setIsLoading] = useState(false);
   const totalList = developerList?.length;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true); // Show the loader
-        const { data } = await fatchDeveloperList();
-        setdeveloperList(data);
-      } catch (error) {
-        console.error("Error fetching Data:", error);
-      } finally {
-        setIsLoading(false); // Hide the loader
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleLoadMore = () => {
     // Increase the number of visible item

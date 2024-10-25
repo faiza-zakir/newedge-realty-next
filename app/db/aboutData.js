@@ -7,9 +7,9 @@ import missionImg from "../assets/about/missionImg.jpg";
 // vision
 import visionImg from "../assets/about/visionImg.jpg";
 // founder
-import founderImg from "../assets/about/founderImg.jpg";
+import founderImg from "../assets/about/founderImg.webp";
 // team
-import memberImg2 from "../assets/about/teamImg2.jpg";
+import memberImg1 from "../assets/about/teamImg1.webp";
 import memberImg3 from "../assets/about/teamImg3.jpg";
 import memberImg4 from "../assets/about/teamImg4.jpg";
 //process
@@ -173,7 +173,7 @@ export const aboutData = {
         id: 1,
         name: "Chetan Savaliya",
         designation: "Founder and Director",
-        featured_img: memberImg2,
+        featured_img: memberImg1,
       },
       {
         id: 2,

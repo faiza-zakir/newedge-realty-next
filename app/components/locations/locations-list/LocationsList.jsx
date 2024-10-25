@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
+// img
+import projectImg from "../../../assets/home/commercial1.jpg";
 // css
 import "./styles.scss";
 
@@ -31,7 +33,18 @@ const LocationsList = ({ locationList }) => {
                   }
                 >
                   <figure>
-                    <Image src={location?.featured_img} alt="location" />
+                    <Image
+                      src={
+                        location?.featured_img
+                          ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${location?.featured_img}`
+                          : projectImg
+                      }
+                      layout="fill"
+                      objectFit="cover"
+                      // width="300"
+                      // height={"400"}
+                      alt={location?.title}
+                    />
                   </figure>
                   <div className="content_sec">
                     <p className="location">

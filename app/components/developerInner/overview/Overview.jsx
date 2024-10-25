@@ -31,9 +31,9 @@ const Overview = ({ singleDeveloper }) => {
             <h2 className="sub_heading">{singleDeveloper?.name}</h2>
             <ul>
               {/* <li>{singleDeveloper?.location}</li> */}
-              <li>
+              {/* <li>
                 <PiLineVertical />
-              </li>
+              </li> */}
               <li>{singleDeveloper?.experience}</li>
             </ul>
             <div

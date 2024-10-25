@@ -224,7 +224,7 @@ const ContactFormSection = () => {
               <input
                 type="hidden"
                 name="retURL"
-                value="https://newedge-realty.prismcloudhosting.com/thankyou.html"
+                value="https://newedge-realty-next.vercel.app/thankyou.html"
               />
               {/* <input type="hidden" name="debug" value="1" />
       <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
@@ -420,7 +420,7 @@ const ContactFormSection = () => {
                 <Col sm={12}>
                   <div className="mb-4">
                     <ReCAPTCHA
-                      sitekey="6LetJTcqAAAAANWLtBjs1VFwsWNuZwGlnXC0Cice" // Add your site key here
+                      sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
                       onChange={onCaptchaChange}
                     />
                     <p className="mt-2 form_error_msg">{errors?.captcha}</p>
