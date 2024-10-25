@@ -6,8 +6,12 @@ import FloatingIcon from "./components/common/floating-icon/FloatingIcon";
 import Footer from "./components/layout/footer-section/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 export default function Template({ children }) {
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(true);
+
+  const handleModalClose = () => setShowModal(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,6 +39,7 @@ export default function Template({ children }) {
       ) : (
         <>
           <Navbar />
+          <TaglinePopup show={showModal} handleClose={handleModalClose} />
           <main>{children}</main>
           <FloatingIcon />
           <Footer />

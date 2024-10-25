@@ -1,0 +1,21 @@
+.tagline-modal {
+  .sub_heading {
+    margin: 0;
+    text-align: center;
+  }
+  .modal-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+    .modal-title {
+      font-size: 20px;
+      line-height: 140%;
+      font-weight: 600;
+      color: #000;
+    }
+    .btn-close {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
