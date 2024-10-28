@@ -13,12 +13,10 @@ const TaglinePopup = ({ show, handleClose }) => {
       centered
       className="tagline-modal"
     >
-      <Modal.Header closeButton>
-        {/* <Modal.Title>Main Line</Modal.Title> */}
-      </Modal.Header>
+      <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <Container>
-          <p className="sub_heading">
+          <p className="para_comm">
             We aim to achieve 2000 happy customers by 2030 because real estate
             investment is a critical life decision, and everyone deserves to
             secure their lifelong earnings in the right property.
