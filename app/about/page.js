@@ -3,7 +3,7 @@ import Head from "next/head";
 import Banner from "../components/common/common-banner/CommonBanner";
 import Intro from "../components/about/Intro/Intro";
 import ContactSection from "../components/home/contact-section/ContactSection";
-// import WhyChooseSection from "../components/home/why-choose-section/WhyChooseSection";
+import WhyChooseSection from "../components/home/why-choose-section/WhyChooseSection";
 import Mission from "../components/about/mission/Mission";
 import Vision from "../components/about/vision/Vision";
 import Founder from "../components/about/founder/Founder";
@@ -38,7 +38,7 @@ const About = () => {
       />
       <Intro introData={about} />
       <CountsSection countsData={topCounts} />
-      {/* <WhyChooseSection whyChooseData={whyChoose} /> */}
+      <WhyChooseSection whyChooseData={whyChoose} />
       <Mission missionData={mission} />
       <Vision visionData={vision} />
       <Founder founderData={founder} />
