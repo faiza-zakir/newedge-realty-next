@@ -1,8 +1,6 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
-import { motion, useAnimation } from "framer-motion";
 import ChooseusCard from "../../common/why-choose-us-slide-card/ChooseusCard";
 // css
 import "./styles.scss";

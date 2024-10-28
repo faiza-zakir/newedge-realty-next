@@ -17,9 +17,10 @@ const TaglinePopup = ({ show, handleClose }) => {
       <Modal.Body>
         <Container>
           <p className="para_comm">
-            We aim to achieve 2000 happy customers by 2030 because real estate
-            investment is a critical life decision, and everyone deserves to
-            secure their lifelong earnings in the right property.
+            We aim to achieve <b>2000 happy customers</b> by <b>2030</b> because
+            real estate <b>investment</b> is a critical life decision, and
+            everyone deserves to <b>secure</b> their lifelong earnings in the{" "}
+            <b>right property</b>.
           </p>
         </Container>
       </Modal.Body>

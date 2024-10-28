@@ -16,7 +16,6 @@ import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSect
 // data
 import { homeData } from "./db/homeData";
 import projectsData from "./db/projectsData";
-import blogsData from "./db/blogsData";
 
 const Home = () => {
   const {
