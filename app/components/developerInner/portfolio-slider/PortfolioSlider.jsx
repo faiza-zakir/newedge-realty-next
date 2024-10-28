@@ -128,34 +128,33 @@ const PortfolioSlider = ({ singleDeveloper }) => {
           ref={sliderRef}
           afterChange={(index) => setCurrentSlide(index)}
         >
-          {sliderData?.map((item, i) => (
-            <div>
-              <div
-                className="portfolio_item"
-                onClick={() => router.push(`/commercial/${item?.route}`)}
-              >
-                <figure>
-                  <Image
-                    src={
-                      item?.featured_img
-                        ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`
-                        : placeholder
-                    }
-                    alt="residential"
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <span className="category">{item?.property_type?.title}</span>
-                </figure>
-                <div className="content_sec">
-                  <p className="location">
-                    <span>Starting from</span> ₹{item?.price}
-                  </p>
-                  <h3 className="sub_heading">{item?.title}</h3>
-                  <p className="para_comm">
-                    {item?.location?.zone?.title}, {item?.location?.title}
-                  </p>
-                </div>
+          {sliderData?.map((item) => (
+            <div
+              key={item?.id}
+              className="portfolio_item"
+              onClick={() => router.push(`/commercial/${item?.route}`)}
+            >
+              <figure>
+                <Image
+                  src={
+                    item?.featured_img
+                      ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`
+                      : placeholder
+                  }
+                  alt="residential"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <span className="category">{item?.property_type?.title}</span>
+              </figure>
+              <div className="content_sec">
+                <p className="location">
+                  <span>Starting from</span> ₹{item?.price}
+                </p>
+                <h3 className="sub_heading">{item?.title}</h3>
+                <p className="para_comm">
+                  {item?.location?.zone?.title}, {item?.location?.title}
+                </p>
               </div>
             </div>
           ))}

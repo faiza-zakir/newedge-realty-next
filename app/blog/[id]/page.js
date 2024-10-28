@@ -48,7 +48,7 @@ const BlogInner = () => {
   useEffect(() => {
     fetchBlogListData();
     fetchSingleBlogData();
-  }, [id]);
+  }, [id, fetchBlogListData, fetchSingleBlogData]);
 
   return (
     <div>
