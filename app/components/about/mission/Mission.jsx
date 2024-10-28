@@ -11,10 +11,13 @@ const Mission = ({ missionData }) => {
           <Col lg={6}>
             <figure>
               <Image
-                src={missionData?.featured_img}
-                alt="mission"
+                src={
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  missionData?.featured_image
+                }
                 layout="fill"
                 objectFit="cover"
+                alt={missionData?.title}
               />
             </figure>
           </Col>
@@ -23,7 +26,7 @@ const Mission = ({ missionData }) => {
             <h2 className="main_sec_heading">{missionData?.title}</h2>
             <div
               className="general-details"
-              dangerouslySetInnerHTML={{ __html: missionData?.detail }}
+              dangerouslySetInnerHTML={{ __html: missionData?.description }}
             />
           </Col>
         </Row>

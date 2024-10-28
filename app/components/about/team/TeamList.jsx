@@ -36,7 +36,7 @@ const settings = {
   ],
 };
 
-const TeamList = ({ teamData }) => {
+const TeamList = ({ teamData, teamInfo }) => {
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -80,8 +80,8 @@ const TeamList = ({ teamData }) => {
       <Container>
         <div className="header_wrap">
           <div>
-            <span className="tag_line">{teamData?.tagLine}</span>
-            <h2 className="main_sec_heading">{teamData?.title}</h2>
+            <span className="tag_line">{teamInfo?.tagLine}</span>
+            <h2 className="main_sec_heading">{teamInfo?.title}</h2>
           </div>
           {showArrows && (
             <div className="desktop_view">
@@ -91,11 +91,19 @@ const TeamList = ({ teamData }) => {
           )}
         </div>
         <Slider ref={sliderRef} {...settings}>
-          {teamData?.team_list?.map((item) => (
-            <div key={item?.id}>
+          {teamData?.map((item, i) => (
+            <div key={i}>
               <div className="team_item">
                 <figure>
-                  <Image src={item?.featured_img} alt="team" />
+                  <Image
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                      item?.featured_image
+                    }
+                    layout="fill"
+                    objectFit="cover"
+                    alt={item?.name}
+                  />
                 </figure>
                 <div className="content_sec">
                   <p className="location">{item?.designation}</p>

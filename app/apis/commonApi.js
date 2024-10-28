@@ -62,3 +62,9 @@ export const fatchProjectList = () => {
 export const fatchProjectSingle = (id) => {
   return API.get(`/projects/${id}`);
 };
+
+// About API
+
+export const fatchAboutData = () => {
+  return API.get("/site-info/8");
+};

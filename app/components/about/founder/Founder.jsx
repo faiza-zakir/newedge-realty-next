@@ -11,17 +11,24 @@ const Founder = ({ founderData }) => {
           <Col lg={6}>
             <figure>
               <Image
-                src={founderData?.featured_img}
-                alt="founder"
+                src={
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  founderData?.featured_image
+                }
                 layout="fill"
                 objectFit="cover"
+                alt={founderData?.title}
               />
             </figure>
           </Col>
           <Col lg={6}>
             <span className="tag_line">{founderData?.tagLine}</span>
             <h2 className="main_sec_heading">{founderData?.title}</h2>
-            <p className="para_comm">{founderData?.detail}</p>
+            {/* <p className="para_comm">{founderData?.detail}</p> */}
+            <div
+              className="general-details"
+              dangerouslySetInnerHTML={{ __html: founderData?.description }}
+            />
           </Col>
         </Row>
       </Container>

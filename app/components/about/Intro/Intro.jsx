@@ -11,15 +11,22 @@ const Intro = ({ introData }) => {
           <Col lg={6}>
             <span className="tag_line">{introData?.tagLine}</span>
             <h2 className="main_sec_heading">{introData?.title}</h2>
-            <p className="para_comm">{introData?.detail}</p>
+            {/* <p className="para_comm">{introData?.description}</p> */}
+            <div
+              className="general-details"
+              dangerouslySetInnerHTML={{ __html: introData?.description }}
+            />
           </Col>
           <Col lg={6}>
             <figure>
               <Image
-                src={introData?.featured_img}
-                alt="about"
+                src={
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  introData?.featured_image
+                }
                 layout="fill"
                 objectFit="cover"
+                alt={introData?.tagLine}
               />
             </figure>
           </Col>

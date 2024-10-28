@@ -1,5 +1,6 @@
 "use client";
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import Banner from "../components/common/common-banner/CommonBanner";
 import Intro from "../components/about/Intro/Intro";
 import ContactSection from "../components/home/contact-section/ContactSection";
@@ -9,6 +10,8 @@ import Vision from "../components/about/vision/Vision";
 import Founder from "../components/about/founder/Founder";
 import TeamList from "../components/about/team/TeamList";
 import FAQSection from "../components/home/faq-section/FAQSection";
+// api
+import { fatchAboutData } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
@@ -18,6 +21,28 @@ import CountsSection from "../components/about/counts-section/CountsSection";
 const About = () => {
   const { about, topCounts, whyChoose, mission, vision, founder, team } =
     aboutData;
+  const [aboutUsData, setAboutUsData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchAboutPageData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchAboutData();
+        setAboutUsData(data);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+
+    fetchAboutPageData();
+  }, []);
+
+  {
+    console.log("teamData", aboutUsData?.team);
+  }
   return (
     <>
       <Head>
@@ -36,13 +61,13 @@ const About = () => {
         activepage="About Us"
         bgImg={bannerImg}
       />
-      <Intro introData={about} />
+      <Intro introData={aboutUsData?.about} />
       <CountsSection countsData={topCounts} />
       <WhyChooseSection whyChooseData={whyChoose} />
-      <Mission missionData={mission} />
-      <Vision visionData={vision} />
-      <Founder founderData={founder} />
-      <TeamList teamData={team} />
+      <Mission missionData={aboutUsData?.mission} />
+      <Vision visionData={aboutUsData?.vision} />
+      <Founder founderData={aboutUsData?.founder} />
+      <TeamList teamData={aboutUsData?.team} teamInfo={team} />
       <ContactSection />
       <FAQSection />
     </>

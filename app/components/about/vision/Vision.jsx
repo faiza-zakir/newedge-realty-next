@@ -11,11 +11,23 @@ const Vision = ({ visionData }) => {
           <Col lg={6} className="order-last order-lg-first">
             <span className="tag_line">{visionData?.tagLine}</span>
             <h2 className="main_sec_heading">{visionData?.title}</h2>
-            <p className="para_comm">{visionData?.detail}</p>
+            {/* <p className="para_comm">{visionData?.detail}</p> */}
+            <div
+              className="general-details"
+              dangerouslySetInnerHTML={{ __html: visionData?.description }}
+            />
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={visionData?.featured_img} alt="vision" />
+              <Image
+                src={
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  visionData?.featured_image
+                }
+                layout="fill"
+                objectFit="cover"
+                alt={visionData?.title}
+              />
             </figure>
           </Col>
         </Row>
