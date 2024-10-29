@@ -1,7 +1,6 @@
 "use client";
+import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaUnity } from "react-icons/fa";
-
 // css
 import "./styles.scss";
 
@@ -15,7 +14,12 @@ const MoreDetails = ({ title, featuresData }) => {
             <Col sm={6} lg={4} key={i}>
               <div className="more_item">
                 <div className="icon_wrap">
-                  <FaUnity />
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.icon}`}
+                    // layout="fill"
+                    // objectFit="cover"
+                    alt={item?.name}
+                  />
                 </div>
                 <div>
                   <h3>{item?.name}</h3>

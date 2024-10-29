@@ -63,14 +63,20 @@ const ProjectsInner = () => {
         }
       />
       <Overview singleProject={singleProject} />
-      <ProjectVideo projectVideo={singleProject?.video_url} />
+      {singleProject?.video_url && (
+        <ProjectVideo projectVideo={singleProject?.video_url} />
+      )}
       {/* <ProjectSlider sliderData={singleProject?.slider_image} /> */}
       <Details singleProject={singleProject} />
-      <MoreDetails
-        title="Key Details"
-        featuresData={singleProject?.key_details}
-      />
-      <ProjectGallery galleryData={singleProject?.gallery_image} />
+      {singleProject?.key_details?.length > 0 && (
+        <MoreDetails
+          title="Key Details"
+          featuresData={singleProject?.key_details}
+        />
+      )}
+      {singleProject?.gallery_image?.length > 0 && (
+        <ProjectGallery galleryData={singleProject?.gallery_image} />
+      )}
       {singleProject?.amenities?.length > 0 && (
         <MoreDetails
           title="Amenities"
