@@ -19,8 +19,7 @@ import { aboutData } from "../db/aboutData";
 import CountsSection from "../components/about/counts-section/CountsSection";
 
 const About = () => {
-  const { about, topCounts, whyChoose, mission, vision, founder, team } =
-    aboutData;
+  const { topCounts, whyChoose, team } = aboutData;
   const [aboutUsData, setAboutUsData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,7 +58,7 @@ const About = () => {
         bgImg={bannerImg}
       />
       <Intro introData={aboutUsData?.about} />
-      <CountsSection countsData={topCounts} />
+      <CountsSection countsData={aboutUsData?.counts} countsInfo={topCounts} />
       <WhyChooseSection whyChooseData={whyChoose} />
       <Mission missionData={aboutUsData?.mission} />
       <Vision visionData={aboutUsData?.vision} />

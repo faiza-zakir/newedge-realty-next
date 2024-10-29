@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 import AboutSection from "./components/home/about-section/AboutSection";
 import AppointmentSection from "./components/home/appointment-section/AppointmentSection";
 import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
@@ -26,6 +27,8 @@ const Home = () => {
     testimonials,
     testimonialsVideo,
   } = homeData;
+  const [showModal, setShowModal] = useState(true);
+  const handleModalClose = () => setShowModal(false);
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
 
@@ -51,6 +54,7 @@ const Home = () => {
           content="Prime commercial properties for sale, affordable housing options, and office spaces for rent with Newedge Realty! Get yours now!"
         />
       </Head>
+      <TaglinePopup show={showModal} handleClose={handleModalClose} />
       <BannerVideo />
       <section className="form_mobile_view mt-60">
         <Container>
