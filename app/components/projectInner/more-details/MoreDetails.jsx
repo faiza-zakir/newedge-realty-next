@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 // css
 import "./styles.scss";

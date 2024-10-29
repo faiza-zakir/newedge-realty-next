@@ -13,6 +13,10 @@ import "./styles.scss";
 const ProjectVideo = ({ projectVideo }) => {
   const [isOpen, setOpen] = useState(false);
 
+  {
+    console.log("projectVideo");
+  }
+
   return (
     <div className="project_video_area mtb-60">
       <Container>
@@ -25,9 +29,11 @@ const ProjectVideo = ({ projectVideo }) => {
           </div>
         </div>
         <ModalVideo
-          channel={"vimeo"}
+          // channel={"vimeo"}
+          channel="youtube"
+          youtube={{ mute: 0, autoplay: 0 }}
           isOpen={isOpen}
-          videoId={"11475259"}
+          videoId={projectVideo?.split("/")?.[3]}
           allowFullScreen={true}
           ratio="16:9"
           onClose={() => setOpen(false)}
