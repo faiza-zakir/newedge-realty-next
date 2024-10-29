@@ -40,9 +40,6 @@ const About = () => {
     fetchAboutPageData();
   }, []);
 
-  {
-    console.log("teamData", aboutUsData?.team);
-  }
   return (
     <>
       <Head>

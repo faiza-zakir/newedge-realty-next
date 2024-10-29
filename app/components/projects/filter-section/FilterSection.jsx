@@ -2,29 +2,39 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-// data
-import zoneData from "../../../db/zoneData";
+// api
+import { fatchZonesList } from "../../../apis/commonApi";
 // css
 import "./styles.scss";
 
 function FilterSection({ onFilterChange, projectsData }) {
+  const [allZones, setAllZones] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedZone, setSelectedZone] = useState("");
   const [price, setPrice] = useState(5000000);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [propertyLocation, setPropertyLocation] = useState("");
-  const [locations, setLocations] = useState(zoneData[0]?.locations || []);
+  const [locations, setLocations] = useState([]);
   const propertyLocations = projectsData
     .map((item) => item.property_location)
     .filter((location) => location !== null);
   const uniquePropertyLocations = [...new Set(propertyLocations)];
 
-  console.log("uniquePropertyLocations", uniquePropertyLocations);
-
   useEffect(() => {
-    // Set locations based on the default selected zone (first zone)
-    if (zoneData[0]) {
-      setLocations(zoneData[0].locations);
-    }
+    const fetchZonesData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchZonesList();
+        setAllZones(data);
+        setLocations(data?.[0]?.locations || []);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+
+    fetchZonesData();
   }, []);
 
   const handleZoneChange = (e) => {
@@ -32,15 +42,15 @@ function FilterSection({ onFilterChange, projectsData }) {
     setSelectedZone(zoneRoute);
 
     // Find the zone data based on the selected title
-    const zone = zoneData.find((zone) => zone.route === zoneRoute);
+    const zone = allZones?.find((zone) => zone?.route === zoneRoute);
 
     // Reset the selected location & type when the zone changes
     setSelectedLocation("");
     setPrice(5000000);
 
     // Set the locations state based on the selected zone
-    if (zone && zone.locations.length > 0) {
-      setLocations(zone.locations);
+    if (zone && zone?.locations.length > 0) {
+      setLocations(zone?.locations);
     } else {
       setLocations([]); // No locations available for this zone
     }
@@ -97,11 +107,19 @@ function FilterSection({ onFilterChange, projectsData }) {
                 <option value="" disabled>
                   Zone
                 </option>
-                {zoneData?.map((zone) => (
-                  <option key={zone?.id} value={zone?.route}>
-                    {zone?.title}
+                {isLoading ? (
+                  <option value="" disabled>
+                    loading...
                   </option>
-                ))}
+                ) : (
+                  <>
+                    {allZones?.map((zone) => (
+                      <option key={zone?.id} value={zone?.route}>
+                        {zone?.title}
+                      </option>
+                    ))}
+                  </>
+                )}
               </Form.Select>
             </div>
           )}

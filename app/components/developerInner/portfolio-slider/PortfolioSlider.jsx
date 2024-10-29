@@ -152,9 +152,13 @@ const PortfolioSlider = ({ singleDeveloper }) => {
                   <span>Starting from</span> ₹{item?.price}
                 </p>
                 <h3 className="sub_heading">{item?.title}</h3>
-                <p className="para_comm">
-                  {item?.location?.zone?.title}, {item?.location?.title}
-                </p>
+                {item?.property_location ? (
+                  <p className="para_comm">{item?.property_location}</p>
+                ) : (
+                  <p className="para_comm">
+                    {item?.location?.zone?.title}, {item?.location?.title}
+                  </p>
+                )}
               </div>
             </div>
           ))}

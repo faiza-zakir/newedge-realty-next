@@ -7,28 +7,18 @@ import Overview from "../../components/developerInner/overview/Overview";
 import PortfolioSlider from "../../components/developerInner/portfolio-slider/PortfolioSlider";
 import ContactSection from "../../components/home/contact-section/ContactSection";
 import FAQSection from "../../components/home/faq-section/FAQSection";
-// data
-import developersData from "../../db/developersData";
+// api
+import { fatchDeveloperSingle } from "@/app/apis/commonApi";
 // img
 import bannerImg from "../../assets/banner/developerinnerbanner.webp";
-import { fatchDeveloperSingle } from "@/app/apis/commonApi";
 
 const DevelopersInner = () => {
   const { id } = useParams();
-  // const [singleDeveloper, setSingleDeveloper] = useState({});
-
-  // useEffect(() => {
-  //   const developerDetails = developersData?.find(
-  //     (developer) => developer?.route === id
-  //   );
-  //   setSingleDeveloper(developerDetails);
-  // }, [id]);
-
   const [singleDeveloper, setsingleDeveloper] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchSingleDeveloperData = async () => {
       try {
         setIsLoading(true); // Show the loader
         const { data } = await fatchDeveloperSingle(id);
@@ -40,7 +30,7 @@ const DevelopersInner = () => {
       }
     };
 
-    fetchData();
+    fetchSingleDeveloperData();
   }, []);
 
   return (

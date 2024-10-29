@@ -57,12 +57,7 @@ const TestimonialsSection = () => {
       try {
         setIsLoading(true); // Show the loader
         const { data } = await fetchTestimonialData();
-
         let updatedData = [...data]?.filter((item) => item?.type == "video");
-        console.log(
-          "🚀 ~ fetchTestimonialListData ~ updatedData:",
-          updatedData
-        );
         setTestimonialsData(updatedData);
       } catch (error) {
         console.error("Error fetching Data:", error);

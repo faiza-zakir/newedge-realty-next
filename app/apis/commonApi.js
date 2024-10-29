@@ -68,3 +68,9 @@ export const fatchProjectSingle = (id) => {
 export const fatchAboutData = () => {
   return API.get("/site-info/8");
 };
+
+// Zone-Locations API
+
+export const fatchZonesList = () => {
+  return API.get("/zones-with-locations");
+};

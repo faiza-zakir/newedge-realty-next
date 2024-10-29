@@ -1,22 +1,35 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-// data
-import zoneData from "../../../db/zoneData";
+// api
+import { fatchZonesList } from "../../../apis/commonApi";
 // css
 import "./styles.scss";
 
 function FilterSection({ onFilterChange }) {
-  const [selectedZone, setSelectedZone] = useState(zoneData[0]?.route || "");
+  const [allZones, setAllZones] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedZone, setSelectedZone] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [type, setType] = useState("");
-  const [locations, setLocations] = useState(zoneData[0]?.locations || []);
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    // Set locations based on the default selected zone (first zone)
-    if (zoneData[0]) {
-      setLocations(zoneData[0].locations);
-    }
+    const fetchZonesData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchZonesList();
+        setAllZones(data);
+        setSelectedZone(data?.[0]?.route || "");
+        setLocations(data?.[0]?.locations || []);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+
+    fetchZonesData();
   }, []);
 
   const handleZoneChange = (e) => {
@@ -24,15 +37,15 @@ function FilterSection({ onFilterChange }) {
     setSelectedZone(zoneRoute);
 
     // Find the zone data based on the selected title
-    const zone = zoneData.find((zone) => zone.route === zoneRoute);
+    const zone = allZones?.find((zone) => zone?.route === zoneRoute);
 
     // Reset the selected location & type when the zone changes
     setSelectedLocation("");
     setType("");
 
     // Set the locations state based on the selected zone
-    if (zone && zone.locations.length > 0) {
-      setLocations(zone.locations);
+    if (zone && zone?.locations?.length > 0) {
+      setLocations(zone?.locations);
     } else {
       setLocations([]); // No locations available for this zone
     }
@@ -60,11 +73,19 @@ function FilterSection({ onFilterChange }) {
               <option value="" disabled>
                 Zone
               </option>
-              {zoneData?.map((zone) => (
-                <option key={zone?.id} value={zone?.route}>
-                  {zone?.title}
+              {isLoading ? (
+                <option value="" disabled>
+                  loading...
                 </option>
-              ))}
+              ) : (
+                <>
+                  {allZones?.map((zone) => (
+                    <option key={zone?.id} value={zone?.route}>
+                      {zone?.title}
+                    </option>
+                  ))}
+                </>
+              )}
             </Form.Select>
           </div>
           <div className="d-flex align-items-center gap-3 w-100">
