@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { PiLineVertical } from "react-icons/pi";
-import BrochureForm from "../../common/brochure-form/BrochureForm";
+// import { PiLineVertical } from "react-icons/pi";
+// import BrochureForm from "../../common/brochure-form/BrochureForm";
 // css
 import "./styles.scss";
 
@@ -52,7 +52,7 @@ const Overview = ({ singleDeveloper }) => {
             </div> */}
           </Col>
         </Row>
-        <BrochureForm show={showModal} handleClose={handleModalClose} />
+        {/* <BrochureForm show={showModal} handleClose={handleModalClose} /> */}
       </Container>
     </div>
   );

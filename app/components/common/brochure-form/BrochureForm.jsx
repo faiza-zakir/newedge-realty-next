@@ -216,12 +216,9 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
           {/* Hidden link for PDF download */}
           <a
             ref={pdfDownloadLink}
-            href={
-              brochureLink
-                ? brochureLink
-                : "https://newedge-realty.prismcloudhosting.com/Newedge_Profile_2023.pdf"
-            }
+            href={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${brochureLink}`}
             download="Brochure.pdf"
+            target="_blank"
             style={{ display: "none" }}
           >
             Download Brochure
