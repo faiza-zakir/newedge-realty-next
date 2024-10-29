@@ -13,10 +13,6 @@ import "./styles.scss";
 const ProjectVideo = ({ projectVideo }) => {
   const [isOpen, setOpen] = useState(false);
 
-  {
-    console.log("projectVideo");
-  }
-
   return (
     <div className="project_video_area mtb-60">
       <Container>

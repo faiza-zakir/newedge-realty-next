@@ -45,7 +45,6 @@ const CountsSection = ({ countsData, countsInfo }) => {
             <Row className="gy-4">
               {processedData?.map((item) => (
                 <Col xs={6} lg={4} key={item?.id}>
-                  {console.log("item", item)}
                   <div className="counts_wrap">
                     <h3 className="main_sec_heading">
                       <CountUp
