@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import { usePathname } from "next/navigation";
 import Banner from "../../components/common/common-banner/CommonBanner";
 import FilterSection from "../../components/projects/filter-section/FilterSection";
@@ -9,8 +8,6 @@ import ContactSection from "../../components/home/contact-section/ContactSection
 import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fatchProjectList } from "../../apis/commonApi";
-// data
-// import projectsData from "../../db/projectsData";
 // img
 import bannerImg from "../../assets/banner/contactbanner.webp";
 
@@ -79,19 +76,6 @@ const Projects = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          {projectData?.[0]?.property_type?.seo?.meta_title ??
-            "Projects | NewEdge Realty"}
-        </title>
-        <meta
-          name="description"
-          content={
-            projectData?.[0]?.property_type?.seo?.meta_description ??
-            "Description"
-          }
-        />
-      </Head>
       <Banner
         name={projectData?.[0]?.property_type?.title}
         indexpage="Home"

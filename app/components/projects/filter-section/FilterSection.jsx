@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";

@@ -1,129 +1,21 @@
-"use client";
-import Head from "next/head";
-import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
-import Banner from "../../components/common/common-banner/CommonBanner";
-import Overview from "../../components/developerInner/overview/Overview";
-import PortfolioSlider from "../../components/developerInner/portfolio-slider/PortfolioSlider";
-import ContactSection from "../../components/home/contact-section/ContactSection";
-import FAQSection from "../../components/home/faq-section/FAQSection";
-// api
-import { fatchDeveloperSingle } from "@/app/apis/commonApi";
-// img
-import bannerImg from "../../assets/banner/developerinnerbanner.webp";
+import PageContent from "./pageContent";
+import { fatchDeveloperSingle } from "../../apis/commonApi";
 
-const DevelopersInner = () => {
-  const { id } = useParams();
-  const [singleDeveloper, setsingleDeveloper] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+export async function generateMetadata({ params }) {
+  const { id } = params;
+  const { data: singleDeveloper } = await fatchDeveloperSingle(id);
+  return {
+    title:
+      singleDeveloper?.seo?.meta_title ||
+      "Newedge Property Management Services",
+    description:
+      singleDeveloper?.seo?.meta_description ||
+      "Newedge, is your trusted real estate agency specializing in property management. We maximize your property's value with tailored solutions and exceptional service.",
+  };
+}
 
-  useEffect(() => {
-    const fetchSingleDeveloperData = async () => {
-      try {
-        setIsLoading(true); // Show the loader
-        const { data } = await fatchDeveloperSingle(id);
-        setsingleDeveloper(data);
-      } catch (error) {
-        console.error("Error fetching Data:", error);
-      } finally {
-        setIsLoading(false); // Hide the loader
-      }
-    };
-
-    fetchSingleDeveloperData();
-  }, []);
-
-  return (
-    <div>
-      <Head>
-        <title>
-          {singleDeveloper?.seo?.meta_title ??
-            "Residential Inner | NewEdge Realty"}
-        </title>
-        <meta
-          name="description"
-          content={singleDeveloper?.seo?.meta_description ?? "Description"}
-        />
-      </Head>
-      <Banner
-        name=""
-        indexpage="Home"
-        indexvisit="/"
-        activepage={singleDeveloper?.name}
-        bgImg={bannerImg}
-      />
-      <Overview singleDeveloper={singleDeveloper} />
-      <PortfolioSlider singleDeveloper={singleDeveloper} />
-      <ContactSection />
-      <FAQSection />
-    </div>
-  );
+const DeveloperInner = () => {
+  return <PageContent />;
 };
 
-export default DevelopersInner;
-
-// import Head from "next/head";
-// import Banner from "../../components/common/common-banner/CommonBanner";
-// import Overview from "../../components/developerInner/overview/Overview";
-// import PortfolioSlider from "../../components/developerInner/portfolio-slider/PortfolioSlider";
-// import ContactSection from "../../components/home/contact-section/ContactSection";
-// import FAQSection from "../../components/home/faq-section/FAQSection";
-// import developersData from "../../db/developersData";
-// import bannerImg from "../../assets/banner/developerinnerbanner.webp";
-
-// // DevelopersInner Component
-// const DevelopersInner = ({ singleDeveloper }) => {
-//   return (
-//     <div>
-//       <Head>
-//         <title>
-//           {singleDeveloper?.seo?.meta_title ??
-//             "Residential Inner | NewEdge Realty"}
-//         </title>
-//         <meta
-//           name="description"
-//           content={singleDeveloper?.seo?.meta_description ?? "Description"}
-//         />
-//       </Head>
-//       <Banner
-//         name=""
-//         indexpage="Home"
-//         indexvisit="/"
-//         activepage={singleDeveloper?.title}
-//         bgImg={bannerImg}
-//       />
-//       <Overview singleDeveloper={singleDeveloper} />
-//       <PortfolioSlider sliderData={singleDeveloper?.related_projects} />
-//       <ContactSection />
-//       <FAQSection />
-//     </div>
-//   );
-// };
-
-// export default DevelopersInner;
-
-// // Generate Static Paths for Dynamic Developer Pages
-// export function generateStaticParams() {
-//   const paths = developersData.map((developer) => ({
-//     params: { id: developer.route },
-//   }));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// // Static Props
-// export async function generateStaticProps({ params }) {
-//   const { id } = params;
-//   const singleDeveloper = developersData.find(
-//     (developer) => developer.route === id
-//   );
-
-//   return {
-//     props: {
-//       singleDeveloper,
-//     },
-//   };
-// }
+export default DeveloperInner;
