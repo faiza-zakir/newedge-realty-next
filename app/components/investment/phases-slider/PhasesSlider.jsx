@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";

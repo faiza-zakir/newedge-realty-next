@@ -1,7 +1,7 @@
+"use client";
 import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
 import Slider from "react-slick";
-
 // css
 import "./styles.scss";
 

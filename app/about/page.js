@@ -9,7 +9,7 @@ import Mission from "../components/about/mission/Mission";
 import Vision from "../components/about/vision/Vision";
 import Founder from "../components/about/founder/Founder";
 import TeamList from "../components/about/team/TeamList";
-import FAQSection from "../components/home/faq-section/FAQSection";
+// import FAQSection from "../components/home/faq-section/FAQSection";
 // api
 import { fatchAboutData } from "../apis/commonApi";
 // img
@@ -17,6 +17,18 @@ import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
 import { aboutData } from "../db/aboutData";
 import CountsSection from "../components/about/counts-section/CountsSection";
+
+// export async function generateMetadata() {
+//   const { data: aboutUsData } = await fatchAboutData();
+//   return {
+//     title:
+//       aboutUsData?.seo?.meta_title ||
+//       "Newedge Property Management Services | Trusted Real Estate Agency",
+//     description:
+//       aboutUsData?.seo?.meta_description ||
+//       "Newedge, is your trusted real estate agency specializing in property management. We maximize your property's value with tailored solutions and exceptional service.",
+//   };
+// }
 
 const About = () => {
   const { topCounts, whyChoose, team } = aboutData;
@@ -43,11 +55,15 @@ const About = () => {
     <>
       <Head>
         <title>
-          Newedge Property Management Services | Trusted Real Estate Agency
+          {aboutUsData?.seo?.meta_title ||
+            "Newedge Property Management Services | Trusted Real Estate Agency"}
         </title>
         <meta
           name="description"
-          content="Newedge, is your trusted real estate agency specializing in property management. We maximize your property's value with tailored solutions and exceptional service."
+          content={
+            aboutUsData?.seo?.meta_description ||
+            "Newedge, is your trusted real estate agency specializing in property management. We maximize your property's value with tailored solutions and exceptional service."
+          }
         />
       </Head>
       <Banner
@@ -65,7 +81,7 @@ const About = () => {
       <Founder founderData={aboutUsData?.founder} />
       <TeamList teamData={aboutUsData?.team} teamInfo={team} />
       <ContactSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </>
   );
 };

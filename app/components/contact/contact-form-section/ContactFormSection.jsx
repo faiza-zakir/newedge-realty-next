@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";

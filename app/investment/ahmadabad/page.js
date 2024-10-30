@@ -1,16 +1,16 @@
 "use client";
 import Head from "next/head";
-import Banner from "../components/common/common-banner/CommonBanner";
-import Intro from "../components/investment/Intro/Intro";
-import WhyInvest from "../components/investment/why-invest/WhyInvest";
-import Maps from "../components/dholera/maps/Maps";
-import KeyFeaturesSlider from "../components/investment/key-features-slider/KeyFeaturesSlider";
-import ContactSection from "../components/home/contact-section/ContactSection";
-import FAQSection from "../components/home/faq-section/FAQSection";
+import Banner from "../../components/common/common-banner/CommonBanner";
+import Intro from "../../components/investment/Intro/Intro";
+import WhyInvest from "../../components/investment/why-invest/WhyInvest";
+import Maps from "../../components/dholera/maps/Maps";
+import KeyFeaturesSlider from "../../components/investment/key-features-slider/KeyFeaturesSlider";
+import ContactSection from "../../components/home/contact-section/ContactSection";
+import FAQSection from "../../components/home/faq-section/FAQSection";
 // img
-import bannerImg from "../assets/banner/ahmadabadbanner.webp";
+import bannerImg from "../../assets/banner/ahmadabadbanner.webp";
 // data
-import { investmentData } from "../db/investmentData";
+import { investmentData } from "../../db/investmentData";
 
 const Ahmadabad = () => {
   const { ahmadabad } = investmentData;

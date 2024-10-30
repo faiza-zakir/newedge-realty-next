@@ -6,7 +6,7 @@ import Banner from "../../components/common/common-banner/CommonBanner";
 import Details from "../../components/blogInner/Details/Details";
 import RelatedBlogs from "../../components/blogInner/related-blogs/RelatedBlogs";
 import ContactSection from "../../components/home/contact-section/ContactSection";
-import FAQSection from "../../components/home/faq-section/FAQSection";
+// import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fetchBlogData, fetchBlogDeatilsData } from "../../apis/commonApi";
 // img
@@ -69,7 +69,7 @@ const BlogInner = () => {
       <Details singleBlog={singleBlog} />
       <RelatedBlogs blogData={relatedBlog} />
       <ContactSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </div>
   );
 };

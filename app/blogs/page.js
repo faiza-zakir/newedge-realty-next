@@ -4,7 +4,7 @@ import Head from "next/head";
 import Banner from "../components/common/common-banner/CommonBanner";
 import BlogList from "../components/blog/BlogList";
 import ContactSection from "../components/home/contact-section/ContactSection";
-import FAQSection from "../components/home/faq-section/FAQSection";
+// import FAQSection from "../components/home/faq-section/FAQSection";
 // api
 import { fetchBlogData } from "../apis/commonApi";
 // img
@@ -49,7 +49,7 @@ const Blog = () => {
       />
       <BlogList blogsList={blogData} isLoading={isLoading} />
       <ContactSection />
-      <FAQSection />
+      {/* <FAQSection /> */}
     </div>
   );
 };
