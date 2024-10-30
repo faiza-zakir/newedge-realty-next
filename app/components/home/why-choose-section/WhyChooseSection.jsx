@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import ChooseusCard from "../../common/why-choose-us-slide-card/ChooseusCard";

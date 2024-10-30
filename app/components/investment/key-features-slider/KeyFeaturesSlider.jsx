@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { useState, useRef } from "react";
 import { Container } from "react-bootstrap";

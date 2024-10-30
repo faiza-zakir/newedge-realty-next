@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
 import { useRouter } from "next/navigation";
