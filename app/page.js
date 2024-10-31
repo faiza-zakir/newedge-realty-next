@@ -26,10 +26,20 @@ const Home = () => {
     testimonials,
     testimonialsVideo,
   } = homeData;
-  const [showModal, setShowModal] = useState(true);
-  const handleModalClose = () => setShowModal(false);
+  const [showModal, setShowModal] = useState(false);
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 3000); // 3 seconds delay
+
+    // Clean up the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleModalClose = () => setShowModal(false);
 
   useEffect(() => {
     const residentialData = projectsData?.filter(
