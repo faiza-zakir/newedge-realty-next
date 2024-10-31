@@ -6,7 +6,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
-import contactImg from "../../../assets/contact/contactImg.jpg";
+import contactImg from "../../../assets/contact/contactImg.webp";
 // api
 import { postLeadForm } from "../../../apis/commonApi";
 // data

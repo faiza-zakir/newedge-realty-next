@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MainImg from "../../../assets/home/blogImg.jpg";
+import MainImg from "../../../assets/blog/blogInnerImg.webp";
 import { Container } from "react-bootstrap";
 import { PiLineVertical } from "react-icons/pi";
 import moment from "moment";
@@ -24,15 +24,15 @@ const Details = ({ singleBlog }) => {
         </ul>
       </Container>
       <figure>
-        <img
+        <Image
           src={
             singleBlog?.inner_page_img
               ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
                 singleBlog?.inner_page_img
               : MainImg
           }
-          // layout="fill"
-          // objectFit="cover"
+          layout="fill"
+          objectFit="cover"
           alt={singleBlog?.title}
         />
       </figure>

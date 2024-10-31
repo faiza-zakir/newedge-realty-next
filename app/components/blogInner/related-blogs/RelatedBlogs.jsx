@@ -6,7 +6,7 @@ import moment from "moment";
 import { Container } from "react-bootstrap";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // img
-import blogImg from "../../../assets/blog/blog1.jpg";
+import blogImg from "../../../assets/blog/blog1.webp";
 // css
 import "./style.scss";
 

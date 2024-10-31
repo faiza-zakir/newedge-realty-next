@@ -1,5 +1,5 @@
 // intro
-import investmentImg from "../assets/investment/investmentImg.jpg";
+import investmentImg from "../assets/investment/investmentImg.webp";
 // benefits icons
 import appreciationIcon from "../assets/investment/appreciation.svg";
 import lowmaintananceIcon from "../assets/investment/lowmaintanance.svg";
@@ -11,13 +11,13 @@ import inflationIcon from "../assets/investment/inflation.svg";
 import diversificationIcon from "../assets/investment/diversification.svg";
 import roiIcon from "../assets/investment/roi.svg";
 // factors
-import locationImg from "../assets/investment/location.jpg";
-import zoningImg from "../assets/investment/zoning.jpg";
-import markettrendImg from "../assets/investment/markettrend.jpg";
-import accessibiltyImg from "../assets/investment/accessibilty.jpg";
-import environmentalImg from "../assets/investment/environmental.jpg";
+import locationImg from "../assets/investment/location.webp";
+import zoningImg from "../assets/investment/zoning.webp";
+import markettrendImg from "../assets/investment/markettrend.webp";
+import accessibiltyImg from "../assets/investment/accessibilty.webp";
+import environmentalImg from "../assets/investment/environmental.webp";
 // why invest
-import whyInvestImg from "../assets/investment/whyInvestImg.jpg";
+import whyInvestImg from "../assets/investment/whyInvestImg.webp";
 // offerings icons
 import consultIcon from "../assets/investment/consult.svg";
 import locationIcon from "../assets/investment/location.svg";
@@ -26,37 +26,37 @@ import diligenceIcon from "../assets/investment/diligence.svg";
 import guidanceIcon from "../assets/investment/guidance.svg";
 import supportIcon from "../assets/investment/support.svg";
 // opportunities
-import opportunityImg1 from "../assets/investment/opportunityImg1.jpg";
-import opportunityImg2 from "../assets/investment/opportunityImg2.jpg";
+import opportunityImg1 from "../assets/investment/opportunityImg1.webp";
+import opportunityImg2 from "../assets/investment/opportunityImg2.webp";
 // expert Tips
-import expertTipsImg from "../assets/investment/expertTipsImg.jpg";
+import expertTipsImg from "../assets/investment/expertTipsImg.webp";
 //testimonials
 import userImg from "../assets/home/userImg.jpg";
 // ahmadabad
-import ahmadabadImg from "../assets/ahmadabad/ahmadabadImg.jpg";
-import riverfrontImg from "../assets/ahmadabad/riverfrontImg.jpg";
+import ahmadabadImg from "../assets/ahmadabad/ahmadabadImg.webp";
+import riverfrontImg from "../assets/ahmadabad/riverfrontImg.webp";
 // benefits ahmadabad
-import massiveurbanImg from "../assets/ahmadabad/massiveurban.jpg";
-import affordableImg from "../assets/ahmadabad/affordable.jpg";
-import infrastructuralImg from "../assets/ahmadabad/infrastructural.jpg";
-import purchasingpowerImg from "../assets/ahmadabad/purchasingpower.jpg";
-import localpopulationImg from "../assets/ahmadabad/localpopulation.jpg";
-import metroImg from "../assets/ahmadabad/metro.jpg";
-import industrialImg from "../assets/ahmadabad/industrial.jpg";
-import populationImg from "../assets/ahmadabad/population.jpg";
-import connectivityImg from "../assets/ahmadabad/connectivity.jpg";
-import hometoworldImg from "../assets/ahmadabad/hometoworld.jpg";
+import massiveurbanImg from "../assets/ahmadabad/massiveurban.webp";
+import affordableImg from "../assets/ahmadabad/affordable.webp";
+import infrastructuralImg from "../assets/ahmadabad/infrastructural.webp";
+import purchasingpowerImg from "../assets/ahmadabad/purchasingpower.webp";
+import localpopulationImg from "../assets/ahmadabad/localpopulation.webp";
+import metroImg from "../assets/ahmadabad/metro.webp";
+import industrialImg from "../assets/ahmadabad/industrial.webp";
+import populationImg from "../assets/ahmadabad/population.webp";
+import connectivityImg from "../assets/ahmadabad/connectivity.webp";
+import hometoworldImg from "../assets/ahmadabad/hometoworld.webp";
 // key benefits ahmadabad
 import expresswayImg from "../assets/ahmadabad/expressway.webp";
-import giftcityImg from "../assets/ahmadabad/giftcity.jpg";
-import strategiclandImg from "../assets/ahmadabad/strategicland.jpg";
-import stablemarketImg from "../assets/ahmadabad/stablemarket.jpg";
-import futureProofImg from "../assets/ahmadabad/futureProof.jpg";
+import giftcityImg from "../assets/ahmadabad/giftcity.webp";
+import strategiclandImg from "../assets/ahmadabad/strategicland.webp";
+import stablemarketImg from "../assets/ahmadabad/stablemarket.webp";
+import futureProofImg from "../assets/ahmadabad/futureProof.webp";
 // dholera
-import dholeraImg from "../assets/dholera/dholeraImg.jpg";
-import developmentplanImg from "../assets/dholera/developmentplanImg.jpg";
-import dholeradmicImg from "../assets/dholera/dholeradmicImg.jpg";
-import dholeraairportImg from "../assets/dholera/dholeraairportImg.jpg";
+import dholeraImg from "../assets/dholera/dholeraImg.webp";
+import developmentplanImg from "../assets/dholera/developmentplanImg.webp";
+import dholeradmicImg from "../assets/dholera/dholeradmicImg.webp";
+import dholeraairportImg from "../assets/dholera/dholeraairportImg.webp";
 // advantages icons
 import worldclassinfrastructureIcon from "../assets/dholera/worldclassinfrastructure.svg";
 import easeofgovernanceIcon from "../assets/dholera/easeofgovernance.svg";
@@ -84,16 +84,16 @@ import electronicsIcon from "../assets/dholera/electronics.svg";
 import pharmaandbiotechIcon from "../assets/dholera/pharmaandbiotech.svg";
 import solarIcon from "../assets/dholera/solar.svg";
 // investors
-import adani from "../assets/logo/adani.jpg";
-import essar from "../assets/logo/essar.jpg";
-import larsen from "../assets/logo/larsen.jpg";
-import mahindra from "../assets/logo/mahindra.jpg";
-import reliance from "../assets/logo/reliance.jpg";
-import suzlon from "../assets/logo/suzlon.jpg";
-import tata from "../assets/logo/tata.jpg";
-import torrent from "../assets/logo/torrent.jpg";
-import vedanta from "../assets/logo/vedanta.jpg";
-import wipro from "../assets/logo/wipro.jpg";
+import adani from "../assets/logo/adani.webp";
+import essar from "../assets/logo/essar.webp";
+import larsen from "../assets/logo/larsen.webp";
+import mahindra from "../assets/logo/mahindra.webp";
+import reliance from "../assets/logo/reliance.webp";
+import suzlon from "../assets/logo/suzlon.webp";
+import tata from "../assets/logo/tata.webp";
+import torrent from "../assets/logo/torrent.webp";
+import vedanta from "../assets/logo/vedanta.webp";
+import wipro from "../assets/logo/wipro.webp";
 
 export const investmentData = {
   intro: {

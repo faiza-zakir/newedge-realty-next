@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { Container, Row, Col } from "react-bootstrap";
 import moment from "moment";
 // img
-import blogImg from "../../assets/blog/blog1.jpg";
+import blogImg from "../../assets/blog/blog1.webp";
 // css
 import "./style.scss";
 
@@ -41,15 +41,15 @@ const BlogList = ({ blogsList, isLoading }) => {
               <Col md={6} lg={4} key={blog?.id}>
                 <div className="blog_item">
                   <figure>
-                    <img
+                    <Image
                       src={
                         blog?.feature_image
                           ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
                             blog?.feature_image
                           : blogImg
                       }
-                      // layout="fill"
-                      // objectFit="cover"
+                      layout="fill"
+                      objectFit="cover"
                       alt={blog?.title}
                     />
                     <span className="date">

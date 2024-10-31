@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
 import CountUp from "react-countup";
 // img
-import countsImg from "../../../assets/about/countsImg.jpg";
+import countsImg from "../../../assets/about/countsImg.webp";
 // css
 import "./styles.scss";
 
