@@ -12,7 +12,13 @@ const DevelopmentPlan = ({ devPlanData }) => {
         <Row className="gy-5 gx-lg-5 align-items-center">
           <Col lg={6}>
             <figure>
-              <Image src={devPlanData?.featured_img} alt="invest" />
+              <Image
+                src={devPlanData?.featured_img}
+                layout="fill"
+                objectFit="cover"
+                alt={devPlanData?.img_alt}
+                title={devPlanData?.img_title}
+              />
             </figure>
           </Col>
           <Col lg={6}>

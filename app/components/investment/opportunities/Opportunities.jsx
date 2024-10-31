@@ -19,7 +19,10 @@ const Opportunities = ({ opportunitiesData }) => {
               <figure>
                 <Image
                   src={opportunitiesData?.opportunity1?.featured_img}
-                  alt="invest"
+                  layout="fill"
+                  objectFit="cover"
+                  alt={opportunitiesData?.opportunity1?.img_alt}
+                  title={opportunitiesData?.opportunity1?.img_title}
                 />
               </figure>
               <div className="content_sec">
@@ -37,7 +40,10 @@ const Opportunities = ({ opportunitiesData }) => {
               <figure>
                 <Image
                   src={opportunitiesData?.opportunity2?.featured_img}
-                  alt="invest"
+                  layout="fill"
+                  objectFit="cover"
+                  alt={opportunitiesData?.opportunity2?.img_alt}
+                  title={opportunitiesData?.opportunity2?.img_title}
                 />
               </figure>
               <div className="content_sec">

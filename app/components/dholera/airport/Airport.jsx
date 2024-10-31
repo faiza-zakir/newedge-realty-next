@@ -10,7 +10,13 @@ const Airport = ({ airportData }) => {
         <Row className="gy-5 gx-lg-5 align-items-center">
           <Col lg={6}>
             <figure>
-              <Image src={airportData?.featured_img} alt="invest" />
+              <Image
+                src={airportData?.featured_img}
+                layout="fill"
+                objectFit="cover"
+                alt={airportData?.img_alt}
+                title={airportData?.img_title}
+              />
             </figure>
           </Col>
           <Col lg={6}>

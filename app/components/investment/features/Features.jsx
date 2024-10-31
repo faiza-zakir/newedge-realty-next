@@ -96,7 +96,11 @@ const Features = ({ title, featuresData }) => {
           {featuresData?.map((item) => (
             <div className="feature_wrap" key={item?.id}>
               <div className="feature_item">
-                <Image src={item?.icon} alt={item?.name} />
+                <Image
+                  src={item?.icon}
+                  alt={item?.img_alt}
+                  title={item?.img_title}
+                />
                 <div>
                   <h3>{item?.title}</h3>
                   <p>{item?.detail}</p>

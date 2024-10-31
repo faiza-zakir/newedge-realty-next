@@ -26,7 +26,13 @@ const ExpertTips = ({ expertTipsData }) => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={expertTipsData?.featured_img} alt="invest" />
+              <Image
+                src={expertTipsData?.featured_img}
+                layout="fill"
+                objectFit="cover"
+                alt={expertTipsData?.img_alt}
+                title={expertTipsData?.img_title}
+              />
             </figure>
           </Col>
         </Row>

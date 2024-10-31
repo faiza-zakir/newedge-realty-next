@@ -44,7 +44,13 @@ const Investors = ({ investorsData }) => {
             <Slider {...settings}>
               {investorsData?.logos?.map((item, i) => (
                 <div className="investors_item" key={i}>
-                  <Image src={item} alt="logo" />
+                  <Image
+                    src={item?.img}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={item?.img_alt}
+                    title={item?.img_title}
+                  />
                 </div>
               ))}
             </Slider>

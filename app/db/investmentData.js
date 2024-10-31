@@ -100,6 +100,10 @@ export const investmentData = {
     title: "WHY INVEST IN LAND?",
     detail: `Investing in land is one of the most time-tested and reliable ways to grow wealth. Land investment has been a cornerstone of wealth-building for centuries. Unlike other assets, a plot for sale is a tangible resource that doesn’t depreciate over time. It provides stability in an ever-changing market, offering investors a secure place to grow their wealth.`,
     featured_img: investmentImg,
+    img_alt:
+      "pre-leased properties, rental investment, income-generating properties, commercial leases- Newedge Realty",
+    img_title:
+      "investment in Newedge Realty | industrial property developers | Newedge Realty",
   },
   key_details: [
     {
@@ -108,6 +112,8 @@ export const investmentData = {
       detail:
         "Historically, land values have appreciated significantly over time, making it one of the safest long-term investments.",
       icon: appreciationIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 2,
@@ -115,6 +121,10 @@ export const investmentData = {
       detail:
         "Unlike buildings or other real estate assets, land for sale requires minimal maintenance and management. ",
       icon: lowmaintananceIcon,
+      img_alt:
+        "buy land in India, land investment India, agricultural land, residential plots - Newedge Realty",
+      img_title:
+        "real estate development services | commercial property developers | Newedge Realty",
     },
     {
       id: 3,
@@ -122,6 +132,10 @@ export const investmentData = {
       detail:
         "Land can be developed, leased, or sold, providing multiple streams of income.",
       icon: versatilityIcon,
+      img_alt:
+        "commercial property for sale, investment properties, real estate listings, business real estate- Newedge Realty",
+      img_title:
+        "versatility | real estate development companies | Newedge Realty",
     },
     {
       id: 4,
@@ -129,6 +143,8 @@ export const investmentData = {
       detail:
         "As populations grow and urbanization spreads, the availability of undeveloped land decreases, driving up its value.",
       icon: limitedsupplyIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 5,
@@ -136,6 +152,8 @@ export const investmentData = {
       detail:
         "Land is a tangible asset that isn’t subject to the same volatility as stocks or other investment vehicles.",
       icon: securityIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 6,
@@ -143,6 +161,8 @@ export const investmentData = {
       detail:
         "Land is a physical, finite resource that doesn’t depreciate like other investments such as vehicles or equipment.",
       icon: tangibleassetsIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 7,
@@ -150,6 +170,8 @@ export const investmentData = {
       detail:
         "Land often increases in value at a rate that outpaces inflation, making it a strong hedge against the eroding effects of inflation on your wealth.",
       icon: inflationIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 8,
@@ -157,6 +179,8 @@ export const investmentData = {
       detail:
         "Adding land to your investment portfolio can reduce risk by diversifying your assets away from more volatile markets like stocks and bonds.",
       icon: diversificationIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 9,
@@ -164,11 +188,19 @@ export const investmentData = {
       detail:
         "Well-chosen land investments can yield significant returns. Whether through appreciation, development, or leasing, land offers multiple revenue streams.",
       icon: roiIcon,
+      img_alt:
+        "industrial land for sale, land investment, commercial land, industrial properties - Newedge Realty",
+      img_title:
+        "roi, commercial land  | commercial property developers | Newedge Realty",
     },
   ],
   expertTips: {
     title: "EXPERT TIPS",
     featured_img: expertTipsImg,
+    img_alt:
+      "farmhouse plots near, rural properties, weekend homes, agricultural plots- Newedge Realty",
+    img_title:
+      "expertTips Newedge Realty | joint venture real estate development | Property Advisors India",
     tips: [
       {
         id: 1,
@@ -203,6 +235,8 @@ export const investmentData = {
       detail:
         "The adage still holds true. The location of land is fundamental in determining its current and future value. Whether it’s proximity to city centers, amenities, or future development projects, location is king.",
       featured_img: locationImg,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 2,
@@ -210,6 +244,10 @@ export const investmentData = {
       detail:
         "Understanding the zoning laws and regulations that apply to a piece of land is crucial. Zoning determines how the land can be used and can significantly impact its value and potential uses.",
       featured_img: zoningImg,
+      img_alt:
+        "affordable housing, budget-friendly homes, affordable living, housing solutions - Newedge Realty",
+      img_title:
+        "zoning India | Real Estate Professionals India | Newedge Realty",
     },
     {
       id: 3,
@@ -217,6 +255,10 @@ export const investmentData = {
       detail:
         "Keep an eye on market trends and projections. Areas showing high growth potential or undergoing significant infrastructure development often present better investment opportunities.",
       featured_img: markettrendImg,
+      img_alt:
+        "property developers, real estate developers, property builders, construction companies - Newedge Realty",
+      img_title:
+        "markettrend  | real estate development companies | Newedge Realty",
     },
     {
       id: 4,
@@ -224,6 +266,10 @@ export const investmentData = {
       detail:
         "Land that is easily accessible via roads and public transportation is often more desirable. Accessibility increases the potential uses of the land and, subsequently, its value.",
       featured_img: accessibiltyImg,
+      img_alt:
+        "luxury homes for sale, upscale properties, high-end real estate, luxury listings- Newedge Realty",
+      img_title:
+        "accessibilty Newedge Realty | residential properties | environmental Newedge Realty",
     },
     {
       id: 5,
@@ -231,6 +277,10 @@ export const investmentData = {
       detail:
         "Considerations such as soil quality, flood zones, and environmental restrictions can impact land usability and should be thoroughly researched before purchasing.",
       featured_img: environmentalImg,
+      img_alt:
+        "residential property management, property management services, rental management, landlord services- Newedge Realty",
+      img_title:
+        "Property contact information India | commercial property for sale | environmental Newedge Realty",
     },
   ],
   phases: [
@@ -293,6 +343,9 @@ export const investmentData = {
     detail:
       "At Newedge, we specialize in identifying high-potential land investment opportunities that offer the best returns. Our team of experts conducts thorough market research, assessing factors such as location, growth potential, and legal considerations to ensure that your investment is secure and profitable for affordable housing.",
     featured_img: whyInvestImg,
+    img_alt:
+      "office space for rent, commercial leasing, office rentals, business premises - Newedge Realty",
+    img_title: "whyInvest in Newedge Realty | land investment| Newedge Realty",
   },
   offerings: [
     {
@@ -301,6 +354,8 @@ export const investmentData = {
       detail:
         "As land brokers, we understand that every investor has unique goals. Our team offers personalized consultation to help you choose the right land investment that aligns with your financial objectives.",
       icon: consultIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 2,
@@ -308,6 +363,8 @@ export const investmentData = {
       detail:
         "We carefully select residential properties in high-demand areas with strong growth potential. Our experts analyse trends, infrastructure development, and regional growth to identify the best investment opportunities.",
       icon: locationIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 3,
@@ -315,6 +372,8 @@ export const investmentData = {
       detail:
         "Whether you are looking to invest in a small plot for sale or buy commercial property, we offer flexible investment options to suit your needs and budget.",
       icon: investmentIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 4,
@@ -322,6 +381,8 @@ export const investmentData = {
       detail:
         "We conduct detailed analysis and due diligence on every property, ensuring that all legal and regulatory requirements are met.",
       icon: diligenceIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 5,
@@ -329,6 +390,8 @@ export const investmentData = {
       detail:
         "From choosing the right land to navigating legal and regulatory processes, our team provides end-to-end support, ensuring a seamless investment experience.",
       icon: guidanceIcon,
+      img_alt: "",
+      img_title: "",
     },
     {
       id: 6,
@@ -336,6 +399,8 @@ export const investmentData = {
       detail:
         "Our services don’t end with the purchase. As property developers, we provide ongoing support to help you manage, develop, or sell your land investment for maximum returns.  ",
       icon: supportIcon,
+      img_alt: "",
+      img_title: "",
     },
   ],
   opportunities: {
@@ -343,10 +408,18 @@ export const investmentData = {
     opportunity1: {
       title: "Ahmedabad",
       featured_img: opportunityImg1,
+      img_alt:
+        "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
+      img_title:
+        "industrial property investment  | Luxury farmhouses  | Newedge Realty",
     },
     opportunity2: {
       title: "Dholera",
       featured_img: opportunityImg2,
+      img_alt:
+        "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
+      img_title:
+        "opportunity to invest in Newedge Realty  | industrial property development | Newedge Realty",
     },
   },
   testimonials: [
@@ -404,6 +477,8 @@ export const investmentData = {
       title: "AHMEDABAD",
       detail: `Ahmedabad, the commercial and cultural heart of Gujarat, is emerging as one of India’s most promising cities for the best real estate locations in India. From its thriving economy to its strategic location and well-planned infrastructure, Ahmedabad offers a compelling case for both domestic and international investors. Here’s why Ahmedabad stands out as a top choice for land investment and business ventures:`,
       featured_img: ahmadabadImg,
+      img_alt: "",
+      img_title: "",
     },
     benefits: [
       {
@@ -412,6 +487,8 @@ export const investmentData = {
         detail:
           "The Ahmedabad Urban Development Authority (AUDA) has undertaken a vast development plan spanning 1200 sq. km. This extensive area offers unparalleled opportunities for real estate development, commercial infrastructure, and residential expansion. With large-scale urban planning initiatives in place, Ahmedabad is set to become a modern and well-structured urban landscape, attracting developers and investors alike.",
         featured_img: massiveurbanImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 2,
@@ -419,6 +496,8 @@ export const investmentData = {
         detail:
           "Compared to cities like Mumbai, Delhi, or Bengaluru, land prices in Ahmedabad are still relatively affordable. This makes it a good investment option for those looking for high returns in the long term.",
         featured_img: affordableImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 3,
@@ -426,6 +505,8 @@ export const investmentData = {
         detail:
           "Ahmedabad boasts excellent infrastructure with good connectivity via roads, railways, and airways. The upcoming Bullet Train project, as well as the development of the Ahmedabad Metro, are expected to further enhance the city's connectivity, improving the value of surrounding land areas. This benefits make it the best Real estate locations in India.",
         featured_img: infrastructuralImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 4,
@@ -433,6 +514,8 @@ export const investmentData = {
         detail:
           "Ahmedabad boasts the highest per capita purchasing power for buying land in India, making it a city where the population has strong buying potential. For businesses and investors, this means a robust consumer market with a steady demand for goods and services, making Ahmedabad the best Property location in India for retail, real estate, and industrial investments.",
         featured_img: purchasingpowerImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 5,
@@ -440,6 +523,8 @@ export const investmentData = {
         detail:
           "A staggering 70% of India’s stock market investors are Gujaratis, showcasing the region’s deep-rooted culture of financial investment and entrepreneurship. This makes Ahmedabad one of the preferred  Industrial real estate locations in India  for financial services, banking, and stock trading, where capital is actively invested in growth opportunities.",
         featured_img: localpopulationImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 6,
@@ -447,6 +532,8 @@ export const investmentData = {
         detail:
           "Ahmedabad has officially been accorded Metro City status, marking it as one of India’s leading urban centers. With this status comes the promise of better infrastructure, advanced public transportation, and higher standards of living, further enhancing the city’s investment appeal.",
         featured_img: metroImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 7,
@@ -454,6 +541,8 @@ export const investmentData = {
         detail:
           "The world’s cheapest car project, Tata Nano, was launched in Ahmedabad, a testament to the city’s industrial capabilities and its potential for cost-effective manufacturing. The presence of such large-scale industries signals the city’s ability to attract industrial giants, which in turn fuels economic growth and job creation. Micron Technology and Kaynes Technology are setting up their semiconductor plants in Sanand. ",
         featured_img: industrialImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 8,
@@ -461,6 +550,8 @@ export const investmentData = {
         detail:
           "With a population exceeding 7 million, Ahmedabad is home to a large, dynamic, and young workforce. This growing population provides a huge market for both consumer goods and services, and also serves as a skilled labor pool for businesses and industries looking to set up operations in the city.",
         featured_img: populationImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 9,
@@ -468,6 +559,8 @@ export const investmentData = {
         detail:
           "Ahmedabad’s international airport offers easy access to major global destinations, enhancing its appeal for foreign investors and businesses. The airport serves as a vital gateway, making Ahmedabad a prime location for international trade, commerce, and tourism.",
         featured_img: connectivityImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 10,
@@ -475,6 +568,8 @@ export const investmentData = {
         detail:
           "Ahmedabad is home to the Indian Institute of Management (IIM), one of the world’s leading business schools. This positions the city as a center for talent and innovation, ensuring a steady stream of well-educated professionals, entrepreneurs, and business leaders. For investors, this means access to top-notch talent for future ventures.",
         featured_img: hometoworldImg,
+        img_alt: "",
+        img_title: "",
       },
     ],
     whyInvest: {
@@ -482,6 +577,8 @@ export const investmentData = {
       detail:
         "The Sabarmati Riverfront Project is India’s first urban riverfront development, transforming the Sabarmati River into a vibrant space with parks, promenades, and business districts. This visionary project not only beautifies the city but also creates prime real estate opportunities for commercial and residential development.",
       featured_img: riverfrontImg,
+      img_alt: "",
+      img_title: "",
     },
     benefits2: [
       {
@@ -490,6 +587,8 @@ export const investmentData = {
         detail:
           "Ahmedabad is home to India’s first expressway, the Ahmedabad-Vadodara Expressway, reflecting the city’s forward-thinking approach to infrastructure and connectivity. This vital transportation link improves regional connectivity, making the movement of goods and people more efficient, and boosting the local economy.",
         featured_img: expresswayImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 2,
@@ -497,6 +596,8 @@ export const investmentData = {
         detail:
           "Located between Ahmedabad and Gandhinagar, the Gujarat International Finance Tec-City (GIFT City) is a cutting-edge financial and technological hub. This futuristic city is attracting global financial institutions, IT companies, and service providers. The land surrounding GIFT City has become a hotspot for investment, with rapidly appreciating property values and immense potential for development.",
         featured_img: giftcityImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 3,
@@ -504,6 +605,8 @@ export const investmentData = {
         detail:
           "Ahmedabad’s strategic location, growing infrastructure, and proximity to GIFT City make it a goldmine for real estate investors. The land surrounding GIFT City, in particular, has emerged as one of Gujarat’s top investment Property locations in india, offering high returns on investment due to increasing demand and development in the region.",
         featured_img: strategiclandImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 4,
@@ -511,6 +614,8 @@ export const investmentData = {
         detail:
           "Unlike some volatile real estate markets, Ahmedabad has shown a stable appreciation of land value over time. The city's long-term economic prospects make it a safer bet for investors seeking consistent growth.",
         featured_img: stablemarketImg,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 5,
@@ -518,6 +623,8 @@ export const investmentData = {
         detail:
           "As Ahmedabad continues to grow, especially in terms of its urban sprawl, the value of land is expected to rise substantially. Investing in land today could yield significant returns in the future, especially as the city expands into new areas.",
         featured_img: futureProofImg,
+        img_alt: "",
+        img_title: "",
       },
     ],
     locations: {
@@ -525,10 +632,14 @@ export const investmentData = {
       map1: {
         title: "Auda",
         featured_img: opportunityImg1,
+        img_alt: "",
+        img_title: "",
       },
       map2: {
         title: "GIFT City",
         featured_img: opportunityImg2,
+        img_alt: "",
+        img_title: "",
       },
     },
   },
@@ -541,16 +652,22 @@ export const investmentData = {
 Dholera Industrial City aims to create a self-sustaining ecosystem driven by industrialization, supported by utilities, logistics, social infrastructure like education and healthcare, and other public amenities. With the backing of the Government of Gujarat, DMICDC plans to develop a modern city that is economically and socially balanced, offering world-class infrastructure, high standards of living, sustainable urban design, and efficient transportation links to neighbouring cities and the rest of the country.</p>
       `,
       featured_img: dholeraImg,
+      img_alt: "",
+      img_title: "",
     },
     maps: {
       title: "Maps",
       map1: {
         title: "Dholera DP",
         featured_img: opportunityImg1,
+        img_alt: "",
+        img_title: "",
       },
       map2: {
         title: "Dholera Village",
         featured_img: opportunityImg2,
+        img_alt: "",
+        img_title: "",
       },
     },
     advatnages: [
@@ -628,6 +745,8 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       detail: `The Development Plan for DSIR has been prepared and approved by DSIRDA, with Phase-I encompassing TP1 and TP2, covering a total of 153 sq km.
 In addition to urban development, key trunk and external infrastructure will be established to support the growth of DSIR. These include the following:`,
       featured_img: developmentplanImg,
+      img_alt: "",
+      img_title: "",
       planList: [
         {
           title: "Overall Trunk infrastructure Projects in Phase-1",
@@ -666,6 +785,8 @@ In addition to urban development, key trunk and external infrastructure will be 
       title: "Dholera on DMIC Image",
       detail: `The Delhi-Mumbai Industrial Corridor (DMIC) is a Central Government initiative to develop new "Smart Cities" using next-generation technologies and high-speed connectivity through the Dedicated Freight Corridor (DFC). Managed by the Delhi Mumbai Industrial Corridor Development Corporation Ltd. (DMICDC), Phase I includes the development of eight manufacturing cities, including the Ahmedabad-Dholera Investment Region, connected to the DFC.`,
       featured_img: dholeradmicImg,
+      img_alt: "",
+      img_title: "",
       dmicList: [
         {
           title: "Railway",
@@ -718,6 +839,8 @@ In addition to urban development, key trunk and external infrastructure will be 
 <li>Owner & Operator: Airports Authority of India (AAI)</li>
 </ul>`,
       featured_img: dholeraairportImg,
+      img_alt: "",
+      img_title: "",
     },
     advantage: {
       title: "Advantage of Dholera",
@@ -912,16 +1035,56 @@ In addition to urban development, key trunk and external infrastructure will be 
     investors: {
       title: "Our Giant Investors",
       logos: [
-        tata,
-        larsen,
-        reliance,
-        torrent,
-        adani,
-        essar,
-        mahindra,
-        suzlon,
-        vedanta,
-        wipro,
+        {
+          img: tata,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: larsen,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: reliance,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: torrent,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: adani,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: essar,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: mahindra,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: suzlon,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: vedanta,
+          img_alt: "",
+          img_title: "",
+        },
+        {
+          img: wipro,
+          img_alt: "",
+          img_title: "",
+        },
       ],
     },
   },

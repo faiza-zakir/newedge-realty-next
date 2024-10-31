@@ -15,7 +15,13 @@ const WhyInvest = ({ whyInvestData }) => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={whyInvestData?.featured_img} alt="invest" />
+              <Image
+                src={whyInvestData?.featured_img}
+                layout="fill"
+                objectFit="cover"
+                alt={whyInvestData?.img_alt}
+                title={whyInvestData?.img_title}
+              />
             </figure>
           </Col>
         </Row>

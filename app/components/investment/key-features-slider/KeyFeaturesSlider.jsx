@@ -104,7 +104,13 @@ const KeyFeaturesSlider = ({ title, subTitle, keyFeaturesData }) => {
               <div className="key_feature_item">
                 <div>
                   <figure>
-                    <Image src={item?.featured_img} alt="feature" />
+                    <Image
+                      src={item?.featured_img}
+                      layout="fill"
+                      objectFit="cover"
+                      alt={item?.img_alt}
+                      title={item?.img_title}
+                    />
                   </figure>
                 </div>
                 <div>

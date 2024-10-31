@@ -27,7 +27,13 @@ const Dmic = ({ dmicData }) => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={dmicData?.featured_img} alt="invest" />
+              <Image
+                src={dmicData?.featured_img}
+                layout="fill"
+                objectFit="cover"
+                alt={dmicData?.img_alt}
+                title={dmicData?.img_title}
+              />
             </figure>
           </Col>
         </Row>
