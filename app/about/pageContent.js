@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Banner from "../components/common/common-banner/CommonBanner";
 import Intro from "../components/about/Intro/Intro";
+import CountsSection from "../components/about/counts-section/CountsSection";
 import ContactSection from "../components/home/contact-section/ContactSection";
 import WhyChooseSection from "../components/home/why-choose-section/WhyChooseSection";
 import Mission from "../components/about/mission/Mission";
@@ -15,10 +16,11 @@ import { fatchAboutData } from "../apis/commonApi";
 import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
 import { aboutData } from "../db/aboutData";
-import CountsSection from "../components/about/counts-section/CountsSection";
+import { homeData } from "../db/homeData";
 
 const PageContent = () => {
-  const { topCounts, whyChoose, team } = aboutData;
+  const { topCounts, team } = aboutData;
+  const { whyChoose } = homeData;
   const [aboutUsData, setAboutUsData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 

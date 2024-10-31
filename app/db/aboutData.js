@@ -12,18 +12,6 @@ import founderImg from "../assets/about/founderImg.webp";
 import memberImg1 from "../assets/about/teamImg1.webp";
 import memberImg3 from "../assets/about/teamImg3.jpg";
 import memberImg4 from "../assets/about/teamImg4.jpg";
-//process
-import processImg1 from "../assets/home/process1.jpg";
-import processIcon2 from "../assets/home/process2.png";
-import processImg3 from "../assets/home/process3.jpg";
-import processIcon4 from "../assets/home/process4.png";
-import processImg5 from "../assets/home/process5.jpg";
-import processIcon6 from "../assets/home/process6.png";
-import processImg7 from "../assets/home/process7.jpg";
-import processIcon8 from "../assets/home/process8.png";
-import processImg9 from "../assets/home/process9.jpg";
-import processIcon10 from "../assets/home/process10.png";
-import processImg11 from "../assets/home/process11.jpg";
 
 export const aboutData = {
   about: {
@@ -77,69 +65,6 @@ export const aboutData = {
         tag: "+",
         unit: "Mn Sq.Ft",
         details: "Land Area Transacted",
-      },
-    ],
-  },
-  whyChoose: {
-    tagLine: "Our Process",
-    title: "Why Choose Us?",
-    detail:
-      "At Newedge Realty, we excel in delivering a satisfying home buying and selling experience through proactive service and clear communication. Our expertise, resources, and commitment to exceptional service ensure that we exceed client expectations. Our skilled team, with its integrity and extensive knowledge, provides unmatched excellence in home marketing and transaction management.",
-    processData: [
-      {
-        id: 1,
-        title: "Client Consultation",
-        img: processImg1,
-      },
-      {
-        id: 2,
-        title: "Market Research & Analysis",
-        icon: processIcon2,
-      },
-      {
-        id: 3,
-        title: "Property Selection",
-        img: processImg3,
-      },
-      {
-        id: 4,
-        title: "Financial Analysis & Development",
-        icon: processIcon4,
-      },
-      {
-        id: 5,
-        title: "Property Management",
-        img: processImg5,
-      },
-      {
-        id: 6,
-        title: "Closing",
-        icon: processIcon6,
-      },
-      {
-        id: 7,
-        title: "Due Diligences",
-        img: processImg7,
-      },
-      {
-        id: 8,
-        title: "Negotiation & Acquisition",
-        icon: processIcon8,
-      },
-      {
-        id: 9,
-        title: "Portfolio Review",
-        img: processImg9,
-      },
-      {
-        id: 10,
-        title: "Exit Strategy & Disposition",
-        icon: processIcon10,
-      },
-      {
-        id: 11,
-        title: "Portfolio Expansion",
-        img: processImg11,
       },
     ],
   },
