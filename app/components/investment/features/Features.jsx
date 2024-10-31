@@ -109,7 +109,6 @@ const Features = ({ title, featuresData }) => {
             </div>
           ))}
         </Slider>
-
         {showArrows && (
           <div className="mobile_view">
             <PrevArrow />

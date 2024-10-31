@@ -477,8 +477,8 @@ export const investmentData = {
       title: "AHMEDABAD",
       detail: `Ahmedabad, the commercial and cultural heart of Gujarat, is emerging as one of India’s most promising cities for the best real estate locations in India. From its thriving economy to its strategic location and well-planned infrastructure, Ahmedabad offers a compelling case for both domestic and international investors. Here’s why Ahmedabad stands out as a top choice for land investment and business ventures:`,
       featured_img: ahmadabadImg,
-      img_alt: "",
-      img_title: "",
+      img_alt: "Property Management, Newedge Realty",
+      img_title: "Ahmadabad | Real Estate Agency | Newedge Realty",
     },
     benefits: [
       {
@@ -487,8 +487,8 @@ export const investmentData = {
         detail:
           "The Ahmedabad Urban Development Authority (AUDA) has undertaken a vast development plan spanning 1200 sq. km. This extensive area offers unparalleled opportunities for real estate development, commercial infrastructure, and residential expansion. With large-scale urban planning initiatives in place, Ahmedabad is set to become a modern and well-structured urban landscape, attracting developers and investors alike.",
         featured_img: massiveurbanImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "MassiveUrban | Real Estate Agency | Newedge Realty",
       },
       {
         id: 2,
@@ -496,8 +496,8 @@ export const investmentData = {
         detail:
           "Compared to cities like Mumbai, Delhi, or Bengaluru, land prices in Ahmedabad are still relatively affordable. This makes it a good investment option for those looking for high returns in the long term.",
         featured_img: affordableImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Affordable | Property Management | Newedge Realty",
       },
       {
         id: 3,
@@ -505,8 +505,8 @@ export const investmentData = {
         detail:
           "Ahmedabad boasts excellent infrastructure with good connectivity via roads, railways, and airways. The upcoming Bullet Train project, as well as the development of the Ahmedabad Metro, are expected to further enhance the city's connectivity, improving the value of surrounding land areas. This benefits make it the best Real estate locations in India.",
         featured_img: infrastructuralImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Real Estate Agency, Newedge Realty",
+        img_title: " Infrastructural | Real Estate Agency | Newedge Realty",
       },
       {
         id: 4,
@@ -514,8 +514,8 @@ export const investmentData = {
         detail:
           "Ahmedabad boasts the highest per capita purchasing power for buying land in India, making it a city where the population has strong buying potential. For businesses and investors, this means a robust consumer market with a steady demand for goods and services, making Ahmedabad the best Property location in India for retail, real estate, and industrial investments.",
         featured_img: purchasingpowerImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "PurchasingPower | Real Estate Agency | Newedge Realty",
       },
       {
         id: 5,
@@ -523,8 +523,8 @@ export const investmentData = {
         detail:
           "A staggering 70% of India’s stock market investors are Gujaratis, showcasing the region’s deep-rooted culture of financial investment and entrepreneurship. This makes Ahmedabad one of the preferred  Industrial real estate locations in India  for financial services, banking, and stock trading, where capital is actively invested in growth opportunities.",
         featured_img: localpopulationImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: " Real Estate Agency, Newedge Realty",
+        img_title: "Local Population | Real Estate Agency | Newedge Realty",
       },
       {
         id: 6,
@@ -532,8 +532,8 @@ export const investmentData = {
         detail:
           "Ahmedabad has officially been accorded Metro City status, marking it as one of India’s leading urban centers. With this status comes the promise of better infrastructure, advanced public transportation, and higher standards of living, further enhancing the city’s investment appeal.",
         featured_img: metroImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Metro | Real Estate Agency | Newedge Realty",
       },
       {
         id: 7,
@@ -541,8 +541,8 @@ export const investmentData = {
         detail:
           "The world’s cheapest car project, Tata Nano, was launched in Ahmedabad, a testament to the city’s industrial capabilities and its potential for cost-effective manufacturing. The presence of such large-scale industries signals the city’s ability to attract industrial giants, which in turn fuels economic growth and job creation. Micron Technology and Kaynes Technology are setting up their semiconductor plants in Sanand. ",
         featured_img: industrialImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Real Estate Experts, Newedge Realty",
+        img_title: "Industrial | Trusted Property Dealers | Newedge Realty",
       },
       {
         id: 8,
@@ -550,8 +550,8 @@ export const investmentData = {
         detail:
           "With a population exceeding 7 million, Ahmedabad is home to a large, dynamic, and young workforce. This growing population provides a huge market for both consumer goods and services, and also serves as a skilled labor pool for businesses and industries looking to set up operations in the city.",
         featured_img: populationImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Population | Real Estate Agency | Newedge Realty",
       },
       {
         id: 9,
@@ -559,8 +559,8 @@ export const investmentData = {
         detail:
           "Ahmedabad’s international airport offers easy access to major global destinations, enhancing its appeal for foreign investors and businesses. The airport serves as a vital gateway, making Ahmedabad a prime location for international trade, commerce, and tourism.",
         featured_img: connectivityImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Best Real Estate Company, Newedge Realty",
+        img_title: "Connectivity | Best Real Estate Company | Newedge Realty",
       },
       {
         id: 10,
@@ -568,8 +568,8 @@ export const investmentData = {
         detail:
           "Ahmedabad is home to the Indian Institute of Management (IIM), one of the world’s leading business schools. This positions the city as a center for talent and innovation, ensuring a steady stream of well-educated professionals, entrepreneurs, and business leaders. For investors, this means access to top-notch talent for future ventures.",
         featured_img: hometoworldImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Home To World | Real Estate Experts | Newedge Realty",
       },
     ],
     whyInvest: {
@@ -577,8 +577,8 @@ export const investmentData = {
       detail:
         "The Sabarmati Riverfront Project is India’s first urban riverfront development, transforming the Sabarmati River into a vibrant space with parks, promenades, and business districts. This visionary project not only beautifies the city but also creates prime real estate opportunities for commercial and residential development.",
       featured_img: riverfrontImg,
-      img_alt: "",
-      img_title: "",
+      img_alt: "Property Management, Newedge Realty",
+      img_title: "Riverfront | Real Estate Agency | Newedge Realty",
     },
     benefits2: [
       {
@@ -587,8 +587,8 @@ export const investmentData = {
         detail:
           "Ahmedabad is home to India’s first expressway, the Ahmedabad-Vadodara Expressway, reflecting the city’s forward-thinking approach to infrastructure and connectivity. This vital transportation link improves regional connectivity, making the movement of goods and people more efficient, and boosting the local economy.",
         featured_img: expresswayImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Best Real Estate Company, Newedge Realty",
+        img_title: "Expressway | Real Estate Services | Newedge Realty",
       },
       {
         id: 2,
@@ -596,8 +596,8 @@ export const investmentData = {
         detail:
           "Located between Ahmedabad and Gandhinagar, the Gujarat International Finance Tec-City (GIFT City) is a cutting-edge financial and technological hub. This futuristic city is attracting global financial institutions, IT companies, and service providers. The land surrounding GIFT City has become a hotspot for investment, with rapidly appreciating property values and immense potential for development.",
         featured_img: giftcityImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Consultants, Newedge Realty",
+        img_title: "Gift City | Property Consultants | Newedge Realty",
       },
       {
         id: 3,
@@ -605,8 +605,8 @@ export const investmentData = {
         detail:
           "Ahmedabad’s strategic location, growing infrastructure, and proximity to GIFT City make it a goldmine for real estate investors. The land surrounding GIFT City, in particular, has emerged as one of Gujarat’s top investment Property locations in india, offering high returns on investment due to increasing demand and development in the region.",
         featured_img: strategiclandImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Strategic Land | Real Estate Agency | Newedge Realty",
       },
       {
         id: 4,
@@ -614,8 +614,8 @@ export const investmentData = {
         detail:
           "Unlike some volatile real estate markets, Ahmedabad has shown a stable appreciation of land value over time. The city's long-term economic prospects make it a safer bet for investors seeking consistent growth.",
         featured_img: stablemarketImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Property Management, Newedge Realty",
+        img_title: "Stable Market | Real Estate Agency | Newedge Realty",
       },
       {
         id: 5,
@@ -623,8 +623,8 @@ export const investmentData = {
         detail:
           "As Ahmedabad continues to grow, especially in terms of its urban sprawl, the value of land is expected to rise substantially. Investing in land today could yield significant returns in the future, especially as the city expands into new areas.",
         featured_img: futureProofImg,
-        img_alt: "",
-        img_title: "",
+        img_alt: "Top Real Estate Agents, Newedge Realty",
+        img_title: "Future Proof | Top Real Estate Agents | Newedge Realty",
       },
     ],
     locations: {
@@ -632,14 +632,18 @@ export const investmentData = {
       map1: {
         title: "Auda",
         featured_img: opportunityImg1,
-        img_alt: "",
-        img_title: "",
+        img_alt:
+          "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
+        img_title:
+          "industrial property investment  | Luxury farmhouses  | Newedge Realty",
       },
       map2: {
         title: "GIFT City",
         featured_img: opportunityImg2,
-        img_alt: "",
-        img_title: "",
+        img_alt:
+          "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
+        img_title:
+          "opportunity to invest in Newedge Realty  | industrial property development | Newedge Realty",
       },
     },
   },
@@ -652,22 +656,27 @@ export const investmentData = {
 Dholera Industrial City aims to create a self-sustaining ecosystem driven by industrialization, supported by utilities, logistics, social infrastructure like education and healthcare, and other public amenities. With the backing of the Government of Gujarat, DMICDC plans to develop a modern city that is economically and socially balanced, offering world-class infrastructure, high standards of living, sustainable urban design, and efficient transportation links to neighbouring cities and the rest of the country.</p>
       `,
       featured_img: dholeraImg,
-      img_alt: "",
-      img_title: "",
+      img_alt:
+        "Real estate developments and investment opportunities in Dholera by Newedge Realty.",
+      img_title: "Dholera | Newedge Realty Developers | Newedge Realty",
     },
     maps: {
       title: "Maps",
       map1: {
         title: "Dholera DP",
         featured_img: opportunityImg1,
-        img_alt: "",
-        img_title: "",
+        img_alt:
+          "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
+        img_title:
+          "industrial property investment  | Luxury farmhouses  | Newedge Realty",
       },
       map2: {
         title: "Dholera Village",
         featured_img: opportunityImg2,
-        img_alt: "",
-        img_title: "",
+        img_alt:
+          "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
+        img_title:
+          "opportunity to invest in Newedge Realty  | industrial property development | Newedge Realty",
       },
     },
     advatnages: [
@@ -675,61 +684,85 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
         id: 1,
         name: "Worldclass Infrastructure",
         icon: worldclassinfrastructureIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 2,
         name: "Ease Of Governance",
         icon: easeofgovernanceIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 3,
         name: "Plug & Play",
         icon: plugplayIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 4,
         name: "Social Infrastructure",
         icon: "",
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 5,
         name: "Ease of Business",
         icon: easeofbusinessIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 6,
         name: "External Connectivity",
         icon: externalconnectivityIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 7,
         name: "Live, Work and Play",
         icon: "",
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 8,
         name: "Technology",
         icon: technologyIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 9,
         name: "Sustainability",
         icon: sustainabilityIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 10,
         name: "Fast Track Approvals",
         icon: fasttrackapprovalsIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 11,
         name: "Security",
         icon: securitydIcon,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 12,
         name: "Internal Connectivity",
         icon: internalconnectivityIcon,
+        img_alt: "",
+        img_title: "",
       },
     ],
     industries: {
@@ -745,8 +778,9 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       detail: `The Development Plan for DSIR has been prepared and approved by DSIRDA, with Phase-I encompassing TP1 and TP2, covering a total of 153 sq km.
 In addition to urban development, key trunk and external infrastructure will be established to support the growth of DSIR. These include the following:`,
       featured_img: developmentplanImg,
-      img_alt: "",
-      img_title: "",
+      img_alt:
+        "Real estate development plans by Newedge Realty for modern and sustainable projects",
+      img_title: "Development Plan | Real Estate Developers | Newedge Realty",
       planList: [
         {
           title: "Overall Trunk infrastructure Projects in Phase-1",
@@ -785,8 +819,10 @@ In addition to urban development, key trunk and external infrastructure will be 
       title: "Dholera on DMIC Image",
       detail: `The Delhi-Mumbai Industrial Corridor (DMIC) is a Central Government initiative to develop new "Smart Cities" using next-generation technologies and high-speed connectivity through the Dedicated Freight Corridor (DFC). Managed by the Delhi Mumbai Industrial Corridor Development Corporation Ltd. (DMICDC), Phase I includes the development of eight manufacturing cities, including the Ahmedabad-Dholera Investment Region, connected to the DFC.`,
       featured_img: dholeradmicImg,
-      img_alt: "",
-      img_title: "",
+      img_alt:
+        "Dholera map for real estate investment opportunities by Newedge Realty.",
+      img_title:
+        "Dholera Map | Contact Real Estate Agents India | Newedge Realty",
       dmicList: [
         {
           title: "Railway",
@@ -839,8 +875,10 @@ In addition to urban development, key trunk and external infrastructure will be 
 <li>Owner & Operator: Airports Authority of India (AAI)</li>
 </ul>`,
       featured_img: dholeraairportImg,
-      img_alt: "",
-      img_title: "",
+      img_alt:
+        "Commercial properties near Dholera Airport developed by Newedge Realty.",
+      img_title:
+        "Dholera Airport | Commercial Property Developers | Newedge Realty",
     },
     advantage: {
       title: "Advantage of Dholera",
