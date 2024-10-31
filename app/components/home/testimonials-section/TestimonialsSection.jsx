@@ -7,7 +7,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // api
 import { fetchTestimonialData } from "../../../apis/commonApi";
 // img
-import userImg from "../../../assets/home/userImg.jpg";
+import userImg from "../../../assets/home/userImg.webp";
 // css
 import "./styles.scss";
 

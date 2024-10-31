@@ -1,20 +1,20 @@
 // banner
-import bannerImg1 from "../assets/banner/homebanner1.jpg";
+import bannerImg1 from "../assets/banner/homebanner1.webp";
 // about
-import aboutImg1 from "../assets/home/aboutImg1.jpg";
-import aboutImg2 from "../assets/home/aboutImg2.jpg";
+import aboutImg1 from "../assets/home/aboutImg1.webp";
+import aboutImg2 from "../assets/home/aboutImg2.webp";
 //process
-import processImg1 from "../assets/home/process1.jpg";
+import processImg1 from "../assets/home/process1.webp";
 import processIcon2 from "../assets/home/process2.png";
-import processImg3 from "../assets/home/process3.jpg";
+import processImg3 from "../assets/home/process3.webp";
 import processIcon4 from "../assets/home/process4.png";
-import processImg5 from "../assets/home/process5.jpg";
+import processImg5 from "../assets/home/process5.webp";
 import processIcon6 from "../assets/home/process6.png";
-import processImg7 from "../assets/home/process7.jpg";
+import processImg7 from "../assets/home/process7.webp";
 import processIcon8 from "../assets/home/process8.png";
-import processImg9 from "../assets/home/process9.jpg";
+import processImg9 from "../assets/home/process9.webp";
 import processIcon10 from "../assets/home/process10.png";
-import processImg11 from "../assets/home/process11.jpg";
+import processImg11 from "../assets/home/process11.webp";
 
 export const homeData = {
   bannerData: {

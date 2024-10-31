@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectForm from "../project-form/ProjectForm";
 // img
-import projectImg from "../../../assets/home/commercial1.jpg";
+import projectImg from "../../../assets/home/commercial1.webp";
 // css
 import "./styles.scss";
 

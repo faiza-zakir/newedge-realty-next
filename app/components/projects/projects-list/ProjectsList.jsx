@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
 // img
-import projectImg from "../../../assets/home/commercial1.jpg";
+import projectImg from "../../../assets/home/commercial1.webp";
 // css
 import "./styles.scss";
 

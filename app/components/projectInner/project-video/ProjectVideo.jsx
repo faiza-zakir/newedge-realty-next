@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import { FaCirclePlay } from "react-icons/fa6";
 import ModalVideo from "react-modal-video";
 // img
-import posterImg from "../../../assets/home/comslider1.jpg";
+import posterImg from "../../../assets/home/comslider1.webp";
 
 // css
 import "./styles.scss";

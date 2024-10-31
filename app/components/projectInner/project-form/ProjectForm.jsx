@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import { Button, Col, Modal, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";

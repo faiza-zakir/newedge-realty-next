@@ -31,7 +31,7 @@ import opportunityImg2 from "../assets/investment/opportunityImg2.webp";
 // expert Tips
 import expertTipsImg from "../assets/investment/expertTipsImg.webp";
 //testimonials
-import userImg from "../assets/home/userImg.jpg";
+import userImg from "../assets/home/userImg.webp";
 // ahmadabad
 import ahmadabadImg from "../assets/ahmadabad/ahmadabadImg.webp";
 import riverfrontImg from "../assets/ahmadabad/riverfrontImg.webp";

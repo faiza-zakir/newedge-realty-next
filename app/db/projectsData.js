@@ -1,26 +1,24 @@
 // residential
-import residentialImg1 from "../assets/home/residential1.jpg";
-import residentialImg2 from "../assets/home/residential2.jpg";
-import residentialImg3 from "../assets/home/residential3.jpg";
-import residentialImg4 from "../assets/home/residential4.jpg";
-import sliderImg from "../assets/home/projslider1.jpg";
-import galleryImg from "../assets/home/projgallery1.jpg";
+import residentialImg1 from "../assets/home/residential1.webp";
+import residentialImg2 from "../assets/home/residential2.webp";
+import residentialImg3 from "../assets/home/residential3.webp";
+import residentialImg4 from "../assets/home/residential4.webp";
+import sliderImg from "../assets/home/projslider1.webp";
+import galleryImg from "../assets/home/projgallery1.webp";
 // commercial
-import commercialImg1 from "../assets/home/commercial1.jpg";
-import commercialImg2 from "../assets/home/commercial2.jpg";
-import commercialImg3 from "../assets/home/commercial3.jpg";
-import commercialImg4 from "../assets/home/commercial4.jpg";
-import comSliderImg from "../assets/home/comslider1.jpg";
-import comGalleryImg from "../assets/home/comgallery1.jpg";
+import commercialImg1 from "../assets/home/commercial1.webp";
+import commercialImg2 from "../assets/home/commercial2.webp";
+import commercialImg3 from "../assets/home/commercial3.webp";
+import commercialImg4 from "../assets/home/commercial4.webp";
+import comSliderImg from "../assets/home/comslider1.webp";
+import comGalleryImg from "../assets/home/comgallery1.webp";
 // banner Images
 import residentialbanner from "../assets/banner/residentialbanner.webp";
 import commercialbanner from "../assets/banner/commercialbanner.webp";
 import preleasedbanner from "../assets/banner/preleasedbanner.webp";
-import industrialbanner from "../assets/banner/industrialbanner.webp";
 import farmhousebanner from "../assets/banner/farmhousebanner.webp";
-import landbanner from "../assets/banner/landbanner.webp";
 // developer img
-import developerImg from "../assets/developers/developerInner.jpg";
+import developerImg from "../assets/developers/developerInner.webp";
 
 export const projectsData = [
   {
