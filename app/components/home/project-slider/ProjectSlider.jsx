@@ -106,7 +106,12 @@ const ProjectSlider = ({ tagLine, title, link, projectsData }) => {
                 }
               >
                 <figure>
-                  <Image src={project?.featured_img} alt="residential" />
+                  <Image
+                    src={project?.featured_img}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="residential"
+                  />
                 </figure>
                 <div className="content_sec">
                   <p className="location">

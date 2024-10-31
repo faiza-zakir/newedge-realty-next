@@ -15,14 +15,6 @@ import processIcon8 from "../assets/home/process8.png";
 import processImg9 from "../assets/home/process9.jpg";
 import processIcon10 from "../assets/home/process10.png";
 import processImg11 from "../assets/home/process11.jpg";
-//testimonials
-import userImg from "../assets/home/userImg.jpg";
-import testimonial1 from "../assets/home/testimonial1.jpg";
-import testimonial2 from "../assets/home/testimonial2.jpg";
-import testimonial3 from "../assets/home/testimonial3.jpg";
-import testimonial4 from "../assets/home/testimonial4.jpg";
-import testimonial5 from "../assets/home/testimonial5.jpg";
-import testimonial6 from "../assets/home/testimonial6.jpg";
 
 export const homeData = {
   bannerData: {
@@ -39,7 +31,12 @@ export const homeData = {
       "Trusted Solutions for Businesses, Projects, & Homeowners Since 1997",
     detail: `At Newedge Realty, we are leaders in premium property consultancy services. We guide our clients through the entire process by using our global network from identifying the right property, negotiating favorable terms, managing documentation to completing transactions. With over 25 years of experience, we make buying and selling of real estate transparent and secure. Our team of experts is proactive, analytical, and committed to providing tailor-made solutions for your unique real estate needs. Thank you for choosing us as your trusted and respected brand.`,
     featured_img1: aboutImg1,
+    img_alt1: " Property Management,Newedge Realt",
+    img_title1:
+      "Property Consultancy Firms | Property Management | Newedge Realty",
     featured_img2: aboutImg2,
+    img_alt2: " Property Management,Newedge Realt",
+    img_title2: "Retail Spaces Leased | affordable housing | Newedge Realty",
   },
   counts: [
     {
@@ -78,151 +75,85 @@ export const homeData = {
         id: 1,
         title: "Client Consultation",
         img: processImg1,
+        img_alt:
+          "Client consultation services by real estate consultants at Newedge Realty.",
+        img_title:
+          "Client Consultation | Real Estate Consultants | Newedge Realty",
       },
       {
         id: 2,
         title: "Market Research & Analysis",
         icon: processIcon2,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 3,
         title: "Property Selection",
         img: processImg3,
+        img_alt:
+          "Property selection services by property developers at Newedge Realty.",
+        img_title: "Property Selection | Property Developers | Newedge Realty",
       },
       {
         id: 4,
         title: "Financial Analysis & Development",
         icon: processIcon4,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 5,
         title: "Property Management",
         img: processImg5,
+        img_alt:
+          "Property management services by developers at Newedge Realty.",
+        img_title: "Property Management | Property Developers | Newedge Realty",
       },
       {
         id: 6,
         title: "Closing",
         icon: processIcon6,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 7,
         title: "Due Diligences",
         img: processImg7,
+        img_alt:
+          "Property management expertise by developers at Newedge Realty.",
+        img_title: "Property Management | Property Developers | Newedge Realty",
       },
       {
         id: 8,
         title: "Negotiation & Acquisition",
         icon: processIcon8,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 9,
         title: "Portfolio Review",
         img: processImg9,
+        img_alt: "Due diligence for property investments at Newedge Realty.",
+        img_title: "Due Diligence | Property Developers | Newedge Realty",
       },
       {
         id: 10,
         title: "Exit Strategy & Disposition",
         icon: processIcon10,
+        img_alt: "",
+        img_title: "",
       },
       {
         id: 11,
         title: "Portfolio Expansion",
         img: processImg11,
+        img_alt:
+          "Portfolio review for pre-leased properties at Newedge Realty.",
+        img_title: "Portfolio Review | Pre-Leased Properties | Newedge Realty",
       },
     ],
   },
-  testimonials: [
-    {
-      id: 1,
-      name: "Dr. Yogesh Gupta",
-      designation: "Senior Specialist Physician at Sterling Hospita",
-      user_img: userImg,
-      review:
-        "<p>“I am a Doctor by profession. We were fortunate to have Mr. Chetan Savaliya as a realty doctor. His team is so professional. I recommend Newedge Realty to everyone if they are searching for property. They deal in all aspects of property.”</p>",
-    },
-    {
-      id: 2,
-      name: "Mr. Prosenjit Ghosh",
-      designation: "National Head, PlayStation Division, Sony India",
-      user_img: userImg,
-      review:
-        "<p>“I have been dealing with Newedgeforty for the last 16 years and I know countless people who have the same opinion about this firm: Honesty, commitment, and Professionalism. Even if I have to buy a property on the moon, I will ask Newedge to conduct the deal for me.”</p>",
-    },
-    {
-      id: 3,
-      name: "Mr. Selwyn Castellino",
-      designation: "GM at Cashify",
-      user_img: userImg,
-      review:
-        "<p>“Detailed organized and professional in their approach. Newedge Realty delivers an awesome and bespoke exploration of your real estate needs.”</p>",
-    },
-    {
-      id: 4,
-      name: "Mr. Chitrak Shah",
-      designation: "founder at the Shivalik Group",
-      user_img: userImg,
-      review:
-        "<p>“We have been associated for more than 15 years and the experience has been fabulous. I feel the services, communication, and management by Mr. Chetan Savaliya and the team are always superlative. As a business concern, he supports us in many projects for largescale of space to sale.”</p>",
-    },
-    {
-      id: 5,
-      name: "Mr. Sharvil Shridhar",
-      designation: "MD at A.Shridhar Group",
-      user_img: userImg,
-      review:
-        "<p>“Newedge is A.Shridhar group's one of the most trusted real estate channel partners. We admire their dedicated efforts and professional services. Their urge for a win-win and transparent deal is what we love the most! Keep it up Newedge team!”</p>",
-    },
-    {
-      id: 6,
-      name: "Mr. Swagat Vyas",
-      designation: "MD at Vishwanath Builders",
-      user_img: userImg,
-      review:
-        "<p>“I needed 12,000 sq. ft. space for our corporate-office in Mondeal Retail Park, SG Highway, Ahmedabad. But the transaction of such huge size requires a trustworthy mediator between two parties. I approached Mr. Chetan Savaliya from Newedge Realty and proposed to represent my interest to the client. With his wit, negotiation skills combined with indomitable market knowledge we concluded the deal at a best price.”</p>",
-    },
-  ],
-  testimonialsVideo: [
-    {
-      id: 1,
-      name: "Dr. Saman Gupta",
-      designation: "Senior Specialist Physician at Sterling Hospita",
-      user_img: testimonial1,
-      url: "1020498549",
-    },
-    {
-      id: 2,
-      name: "Mr. Prosenjit Ghosh",
-      designation: "National Head, PlayStation Division, Sony India",
-      user_img: testimonial4,
-      url: "1020498933",
-    },
-    {
-      id: 3,
-      name: "Ms. Selwyn Castellino",
-      designation: "GM at Cashify",
-      user_img: testimonial3,
-      url: "1020498957",
-    },
-    {
-      id: 4,
-      name: "Mr. Chitrak Shah",
-      designation: "founder at the Shivalik Group",
-      user_img: testimonial4,
-      url: "1020496459",
-    },
-    {
-      id: 5,
-      name: "Ms. Sharvil Shridhar",
-      designation: "MD at A.Shridhar Group",
-      user_img: testimonial2,
-      url: "1020496459",
-    },
-    {
-      id: 6,
-      name: "Mr. Swagat Vyas",
-      designation: "MD at Vishwanath Builders",
-      user_img: testimonial6,
-      url: "9119881",
-    },
-  ],
 };

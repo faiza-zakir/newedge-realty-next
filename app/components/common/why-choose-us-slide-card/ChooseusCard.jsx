@@ -33,7 +33,12 @@ function ChooseusCard(props) {
       ) : (
         <div className="process_item2">
           <figure>
-            <Image src={item?.img} alt="process" className="image" />
+            <Image
+              src={item?.img}
+              className="image"
+              alt={item?.img_alt}
+              title={item?.img_title}
+            />
           </figure>
           <div className="content_sec">
             <h3 className="sub_heading">{item?.title}</h3>

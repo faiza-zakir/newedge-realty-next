@@ -440,7 +440,13 @@ const ContactFormSection = () => {
           </Col>
           <Col lg={6}>
             <figure>
-              <Image src={contactImg} alt="contact" />
+              <Image
+                src={contactImg}
+                layout="fill"
+                objectFit="cover"
+                alt="Real Estate Office Contact India | Newedge Realty"
+                title="Contact | Contact Real Estate Agents India | Newedge Realty"
+              />
             </figure>
           </Col>
         </Row>

@@ -135,12 +135,14 @@ const TestimonialsSection = () => {
                 <div className="video_testimonial_item">
                   <div className="gap-3 mt-4">
                     <figure>
-                      <img
+                      <Image
                         src={
                           item?.user_img
                             ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.user_img}`
                             : userImg
                         }
+                        layout="fill"
+                        objectFit="cover"
                         alt={item?.name}
                         // width="100"
                         // height={"100"}

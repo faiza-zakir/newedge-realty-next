@@ -48,10 +48,22 @@ const AboutSection = ({ aboutData, countsData }) => {
           <Col lg={6}>
             <div className="img_wrap">
               <figure className="about_img1">
-                <Image src={aboutData?.featured_img2} alt="about" />
+                <Image
+                  src={aboutData?.featured_img2}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={aboutData?.img_alt2}
+                  title={aboutData?.img_title2}
+                />
               </figure>
               <figure className="about_img2">
-                <Image src={aboutData?.featured_img1} alt="about" />
+                <Image
+                  src={aboutData?.featured_img1}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={aboutData?.img_alt1}
+                  title={aboutData?.img_title1}
+                />
               </figure>
             </div>
           </Col>

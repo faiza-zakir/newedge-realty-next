@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -136,14 +135,14 @@ const BlogSection = () => {
             {blogData?.map((item, i) => (
               <div className="blog_item" key={item?.id}>
                 <figure>
-                  <img
+                  <Image
                     src={
                       item?.feature_image
                         ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.feature_image}`
                         : blogImg
                     }
-                    // layout="fill"
-                    // objectFit="cover"
+                    layout="fill"
+                    objectFit="cover"
                     // width="100"
                     // height={"100"}
                     alt={item?.title}
