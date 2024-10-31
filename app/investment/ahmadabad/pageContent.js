@@ -5,7 +5,7 @@ import WhyInvest from "../../components/investment/why-invest/WhyInvest";
 import Maps from "../../components/dholera/maps/Maps";
 import KeyFeaturesSlider from "../../components/investment/key-features-slider/KeyFeaturesSlider";
 import ContactSection from "../../components/home/contact-section/ContactSection";
-import FAQSection from "../../components/home/faq-section/FAQSection";
+import FAQSection from "../../components/investment/faq-section/FAQSection";
 // img
 import bannerImg from "../../assets/banner/ahmadabadbanner.webp";
 // data

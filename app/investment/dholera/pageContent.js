@@ -10,7 +10,7 @@ import Airport from "../../components/dholera/airport/Airport";
 import PhasesSlider from "../../components/investment/phases-slider/PhasesSlider";
 import Investors from "../../components/dholera/investors/Investors";
 import ContactSection from "../../components/home/contact-section/ContactSection";
-import FAQSection from "../../components/home/faq-section/FAQSection";
+import FAQSection from "../../components/investment/faq-section/FAQSection";
 // img
 import bannerImg from "../../assets/banner/dholerabanner.webp";
 // data

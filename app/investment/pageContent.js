@@ -9,7 +9,7 @@ import KeyFeaturesSlider from "../components/investment/key-features-slider/KeyF
 import ExpertTips from "../components/investment/expert-tips/ExpertTips";
 import TestimonialsSection from "../components/home/testimonials-section/TestimonialsSection";
 import ContactSection from "../components/home/contact-section/ContactSection";
-import FAQSection from "../components/home/faq-section/FAQSection";
+import FAQSection from "../components/investment/faq-section/FAQSection";
 // img
 import bannerImg from "../assets/banner/investmentbanner.webp";
 // data
