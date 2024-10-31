@@ -17,7 +17,8 @@ const Founder = ({ founderData }) => {
                 }
                 layout="fill"
                 objectFit="cover"
-                alt={founderData?.title}
+                alt="Property Management, Newedge Realty"
+                title="Newedge Realty Mission | Best Real Estate Company | Newedge Realty"
               />
             </figure>
           </Col>

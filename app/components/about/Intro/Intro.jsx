@@ -26,7 +26,8 @@ const Intro = ({ introData }) => {
                 }
                 layout="fill"
                 objectFit="cover"
-                alt={introData?.tagLine}
+                alt="Property Management, Newedge Realty"
+                title="Property Consultancy Firms | Property Management | Newedge Realty"
               />
             </figure>
           </Col>

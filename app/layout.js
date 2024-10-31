@@ -33,9 +33,9 @@ import NextTopLoader from "nextjs-toploader";
 export async function generateMetadata() {
   // Logic to set title and description based on route or props
   return {
-    title: "NewEdge Realty",
+    title: "Newedge Realty Affordable Housing | Property at Exciting Rates",
     description:
-      "Your trusted real estate partner for buying and selling properties.",
+      "Prime commercial properties for sale, affordable housing options, and office spaces for rent with Newedge Realty! Get yours now!",
   };
 }
 

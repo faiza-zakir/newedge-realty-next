@@ -1,5 +1,4 @@
 "use client";
-import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
@@ -9,7 +8,7 @@ import BannerVideo from "./components/home/banner-section/banner-video/BannerVid
 import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
 import BlogSection from "./components/home/blog-section/BlogSection";
 import ContactSection from "./components/home/contact-section/ContactSection";
-// import FAQSection from "./components/home/faq-section/FAQSection";
+import FAQSection from "./components/home/faq-section/FAQSection";
 import TestimonialsSection from "./components/home/testimonials-section/TestimonialsSection";
 import VideoTestimonialsSection from "./components/home/video-testimonials-section/VideoTestimonialsSection";
 import ProjectSlider from "./components/home/project-slider/ProjectSlider";
@@ -45,15 +44,6 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Newedge Realty Affordable Housing | Property at Exciting Rates
-        </title>
-        <meta
-          name="description"
-          content="Prime commercial properties for sale, affordable housing options, and office spaces for rent with Newedge Realty! Get yours now!"
-        />
-      </Head>
       <TaglinePopup show={showModal} handleClose={handleModalClose} />
       <BannerVideo />
       <section className="form_mobile_view mt-60">
@@ -80,7 +70,7 @@ const Home = () => {
       <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
       <BlogSection />
       <ContactSection />
-      {/* <FAQSection /> */}
+      <FAQSection />
     </>
   );
 };

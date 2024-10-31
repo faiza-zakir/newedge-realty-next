@@ -17,7 +17,8 @@ const Mission = ({ missionData }) => {
                 }
                 layout="fill"
                 objectFit="cover"
-                alt={missionData?.title}
+                alt="Property Management, Newedge Realty"
+                title="Newedge Realty Vision | Real Estate Services | Newedge Realty"
               />
             </figure>
           </Col>

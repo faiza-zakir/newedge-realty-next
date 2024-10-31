@@ -35,9 +35,10 @@ const CountsSection = ({ countsData, countsInfo }) => {
             <figure>
               <Image
                 src={countsInfo?.featured_img}
-                alt="count"
                 layout="fill"
                 objectFit="cover"
+                alt="Property Management, Newedge Realty"
+                title="Retail Spaces Leased | Real Estate Agency | Newedge Realty"
               />
             </figure>
           </Col>

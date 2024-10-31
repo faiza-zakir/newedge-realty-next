@@ -26,7 +26,8 @@ const Vision = ({ visionData }) => {
                 }
                 layout="fill"
                 objectFit="cover"
-                alt={visionData?.title}
+                alt="Property Management | Newedge Realty"
+                title="Newedge Realty Banner | Real Estate Agency | Newedge Realty"
               />
             </figure>
           </Col>
