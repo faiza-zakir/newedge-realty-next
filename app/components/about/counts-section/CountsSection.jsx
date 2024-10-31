@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
 import CountUp from "react-countup";
+// img
+import countsImg from "../../../assets/about/countsImg.jpg";
 // css
 import "./styles.scss";
 
@@ -34,7 +36,7 @@ const CountsSection = ({ countsData, countsInfo }) => {
           <Col lg={6} className="order-last order-lg-first">
             <figure>
               <Image
-                src={countsInfo?.featured_img}
+                src={countsImg}
                 layout="fill"
                 objectFit="cover"
                 alt="Property Management, Newedge Realty"

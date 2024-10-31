@@ -36,7 +36,7 @@ const settings = {
   ],
 };
 
-const TeamList = ({ teamData, teamInfo }) => {
+const TeamList = ({ teamData }) => {
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -80,8 +80,8 @@ const TeamList = ({ teamData, teamInfo }) => {
       <Container>
         <div className="header_wrap">
           <div>
-            <span className="tag_line">{teamInfo?.tagLine}</span>
-            <h2 className="main_sec_heading">{teamInfo?.title}</h2>
+            <span className="tag_line">Meet</span>
+            <h2 className="main_sec_heading">OUR TEAM</h2>
           </div>
           {showArrows && (
             <div className="desktop_view">

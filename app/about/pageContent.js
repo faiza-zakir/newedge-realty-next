@@ -15,11 +15,9 @@ import { fatchAboutData } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
-import { aboutData } from "../db/aboutData";
 import { homeData } from "../db/homeData";
 
 const PageContent = () => {
-  const { topCounts, team } = aboutData;
   const { whyChoose } = homeData;
   const [aboutUsData, setAboutUsData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -50,12 +48,12 @@ const PageContent = () => {
         bgImg={bannerImg}
       />
       <Intro introData={aboutUsData?.about} />
-      <CountsSection countsData={aboutUsData?.counts} countsInfo={topCounts} />
+      <CountsSection countsData={aboutUsData?.counts} />
       <WhyChooseSection whyChooseData={whyChoose} />
       <Mission missionData={aboutUsData?.mission} />
       <Vision visionData={aboutUsData?.vision} />
       <Founder founderData={aboutUsData?.founder} />
-      <TeamList teamData={aboutUsData?.team} teamInfo={team} />
+      <TeamList teamData={aboutUsData?.team} />
       <ContactSection />
       <FAQSection />
     </>
