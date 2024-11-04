@@ -6,6 +6,10 @@ import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 // api
 import { postBrochureForm } from "../../../apis/commonApi";
+
+// fr
+import { auth } from "@/firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 // css
 import "./styles.scss";
 
@@ -23,6 +27,11 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
   const [errors, setErrors] = useState({});
   const [captchaToken, setCaptchaToken] = useState(null); // Store reCAPTCHA token
   const pdfDownloadLink = useRef(null); // Ref for hidden download link
+  const [FormDataSent, setFormDataSent] = useState(false);
+  const [otpCode, setOtpCode] = useState("");
+  const [isOtpVerify, setIsOtpVerify] = useState(false);
+  const [isFileDownloading, setIsFileDownloading] = useState(false);
+  const [currentForm, setCurrentForm] = useState(null);
 
   const handleInputChange = (e) => {
     setFormValues({
@@ -37,6 +46,102 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
     setErrors({ ...errors, captcha: "" }); // Clear CAPTCHA error on success
   };
 
+  // firebase auth otp
+  function onCaptchVerify() {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // onSignUp();
+          },
+          "expired-callback": () => {},
+        },
+        auth
+      );
+    }
+  }
+
+  async function sentOTP(phoneNumber) {
+    let UserPhone = phoneNumber
+      .replace(/\s+/g, "")
+      .replace(/-/g, "")
+      .replace(/[()]/g, "");
+
+    await onCaptchVerify();
+    const appVerifier = window.recaptchaVerifier;
+
+    signInWithPhoneNumber(auth, `+${UserPhone}`, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setLoading(false);
+        setFormDataSent(true);
+        toast.success("OTP Sent on Phone!", {
+          autoClose: 3000,
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast.error(
+          error?.message + " OTP cant be sent" || "Error Sending OTP",
+          {
+            autoClose: 3000,
+          }
+        );
+
+        console.log("OTP Sending... Error", error);
+      });
+  }
+
+  function OtpVerify() {
+    setIsOtpVerify(true);
+    if (otpCode?.length < 6) {
+      toast.error("Enter a valid OTP", {
+        autoClose: 3000,
+      });
+      setIsOtpVerify(false);
+
+      return;
+    }
+    let confirmationResult = window.confirmationResult;
+    if (confirmationResult) {
+      confirmationResult
+        .confirm(otpCode)
+        .then(async (result) => {
+          console.log("Result: ", result);
+          const user = result.user;
+          setIsOtpVerify(false);
+
+          toast.success("OTP Verified, Downloading File", {
+            autoClose: 3000,
+          });
+
+          setIsFileDownloading(true);
+          currentForm.submit();
+          setLoading(false);
+          setCaptchaToken(null);
+          setFormValues({ ...initailObject });
+          setMobileValue("");
+          setFormValues({ ...initailObject });
+          pdfDownloadLink.current.click(); // Simulate click to download PDF
+
+          setIsFileDownloading(false);
+          handleClose();
+
+          return result;
+        })
+        .catch((error) => {
+          console.log("🚀 ~ OtpVerify ~ error:", error);
+          toast.error("OTP Verification Error, Please try again!", {
+            autoClose: 3000,
+          });
+          setIsOtpVerify(false);
+        });
+    }
+  }
+
   const PostBrochureData = async (updatedData, form) => {
     const payload = {
       first_name: updatedData?.first_name,
@@ -48,14 +153,16 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
       const response = await postBrochureForm(payload);
       if (response?.status == 200 || response?.status == 201) {
         // Submit to Salesforce Web-to-Lead form
-        form.submit();
-        setLoading(false);
-        setFormValues({ ...initailObject });
-        setMobileValue("");
-        setFormValues({ ...initailObject });
+        console.log("Payload: ", payload);
+        // form.submit();
+        await sentOTP(payload?.phone);
+
+        // setFormValues({ ...initailObject });
+
+        // setFormValues({ ...initailObject });
         // toast.success("Data has been Submitted Successfully!");
-        pdfDownloadLink.current.click(); // Simulate click to download PDF
-        handleClose();
+        // pdfDownloadLink.current.click(); // Simulate click to download PDF
+        // handleClose();
       }
     } catch (err) {
       setLoading(false);
@@ -89,6 +196,8 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
     }
 
     const form = e.target;
+    setCurrentForm(form);
+
     let updatedData = {
       ...formValues,
       phone: mobileValue,
@@ -118,7 +227,11 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
           className="brochure_form_sec"
           onSubmit={handleSubmit}
         >
-          <p className="para_comm">Fill the below form to get your copy.</p>
+          {FormDataSent ? (
+            <p>OTP Sent to: +{mobileValue}</p>
+          ) : (
+            <p className="para_comm">Fill the below form to get your copy.</p>
+          )}
           {/* Hidden Salesforce fields */}
           <input type="hidden" name="oid" value="00D9I0000016bIr" />
           <input
@@ -142,77 +255,111 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
             name="00N9I000000vPGD"
             value={formValues?.recordType}
           />
-          <Row className="g-0 gx-lg-2">
-            <Col lg={6}>
-              <Form.Group controlId="first_name" className="mb-3">
-                <Form.Control
-                  type="text"
-                  id="first_name"
-                  name="first_name"
-                  value={formValues.first_name}
-                  onChange={handleInputChange}
-                  placeholder="First Name"
-                />
-                <p className="mt-2 form_error_msg">{errors?.first_name}</p>
-              </Form.Group>
-            </Col>
-            <Col lg={6}>
-              <Form.Group controlId="last_name" className="mb-3">
-                <Form.Control
-                  type="text"
-                  id="last_name"
-                  name="last_name"
-                  value={formValues.last_name}
-                  onChange={handleInputChange}
-                  placeholder="Last Name"
-                />
-                <p className="mt-2 form_error_msg">{errors?.last_name}</p>
-              </Form.Group>
-            </Col>
-            <Col lg={6}>
-              <div className="mb-3">
-                <PhoneInput
-                  country="in"
-                  value={mobileValue}
-                  onChange={setMobileValue}
-                  enableSearch={true}
-                  disableSearchIcon={true}
-                />
-                <p className="mt-2 form_error_msg">{errors?.phone}</p>
-              </div>
-            </Col>
-            <Col lg={6}>
-              <Form.Group controlId="email" className="mb-3">
-                <Form.Control
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formValues.email}
-                  onChange={handleInputChange}
-                  placeholder="Email"
-                />
-                <p className="mt-2 form_error_msg">{errors?.email}</p>
-              </Form.Group>
-            </Col>
-            <Col sm={12}>
-              {/* Google reCAPTCHA */}
-              <div className="mb-4">
-                <ReCAPTCHA
-                  sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
-                  onChange={onCaptchaChange}
-                />
-                <p className="mt-2 form_error_msg">{errors?.captcha}</p>
-              </div>
-            </Col>
-            <Col sm={12}>
-              <div className="text-center">
-                <Button className="theme_btn2" disabled={loading} type="submit">
-                  {loading ? "downloading..." : "Download"}
-                </Button>
-              </div>
-            </Col>
-          </Row>
-
+          {FormDataSent ? (
+            <>
+              <Row>
+                <Col lg={12}>
+                  <Form.Group controlId="otp" className="mb-3">
+                    <Form.Control
+                      type="text"
+                      id="otp_code"
+                      name="otp_code"
+                      onChange={(e) => setOtpCode(e.target.value)}
+                      placeholder="000000"
+                    />
+                  </Form.Group>
+                </Col>
+                {isFileDownloading ? <Col xs={12}>Downloading...</Col> : null}
+                <Col sm={12}>
+                  <div className="text-center">
+                    <Button
+                      className="theme_btn2"
+                      disabled={isOtpVerify}
+                      onClick={() => OtpVerify()}
+                    >
+                      {isOtpVerify ? "Verifying..." : "Verify"}
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            </>
+          ) : (
+            <Row className="g-0 gx-lg-2">
+              <Col lg={6}>
+                <Form.Group controlId="first_name" className="mb-3">
+                  <Form.Control
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    value={formValues.first_name}
+                    onChange={handleInputChange}
+                    placeholder="First Name"
+                  />
+                  <p className="mt-2 form_error_msg">{errors?.first_name}</p>
+                </Form.Group>
+              </Col>
+              <Col lg={6}>
+                <Form.Group controlId="last_name" className="mb-3">
+                  <Form.Control
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    value={formValues.last_name}
+                    onChange={handleInputChange}
+                    placeholder="Last Name"
+                  />
+                  <p className="mt-2 form_error_msg">{errors?.last_name}</p>
+                </Form.Group>
+              </Col>
+              <Col lg={6}>
+                <div className="mb-3">
+                  <PhoneInput
+                    country="in"
+                    value={mobileValue}
+                    onChange={setMobileValue}
+                    enableSearch={true}
+                    disableSearchIcon={true}
+                  />
+                  <p className="mt-2 form_error_msg">{errors?.phone}</p>
+                </div>
+              </Col>
+              <Col lg={6}>
+                <Form.Group controlId="email" className="mb-3">
+                  <Form.Control
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formValues.email}
+                    onChange={handleInputChange}
+                    placeholder="Email"
+                  />
+                  <p className="mt-2 form_error_msg">{errors?.email}</p>
+                </Form.Group>
+              </Col>
+              <Col sm={12}>
+                {/* Google reCAPTCHA */}
+                <div className="mb-4">
+                  <ReCAPTCHA
+                    sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
+                    onChange={onCaptchaChange}
+                  />
+                  <p className="mt-2 form_error_msg">{errors?.captcha}</p>
+                </div>
+              </Col>
+              <Col sm={12}>
+                <div className="text-center">
+                  <Button
+                    className="theme_btn2"
+                    disabled={loading}
+                    type="submit"
+                  >
+                    {loading ? "Submitting..." : "Submit"}
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          )}
+          <div id="recaptcha-container"></div>
           {/* Hidden link for PDF download */}
           <a
             ref={pdfDownloadLink}
