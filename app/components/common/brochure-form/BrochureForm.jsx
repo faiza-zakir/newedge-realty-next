@@ -228,7 +228,7 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
           onSubmit={handleSubmit}
         >
           {FormDataSent ? (
-            <p>OTP Sent to: +{mobileValue}</p>
+            <p className="para_comm">OTP Sent to: +{mobileValue}</p>
           ) : (
             <p className="para_comm">Fill the below form to get your copy.</p>
           )}
@@ -261,11 +261,16 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
                 <Col lg={12}>
                   <Form.Group controlId="otp" className="mb-3">
                     <Form.Control
-                      type="text"
+                      type="number"
                       id="otp_code"
                       name="otp_code"
                       onChange={(e) => setOtpCode(e.target.value)}
                       placeholder="000000"
+                      style={{
+                        textAlign: "center",
+                        fontSize: "18px",
+                        letterSpacing: "5px",
+                      }}
                     />
                   </Form.Group>
                 </Col>
