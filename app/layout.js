@@ -45,6 +45,21 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* search consule verification code  */}
+        <meta
+          name="google-site-verification"
+          content="n-rQF-ODd8b22mm93u2ScOOLG4GFOZDb86ai7EUzCPE"
+        />
+        {/* Google tag (gtag.js)  */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-GJRR5HNPK9');
+        </script>
       </head>
       <body
       // className={`${geistPoppinsRegular.variable} ${geistPoppinsSemiBold.variable} ${geistPoppinsMedium.variable} ${geistPoppinsBold.variable}`}
