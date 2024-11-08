@@ -46,8 +46,8 @@ const Investors = ({ investorsData }) => {
                 <div className="investors_item" key={i}>
                   <Image
                     src={item?.img}
-                    layout="fill"
-                    objectFit="cover"
+                    width={150}
+                    height={150}
                     alt={item?.img_alt}
                     title={item?.img_title}
                   />
