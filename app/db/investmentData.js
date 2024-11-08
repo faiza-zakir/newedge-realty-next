@@ -61,8 +61,10 @@ import dholeraairportImg from "../assets/dholera/dholeraairportImg.webp";
 import worldclassinfrastructureIcon from "../assets/dholera/worldclassinfrastructure.svg";
 import easeofgovernanceIcon from "../assets/dholera/easeofgovernance.svg";
 import plugplayIcon from "../assets/dholera/plugplay.svg";
+import socialinfrastructureIcon from "../assets/dholera/socialinfrastructure.png";
 import easeofbusinessIcon from "../assets/dholera/easeofbusiness.svg";
 import externalconnectivityIcon from "../assets/dholera/externalconnectivity.svg";
+import workIcon from "../assets/dholera/work.png";
 import technologyIcon from "../assets/dholera/technology.svg";
 import sustainabilityIcon from "../assets/dholera/sustainability.svg";
 import fasttrackapprovalsIcon from "../assets/dholera/fasttrackapprovals.svg";
@@ -79,9 +81,11 @@ import industrialwastemanagementIcon from "../assets/dholera/industrialwastemana
 // sectors icons
 import aerospaceanddefenceIcon from "../assets/dholera/aerospaceanddefence.svg";
 import heavyengineeringmanufacturingIcon from "../assets/dholera/heavyengineeringmanufacturing.svg";
+import autoancillariesIcon from "../assets/dholera/autoancillaries.png";
 import agroandfoodprocessingIcon from "../assets/dholera/agroandfoodprocessing.svg";
 import electronicsIcon from "../assets/dholera/electronics.svg";
 import pharmaandbiotechIcon from "../assets/dholera/pharmaandbiotech.svg";
+import itparkIcon from "../assets/dholera/pharmaandbiotech.png";
 import solarIcon from "../assets/dholera/solar.svg";
 // investors
 import adani from "../assets/logo/adani.webp";
@@ -704,7 +708,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       {
         id: 4,
         name: "Social Infrastructure",
-        icon: "",
+        icon: socialinfrastructureIcon,
         img_alt: "",
         img_title: "",
       },
@@ -725,7 +729,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       {
         id: 7,
         name: "Live, Work and Play",
-        icon: "",
+        icon: workIcon,
         img_alt: "",
         img_title: "",
       },
@@ -949,7 +953,7 @@ In addition to urban development, key trunk and external infrastructure will be 
       {
         id: 3,
         name: "Auto and auto ancillaries",
-        icon: "",
+        icon: autoancillariesIcon,
       },
       {
         id: 4,
@@ -969,7 +973,7 @@ In addition to urban development, key trunk and external infrastructure will be 
       {
         id: 7,
         name: "IT park",
-        icon: "",
+        icon: itparkIcon,
       },
       {
         id: 8,
