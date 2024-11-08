@@ -1,22 +1,21 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Loader from "./components/common/loader/Loader";
 import Navbar from "./components/layout/navbar-section/Navbar";
 import InvestmentFloatingIcon from "./components/common/investment-floating-icon/InvestmentFloatingIcon";
-import FloatingIcon from "./components/common/floating-icon/FloatingIcon";
-import Footer from "./components/layout/footer-section/Footer";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import FloatingIcon from "./components/common/floating-icon/FloatingIcon";
+// import Footer from "./components/layout/footer-section/Footer";
+// Lazy load components that are not essential for initial page render
+const FloatingIcon = React.lazy(() =>
+  import("./components/common/floating-icon/FloatingIcon")
+);
+const Footer = React.lazy(() =>
+  import("./components/layout/footer-section/Footer")
+);
 
 export default function Template({ children }) {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="layout-container">
       <ToastContainer
@@ -31,17 +30,13 @@ export default function Template({ children }) {
         pauseOnHover={false}
         theme="light"
       />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Navbar />
-          <InvestmentFloatingIcon />
-          <main>{children}</main>
-          <FloatingIcon />
-          <Footer />
-        </>
-      )}
+      <Navbar />
+      <InvestmentFloatingIcon />
+      <Suspense fallback={<Loader />}>
+        <main>{children}</main>
+        <FloatingIcon />
+        <Footer />
+      </Suspense>
     </div>
   );
 }
