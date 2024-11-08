@@ -85,7 +85,7 @@ import autoancillariesIcon from "../assets/dholera/autoancillaries.png";
 import agroandfoodprocessingIcon from "../assets/dholera/agroandfoodprocessing.svg";
 import electronicsIcon from "../assets/dholera/electronics.svg";
 import pharmaandbiotechIcon from "../assets/dholera/pharmaandbiotech.svg";
-import itparkIcon from "../assets/dholera/pharmaandbiotech.png";
+import itparkIcon from "../assets/dholera/itpark.png";
 import solarIcon from "../assets/dholera/solar.svg";
 // investors
 import adani from "../assets/logo/adani.webp";
