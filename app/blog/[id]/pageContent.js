@@ -47,7 +47,7 @@ const PageContent = () => {
   useEffect(() => {
     fetchBlogListData();
     fetchSingleBlogData();
-  }, [id, fetchBlogListData, fetchSingleBlogData]);
+  }, [id]);
 
   return (
     <>
