@@ -670,7 +670,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       title: "Maps",
       map1: {
         title: "Dholera DP",
-        link: "https://www.google.com/maps/place/Dholera+Dham/@22.2451473,72.190701,17z/data=!3m1!4b1!4m6!3m5!1s0x395f244d95555553:0xa70ee506544ddeb!8m2!3d22.2451424!4d72.1932759!16s%2Fg%2F11f351vpll?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "https://www.google.com/maps/place/Dholera+SIR+Projects+Pvt+Ltd+,/@22.2515175,72.1921508,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b8859f9e885b:0xc838b704d88b62c0!8m2!3d22.2515126!4d72.1947257!16s%2Fg%2F11c48smpr2?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg1,
         img_alt:
           "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
@@ -679,7 +679,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       },
       map2: {
         title: "Dholera Village",
-        link: "https://www.google.com/maps/place/Dholera,+Gujarat+382455,+India/@22.2483697,72.1899624,16z/data=!3m1!4b1!4m6!3m5!1s0x395f2451ff4100f9:0xaa2cd52f20110ead!8m2!3d22.2498636!4d72.1934421!16s%2Fm%2F03d88ws?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "https://www.google.com/maps/place/Dholera+SIR+Projects+Pvt+Ltd+,/@22.2515175,72.1921508,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b8859f9e885b:0xc838b704d88b62c0!8m2!3d22.2515126!4d72.1947257!16s%2Fg%2F11c48smpr2?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg2,
         img_alt:
           "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
