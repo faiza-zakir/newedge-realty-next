@@ -10,36 +10,40 @@ const Maps = ({ mapsData }) => {
         <h2 className="main_sec_heading">{mapsData?.title}</h2>
         <Row className="gy-5 gx-lg-5">
           <Col lg={6}>
-            <div className="map_item">
-              <figure>
-                <Image
-                  src={mapsData?.map1?.featured_img}
-                  layout="fill"
-                  objectFit="cover"
-                  alt={mapsData?.map1?.img_alt}
-                  title={mapsData?.map1?.img_title}
-                />
-              </figure>
-              <div className="content_sec">
-                <h3 className="sub_heading">{mapsData?.map1?.title}</h3>
+            <a href={mapsData?.map1?.link} target="_blank">
+              <div className="map_item">
+                <figure>
+                  <Image
+                    src={mapsData?.map1?.featured_img}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={mapsData?.map1?.img_alt}
+                    title={mapsData?.map1?.img_title}
+                  />
+                </figure>
+                <div className="content_sec">
+                  <h3 className="sub_heading">{mapsData?.map1?.title}</h3>
+                </div>
               </div>
-            </div>
+            </a>
           </Col>
           <Col lg={6}>
-            <div className="map_item">
-              <figure>
-                <Image
-                  src={mapsData?.map2?.featured_img}
-                  layout="fill"
-                  objectFit="cover"
-                  alt={mapsData?.map2?.img_alt}
-                  title={mapsData?.map2?.img_title}
-                />
-              </figure>
-              <div className="content_sec">
-                <h3 className="sub_heading">{mapsData?.map2?.title}</h3>
+            <a href={mapsData?.map2?.link} target="_blank">
+              <div className="map_item">
+                <figure>
+                  <Image
+                    src={mapsData?.map2?.featured_img}
+                    layout="fill"
+                    objectFit="cover"
+                    alt={mapsData?.map2?.img_alt}
+                    title={mapsData?.map2?.img_title}
+                  />
+                </figure>
+                <div className="content_sec">
+                  <h3 className="sub_heading">{mapsData?.map2?.title}</h3>
+                </div>
               </div>
-            </div>
+            </a>
           </Col>
         </Row>
       </Container>

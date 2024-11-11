@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { useState, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
@@ -96,11 +96,11 @@ const Features = ({ title, featuresData }) => {
           {featuresData?.map((item) => (
             <div className="feature_wrap" key={item?.id}>
               <div className="feature_item">
-                <Image
+                {/* <Image
                   src={item?.icon}
                   alt={item?.img_alt}
                   title={item?.img_title}
-                />
+                /> */}
                 <div>
                   <h3>{item?.title}</h3>
                   <p>{item?.detail}</p>

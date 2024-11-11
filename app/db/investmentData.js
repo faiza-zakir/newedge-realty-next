@@ -635,6 +635,7 @@ export const investmentData = {
       title: "Locations",
       map1: {
         title: "Auda",
+        link: "https://www.google.com/maps/place/AUDA-Ahmedabad+Urban+Development+Authority/@23.0453585,72.5679218,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84622c7eb32b:0x4455819cd3e6ce41!8m2!3d23.0453536!4d72.5704967!16s%2Fg%2F1pv0cgnds?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg1,
         img_alt:
           "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
@@ -643,6 +644,7 @@ export const investmentData = {
       },
       map2: {
         title: "GIFT City",
+        link: "https://www.google.com/maps/place/Gujarat+International+Finance+Tec-City,+Gujarat+382355,+India/@23.1683587,72.6603805,14z/data=!3m1!4b1!4m6!3m5!1s0x395e8019d43730db:0x7044e9a2cb290ed!8m2!3d23.1586396!4d72.6831136!16s%2Fg%2F11bc5rnlcn?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg2,
         img_alt:
           "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
@@ -668,6 +670,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       title: "Maps",
       map1: {
         title: "Dholera DP",
+        link: "https://www.google.com/maps/place/Dholera+Dham/@22.2451473,72.190701,17z/data=!3m1!4b1!4m6!3m5!1s0x395f244d95555553:0xa70ee506544ddeb!8m2!3d22.2451424!4d72.1932759!16s%2Fg%2F11f351vpll?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg1,
         img_alt:
           "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
@@ -676,6 +679,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       },
       map2: {
         title: "Dholera Village",
+        link: "https://www.google.com/maps/place/Dholera,+Gujarat+382455,+India/@22.2483697,72.1899624,16z/data=!3m1!4b1!4m6!3m5!1s0x395f2451ff4100f9:0xaa2cd52f20110ead!8m2!3d22.2498636!4d72.1934421!16s%2Fm%2F03d88ws?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
         featured_img: opportunityImg2,
         img_alt:
           "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
