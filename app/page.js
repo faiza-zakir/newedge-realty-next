@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 import AboutSection from "./components/home/about-section/AboutSection";
 import AppointmentSection from "./components/home/appointment-section/AppointmentSection";
-import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
+// import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
 import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
 import BlogSection from "./components/home/blog-section/BlogSection";
 import ContactSection from "./components/home/contact-section/ContactSection";
@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <>
       <TaglinePopup show={showModal} handleClose={handleModalClose} />
-      <BannerVideo />
+      {/* <BannerVideo /> */}
       <section className="form_mobile_view mt-60">
         <Container>
           <BannerForm />
