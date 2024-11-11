@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "./components/common/loader/Loader";
 import Navbar from "./components/layout/navbar-section/Navbar";
-import InvestmentFloatingIcon from "./components/common/investment-floating-icon/InvestmentFloatingIcon";
 // import FloatingIcon from "./components/common/floating-icon/FloatingIcon";
 // import Footer from "./components/layout/footer-section/Footer";
 // Lazy load components that are not essential for initial page render
@@ -31,7 +30,6 @@ export default function Template({ children }) {
         theme="light"
       />
       <Navbar />
-      <InvestmentFloatingIcon />
       <Suspense fallback={<Loader />}>
         <main>{children}</main>
         <FloatingIcon />
