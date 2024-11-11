@@ -54,7 +54,6 @@ const Home = () => {
 
   return (
     <>
-      <TaglinePopup show={showModal} handleClose={handleModalClose} />
       {/* <BannerVideo /> */}
       <section className="form_mobile_view mt-60">
         <Container>
@@ -81,6 +80,7 @@ const Home = () => {
       <BlogSection />
       <ContactSection />
       <FAQSection />
+      <TaglinePopup show={showModal} handleClose={handleModalClose} />
     </>
   );
 };
