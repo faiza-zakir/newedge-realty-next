@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Banner from "../components/common/common-banner/CommonBanner";
 import FilterSection from "../components/locations/filter-section/FilterSection";
 import LocationsList from "../components/locations/locations-list/LocationsList";
@@ -11,6 +12,8 @@ import { fatchProjectList } from "../apis/commonApi";
 import bannerImg from "../assets/banner/locationsbanner.webp";
 
 const PageContent = () => {
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location");
   const [locationData, setLocationData] = useState([]);
   const [filters, setFilters] = useState({ zone: "zone-1" });
   const [isLoading, setIsLoading] = useState(false);
@@ -42,6 +45,16 @@ const PageContent = () => {
   //   setLocationData(locationsList);
   // }, [filters.zone]);
 
+  // Update filters based on the `location` search parameter if it changes
+  useEffect(() => {
+    if (location) {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        zone: location,
+      }));
+    }
+  }, [location]);
+
   // Function to update filters based on user input
   const handleFilterChange = (newFilters) => {
     setFilters((prevFilters) => ({
@@ -70,7 +83,10 @@ const PageContent = () => {
         activepage="Locations"
         bgImg={bannerImg}
       />
-      <FilterSection onFilterChange={handleFilterChange} />
+      <FilterSection
+        onFilterChange={handleFilterChange}
+        selectedZone={filters.zone}
+      />
       <LocationsList locationList={filteredProjects} />
       <ContactSection />
       <FAQSection />

@@ -6,11 +6,11 @@ import { fatchZonesList } from "../../../apis/commonApi";
 // css
 import "./styles.scss";
 
-function FilterSection({ onFilterChange }) {
+function FilterSection({ onFilterChange, selectedZone: initialSelectedZone }) {
   const [allZones, setAllZones] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedZone, setSelectedZone] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedZone, setSelectedZone] = useState(initialSelectedZone || "");
   const [type, setType] = useState("");
   const [locations, setLocations] = useState([]);
 
@@ -20,8 +20,17 @@ function FilterSection({ onFilterChange }) {
         setIsLoading(true); // Show the loader
         const { data } = await fatchZonesList();
         setAllZones(data);
-        setSelectedZone(data?.[0]?.route || "");
-        setLocations(data?.[0]?.locations || []);
+        // If there's an initial selected zone, set it as the selected value
+        if (initialSelectedZone) {
+          const initialZone = data.find(
+            (zone) => zone.route === initialSelectedZone
+          );
+          setSelectedZone(initialSelectedZone);
+          setLocations(initialZone?.locations || []);
+        } else {
+          setSelectedZone(data?.[0]?.route || "");
+          setLocations(data?.[0]?.locations || []);
+        }
       } catch (error) {
         console.error("Error fetching Data:", error);
       } finally {
@@ -30,7 +39,7 @@ function FilterSection({ onFilterChange }) {
     };
 
     fetchZonesData();
-  }, []);
+  }, [initialSelectedZone]);
 
   const handleZoneChange = (e) => {
     const zoneRoute = e.target.value;

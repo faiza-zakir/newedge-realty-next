@@ -635,7 +635,7 @@ export const investmentData = {
       title: "Locations",
       map1: {
         title: "Auda",
-        link: "https://www.google.com/maps/place/AUDA-Ahmedabad+Urban+Development+Authority/@23.0453585,72.5679218,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84622c7eb32b:0x4455819cd3e6ce41!8m2!3d23.0453536!4d72.5704967!16s%2Fg%2F1pv0cgnds?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "zone-1",
         featured_img: opportunityImg1,
         img_alt:
           "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
@@ -644,7 +644,7 @@ export const investmentData = {
       },
       map2: {
         title: "GIFT City",
-        link: "https://www.google.com/maps/place/Gujarat+International+Finance+Tec-City,+Gujarat+382355,+India/@23.1683587,72.6603805,14z/data=!3m1!4b1!4m6!3m5!1s0x395e8019d43730db:0x7044e9a2cb290ed!8m2!3d23.1586396!4d72.6831136!16s%2Fg%2F11bc5rnlcn?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "gift-city",
         featured_img: opportunityImg2,
         img_alt:
           "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
@@ -670,7 +670,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       title: "Maps",
       map1: {
         title: "Dholera DP",
-        link: "https://www.google.com/maps/place/Dholera+SIR+Projects+Pvt+Ltd+,/@22.2515175,72.1921508,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b8859f9e885b:0xc838b704d88b62c0!8m2!3d22.2515126!4d72.1947257!16s%2Fg%2F11c48smpr2?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "dholera",
         featured_img: opportunityImg1,
         img_alt:
           "residential properties, homes for sale, real estate listings, housing options-Newedge Realty",
@@ -679,7 +679,7 @@ Dholera Industrial City aims to create a self-sustaining ecosystem driven by ind
       },
       map2: {
         title: "Dholera Village",
-        link: "https://www.google.com/maps/place/Dholera+SIR+Projects+Pvt+Ltd+,/@22.2515175,72.1921508,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b8859f9e885b:0xc838b704d88b62c0!8m2!3d22.2515126!4d72.1947257!16s%2Fg%2F11c48smpr2?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D",
+        link: "dholera",
         featured_img: opportunityImg2,
         img_alt:
           "real estate consultants, property advisors, real estate experts, investment consultants-Newedge Realty",
