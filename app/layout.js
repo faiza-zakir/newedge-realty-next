@@ -1,4 +1,4 @@
-// import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,29 +7,12 @@ import "./globals.scss";
 import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 
-// const geistPoppinsRegular = localFont({
-//   src: "./fonts/Poppins-Regular.ttf",
-//   variable: "--font-poppins-regular",
-//   weight: "400",
-// });
-
-// const geistPoppinsMedium = localFont({
-//   src: "./fonts/Poppins-Medium.ttf",
-//   variable: "--font-poppins-medium",
-//   weight: "500",
-// });
-
-// const geistPoppinsSemiBold = localFont({
-//   src: "./fonts/Poppins-SemiBold.ttf",
-//   variable: "--font-poppins-semibold",
-//   weight: "600",
-// });
-
-// const geistPoppinsBold = localFont({
-//   src: "./fonts/Poppins-Bold.ttf",
-//   variable: "--font-poppins-bold",
-//   weight: "700",
-// });
+// Load the Poppins font with specific weights
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
 
 export async function generateMetadata() {
   // Logic to set title and description based on route or props
@@ -42,7 +25,7 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
