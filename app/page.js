@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 import AboutSection from "./components/home/about-section/AboutSection";
@@ -52,6 +52,21 @@ const Home = () => {
     setCommercialProjects(commercialData);
   }, []);
 
+  const popUpref = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      console.log("out CLick");
+      if (popUpref.current && !popUpref.current.contains(event.target)) {
+        setShowModal(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [popUpref]);
+
   return (
     <>
       <BannerVideo />
@@ -80,7 +95,11 @@ const Home = () => {
       <BlogSection />
       <ContactSection />
       <FAQSection />
-      <TaglinePopup show={showModal} handleClose={handleModalClose} />
+      <TaglinePopup
+        popUpref={popUpref}
+        show={showModal}
+        handleClose={handleModalClose}
+      />
     </>
   );
 };

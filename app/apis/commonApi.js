@@ -74,3 +74,9 @@ export const fatchAboutData = () => {
 export const fatchZonesList = () => {
   return API.get("/zones-with-locations");
 };
+
+// Home Banner Video
+
+export const fatchHomeBannerVideo = () => {
+  return API.get("/video-contents");
+};
