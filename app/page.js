@@ -48,11 +48,13 @@ const Home = () => {
       try {
         setIsLoading(true); // Show the loader
         const { data } = await fatchProjectList();
-
-        const residentialData = data?.filter(
+        const projectlist = data?.filter(
+          (project) => project?.featured_property === true
+        );
+        const residentialData = projectlist?.filter(
           (project) => project?.property_type?.route === "residential"
         );
-        const commercialData = data?.filter(
+        const commercialData = projectlist?.filter(
           (project) => project?.property_type?.route === "commercial"
         );
         setResidentialProjects(residentialData);
