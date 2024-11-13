@@ -54,12 +54,14 @@ const AboutDeveloper = ({ developerData, propertyType }) => {
           handleClose={handleClose}
           propertyType={propertyType}
         />
-        <BrochureForm
-          show={showModal}
-          handleClose={handleModalClose}
-          brochureLink={developerData?.brochure}
-          propertyType={propertyType}
-        />
+        {developerData?.brochure && (
+          <BrochureForm
+            show={showModal}
+            handleClose={handleModalClose}
+            brochureLink={developerData?.brochure}
+            propertyType={propertyType}
+          />
+        )}
       </Container>
     </div>
   );
