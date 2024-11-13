@@ -55,8 +55,7 @@ const LocationsList = ({ locationList }) => {
                       <p className="para_comm">{location?.property_location}</p>
                     ) : (
                       <p className="para_comm">
-                        {location?.location?.zone?.title},{" "}
-                        {location?.location?.title}
+                        {location?.zone?.title}, {location?.location?.title}
                       </p>
                     )}
                   </div>

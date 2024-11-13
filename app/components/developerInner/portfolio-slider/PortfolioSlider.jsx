@@ -155,7 +155,7 @@ const PortfolioSlider = ({ singleDeveloper }) => {
                   <p className="para_comm">{item?.property_location}</p>
                 ) : (
                   <p className="para_comm">
-                    {item?.location?.zone?.title}, {item?.location?.title}
+                    {item?.zone?.title}, {item?.location?.title}
                   </p>
                 )}
               </div>

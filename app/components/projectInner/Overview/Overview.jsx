@@ -13,8 +13,7 @@ const Overview = ({ singleProject }) => {
             <h2 className="main_sec_heading">{singleProject?.title}</h2>
             {!singleProject?.property_location && (
               <p className="para_comm mb-3">
-                <strong>Location:</strong>{" "}
-                {singleProject?.location?.zone?.title},{" "}
+                <strong>Location:</strong> {singleProject?.zone?.title},{" "}
                 {singleProject?.location?.title}
               </p>
             )}
@@ -39,7 +38,7 @@ const Overview = ({ singleProject }) => {
             {/* <ul>
               <li>
                 {singleProject?.location?.title},{" "}
-                {singleProject?.location?.zone?.title}
+                {singleProject?.zone?.title}
               </li>
               <li>
                 <PiLineVertical />

@@ -58,8 +58,7 @@ const ProjectsList = ({ projectsData, route, isLoading }) => {
                         </p>
                       ) : (
                         <p className="para_comm">
-                          {project?.location?.zone?.title},{" "}
-                          {project?.location?.title}
+                          {project?.zone?.title}, {project?.location?.title}
                         </p>
                       )}
                     </div>

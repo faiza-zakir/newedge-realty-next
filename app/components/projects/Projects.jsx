@@ -56,8 +56,7 @@ const Projects = () => {
   // Apply filters to the project list
   const filteredProjects = projectData?.filter((project) => {
     // Check for Zone filter
-    if (filters?.zone && project?.location?.zone?.route !== filters?.zone)
-      return false;
+    if (filters?.zone && project?.zone?.route !== filters?.zone) return false;
     // Check for location filter
     if (filters?.location && project?.location?.route !== filters?.location)
       return false;
