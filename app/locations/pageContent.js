@@ -25,7 +25,7 @@ const PageContent = () => {
         const { data } = await fatchProjectList();
         const locationsList = data?.filter((project) => {
           // Apply the default zone filter or user-selected zone
-          return project?.location?.zone?.route === filters.zone;
+          return project?.zone?.route === filters.zone;
         });
         setLocationData(locationsList);
       } catch (error) {
@@ -40,7 +40,7 @@ const PageContent = () => {
   // useEffect(() => {
   //   const locationsList = projectsData?.filter((project) => {
   //     // Apply the default zone filter or user-selected zone
-  //     return project?.location?.zone?.route === filters.zone;
+  //     return project?.zone?.route === filters.zone;
   //   });
   //   setLocationData(locationsList);
   // }, [filters.zone]);
@@ -87,7 +87,7 @@ const PageContent = () => {
         onFilterChange={handleFilterChange}
         selectedZone={filters.zone}
       />
-      <LocationsList locationList={filteredProjects} />
+      <LocationsList locationList={filteredProjects} isLoading={isLoading} />
       <ContactSection />
       <FAQSection />
     </>
