@@ -13,9 +13,10 @@ import TestimonialsSection from "./components/home/testimonials-section/Testimon
 import VideoTestimonialsSection from "./components/home/video-testimonials-section/VideoTestimonialsSection";
 import ProjectSlider from "./components/home/project-slider/ProjectSlider";
 import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
+// api
+import { fatchProjectList } from "./apis/commonApi";
 // data
 import { homeData } from "./db/homeData";
-import projectsData from "./db/projectsData";
 
 const Home = () => {
   const {
@@ -29,6 +30,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,14 +44,26 @@ const Home = () => {
   const handleModalClose = () => setShowModal(false);
 
   useEffect(() => {
-    const residentialData = projectsData?.filter(
-      (project) => project?.property_type?.route === "residential"
-    );
-    const commercialData = projectsData?.filter(
-      (project) => project?.property_type?.route === "commercial"
-    );
-    setResidentialProjects(residentialData);
-    setCommercialProjects(commercialData);
+    const fetchProjectListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectList();
+
+        const residentialData = data?.filter(
+          (project) => project?.property_type?.route === "residential"
+        );
+        const commercialData = data?.filter(
+          (project) => project?.property_type?.route === "commercial"
+        );
+        setResidentialProjects(residentialData);
+        setCommercialProjects(commercialData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    fetchProjectListData();
   }, []);
 
   const popUpref = useRef();
@@ -81,6 +95,7 @@ const Home = () => {
         title="Residential Properties"
         link="/residential"
         projectsData={residentialProjects?.slice(0, 4)}
+        isLoading={isLoading}
       />
       <AppointmentSection appointmentData={appointment} />
       <ProjectSlider
@@ -88,6 +103,7 @@ const Home = () => {
         title="Commercial Properties"
         link="/residential"
         projectsData={commercialProjects?.slice(0, 4)}
+        isLoading={isLoading}
       />
       <WhyChooseSection whyChooseData={whyChoose} />
       <TestimonialsSection testimonialsData={testimonials} />

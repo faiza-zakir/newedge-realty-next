@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+// img
+import projectImg from "../../../assets/home/commercial1.webp";
 // css
 import "./style.scss";
 
@@ -37,7 +39,7 @@ const settings = {
   ],
 };
 
-const ProjectSlider = ({ tagLine, title, link, projectsData }) => {
+const ProjectSlider = ({ tagLine, title, link, projectsData, isLoading }) => {
   const router = useRouter();
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -90,42 +92,50 @@ const ProjectSlider = ({ tagLine, title, link, projectsData }) => {
             </button>
           </div>
         </div>
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {projectsData?.map((project) => (
-            <div key={project?.id}>
-              <div
-                className="project_item"
-                onClick={() =>
-                  router.push(
-                    `/${project?.property_type?.route}/${project?.route}`
-                  )
-                }
-              >
-                <figure>
-                  <Image
-                    src={project?.featured_img}
-                    layout="fill"
-                    objectFit="cover"
-                    alt="residential"
-                  />
-                </figure>
-                <div className="content_sec">
-                  <p className="location">
-                    <span>Starting from</span> ₹{project?.price}
-                  </p>
-                  <h3 className="sub_heading">{project?.title}</h3>
-                  <p className="para_comm">
-                    {project?.location?.zone?.title}, {project?.location?.title}
-                  </p>
+        {isLoading ? (
+          <p className="para_comm text-center">loading...</p>
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {projectsData?.map((project) => (
+              <div key={project?.id}>
+                <div
+                  className="project_item"
+                  onClick={() =>
+                    router.push(
+                      `/${project?.property_type?.route}/${project?.route}`
+                    )
+                  }
+                >
+                  <figure>
+                    <Image
+                      src={
+                        project?.featured_img
+                          ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${project?.featured_img}`
+                          : projectImg
+                      }
+                      layout="fill"
+                      objectFit="cover"
+                      alt={project?.title}
+                    />
+                  </figure>
+                  <div className="content_sec">
+                    <p className="location">
+                      <span>Starting from</span> ₹{project?.price}
+                    </p>
+                    <h3 className="sub_heading">{project?.title}</h3>
+                    <p className="para_comm">
+                      {project?.zone?.title}, {project?.location?.title}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
         <div className="mobile_view">
           <button
             className="theme_btn2"
