@@ -48,11 +48,11 @@ export default function RootLayout({ children }) {
         <NextTopLoader color="#fff" showSpinner={false} />
         {/* Google Analytics Tag (gtag.js) */}
         <Script
+          strategy="afterInteractive" // Ensures the script is loaded after page interaction
           async
           defer
           fetchpriority="low"
           src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
-          strategy="afterInteractive" // Ensures the script is loaded after page interaction
         />
 
         <Script id="gtag-init" strategy="afterInteractive">
