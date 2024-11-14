@@ -49,7 +49,6 @@ const WhyChooseSection = dynamic(() =>
 // import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
 // data
 import { homeData } from "./db/homeData";
-import projectsData from "./db/projectsData";
 
 const Home = () => {
   const {
@@ -63,6 +62,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -82,14 +82,28 @@ const Home = () => {
   const handleModalClose = () => setShowModal(false);
 
   useEffect(() => {
-    const residentialData = projectsData?.filter(
-      (project) => project?.property_type?.route === "residential"
-    );
-    const commercialData = projectsData?.filter(
-      (project) => project?.property_type?.route === "commercial"
-    );
-    setResidentialProjects(residentialData);
-    setCommercialProjects(commercialData);
+    const fetchProjectListData = async () => {
+      try {
+        setIsLoading(true); // Show the loader
+        const { data } = await fatchProjectList();
+        const projectlist = data?.filter(
+          (project) => project?.featured_property === true
+        );
+        const residentialData = projectlist?.filter(
+          (project) => project?.property_type?.route === "residential"
+        );
+        const commercialData = projectlist?.filter(
+          (project) => project?.property_type?.route === "commercial"
+        );
+        setResidentialProjects(residentialData);
+        setCommercialProjects(commercialData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false); // Hide the loader
+      }
+    };
+    fetchProjectListData();
   }, []);
 
   const popUpref = useRef();
@@ -124,6 +138,7 @@ const Home = () => {
             title="Residential Properties"
             link="/residential"
             projectsData={residentialProjects?.slice(0, 4)}
+            isLoading={isLoading}
           />
           <AppointmentSection appointmentData={appointment} />
           <ProjectSlider
@@ -131,6 +146,7 @@ const Home = () => {
             title="Commercial Properties"
             link="/residential"
             projectsData={commercialProjects?.slice(0, 4)}
+            isLoading={isLoading}
           />
           <WhyChooseSection whyChooseData={whyChoose} />
           <TestimonialsSection testimonialsData={testimonials} />

@@ -28,9 +28,11 @@ const AboutDeveloper = ({ developerData, propertyType }) => {
               }}
             />
             <div className="btn_wrap">
-              <button className="theme_btn2" onClick={handleModalShow}>
-                Download Brochure
-              </button>
+              {developerData?.brochure && (
+                <button className="theme_btn2" onClick={handleModalShow}>
+                  Download Brochure
+                </button>
+              )}
               <button className="theme_btn3" onClick={handleShow}>
                 Contact Us
               </button>
@@ -54,12 +56,14 @@ const AboutDeveloper = ({ developerData, propertyType }) => {
           handleClose={handleClose}
           propertyType={propertyType}
         />
-        <BrochureForm
-          show={showModal}
-          handleClose={handleModalClose}
-          brochureLink={developerData?.brochure}
-          propertyType={propertyType}
-        />
+        {developerData?.brochure && (
+          <BrochureForm
+            show={showModal}
+            handleClose={handleModalClose}
+            brochureLink={developerData?.brochure}
+            propertyType={propertyType}
+          />
+        )}
       </Container>
     </div>
   );

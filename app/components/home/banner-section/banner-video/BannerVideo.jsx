@@ -74,7 +74,8 @@ const BannerVideo = () => {
           <source
             // src="https://newedge-realty.prismcloudhosting.com/bannerVideo.mp4"
             src={bannerVideo?.video_url}
-            type="video/mp4"
+            // type="video/mp4"
+            type="video/webm"
           />
           Your browser does not support the video tag.
         </video>
