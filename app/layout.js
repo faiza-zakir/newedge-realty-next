@@ -54,6 +54,7 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
           strategy="afterInteractive" // Ensures the script is loaded after page interaction
         />
+
         <Script id="gtag-init" strategy="afterInteractive">
           {` 
         setTimeout(function () {
@@ -62,7 +63,7 @@ export default function RootLayout({ children }) {
        function gtag(){dataLayer.push(arguments);}
        gtag('js', new Date());
        gtag('config', 'G-GJRR5HNPK9');
-        }, 18000);
+        }, 21000);
      `}
         </Script>
         {children}

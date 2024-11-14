@@ -4,15 +4,22 @@ import { Container } from "react-bootstrap";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 
-import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 import AboutSection from "./components/home/about-section/AboutSection";
 import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
-import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
+// import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
+// import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
+const BannerForm = dynamic(() =>
+  import("./components/home/banner-section/banner-form/BannerForm")
+);
 // data
 import { homeData } from "./db/homeData";
 // api
 import { fatchProjectList } from "./apis/commonApi";
 //
+// import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
+const TaglinePopup = dynamic(() =>
+  import("./components/common/tagline-popup/TaglinePopup")
+);
 const AppointmentSection = dynamic(() =>
   import("./components/home/appointment-section/AppointmentSection")
 );
@@ -125,9 +132,9 @@ const Home = () => {
     <>
       <BannerVideo />
       <section className="form_mobile_view mt-60">
-        <Container>
+        {/* <Container>
           <BannerForm />
-        </Container>
+        </Container> */}
       </section>
       <AboutSection aboutData={about} countsData={counts} />
       <div ref={ref} style={{ minHeight: "20px" }}></div>
@@ -157,11 +164,13 @@ const Home = () => {
         </>
       ) : null}
 
-      <TaglinePopup
-        popUpref={popUpref}
-        show={showModal}
-        handleClose={handleModalClose}
-      />
+      {showModal && (
+        <TaglinePopup
+          popUpref={popUpref}
+          show={showModal}
+          handleClose={handleModalClose}
+        />
+      )}
     </>
   );
 };

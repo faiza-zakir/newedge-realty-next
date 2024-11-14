@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import BannerForm from "../banner-form/BannerForm";
+import dynamic from "next/dynamic";
+
+const BannerForm = dynamic(() => import("../banner-form/BannerForm"));
+// import BannerForm from "../banner-form/BannerForm";
 // data
 import { homeData } from "../../../../db/homeData";
 // css
@@ -13,6 +16,8 @@ const BannerVideo = () => {
   const { bannerData } = homeData;
   const router = useRouter();
   const videoRef = useRef(null);
+  const [loadForm, setLoadForm] = useState(false);
+
   const [bannerVideo, setBannerVideo] = useState({
     video_thumbnail: bannerImg1,
   });
@@ -38,6 +43,12 @@ const BannerVideo = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadForm(true);
+    }, 8000);
+  }, []);
 
   useEffect(() => {
     getData();
@@ -96,7 +107,7 @@ const BannerVideo = () => {
               </button>
             </div>
             <div className="banner_form_wrap form_desktop_view">
-              <BannerForm />
+              {loadForm && <BannerForm />}
             </div>
           </div>
         </div>
