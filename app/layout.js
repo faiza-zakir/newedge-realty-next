@@ -34,6 +34,13 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="n-rQF-ODd8b22mm93u2ScOOLG4GFOZDb86ai7EUzCPE"
         />
+        <link
+          fetchpriority="high"
+          rel="preload"
+          as="image"
+          href="https://prismcloudhosting.com/NewEdgeApis/public/images/galleries/1731416272.webp"
+          type="image/webp"
+        />
       </head>
       <body
       // className={`${geistPoppinsRegular.variable} ${geistPoppinsSemiBold.variable} ${geistPoppinsMedium.variable} ${geistPoppinsBold.variable}`}
