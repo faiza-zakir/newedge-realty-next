@@ -4,12 +4,14 @@ import { Container } from "react-bootstrap";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 
-//
 import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
 import AboutSection from "./components/home/about-section/AboutSection";
 import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
 import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
-//
+// data
+import { homeData } from "./db/homeData";
+// api
+import { fatchProjectList } from "./apis/commonApi";
 //
 const AppointmentSection = dynamic(() =>
   import("./components/home/appointment-section/AppointmentSection")
@@ -47,8 +49,6 @@ const WhyChooseSection = dynamic(() =>
 // import VideoTestimonialsSection from "./components/home/video-testimonials-section/VideoTestimonialsSection";
 // import ProjectSlider from "./components/home/project-slider/ProjectSlider";
 // import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
-// data
-import { homeData } from "./db/homeData";
 
 const Home = () => {
   const {
