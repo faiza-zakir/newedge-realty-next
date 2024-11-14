@@ -16,7 +16,7 @@ const BannerVideo = () => {
   const { bannerData } = homeData;
   const router = useRouter();
   const videoRef = useRef(null);
-  const [loadForm, setLoadForm] = useState(false);
+  const [loadForm, setLoadForm] = useState(true);
 
   const [bannerVideo, setBannerVideo] = useState({
     video_thumbnail: bannerImg1,
@@ -43,12 +43,6 @@ const BannerVideo = () => {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoadForm(true);
-    }, 5000);
-  }, []);
 
   useEffect(() => {
     getData();
