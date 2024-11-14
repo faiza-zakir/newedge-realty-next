@@ -81,7 +81,7 @@ const BannerVideo = () => {
       ) : null}
 
       {/* Add content you want to display on top of the video */}
-      <div className="container" fetchpriority="high">
+      <div className="container" fetchPriority="high">
         <div className="banner-content mtb-60">
           <div className="bannerDetails">
             <div className="content_wrap">
