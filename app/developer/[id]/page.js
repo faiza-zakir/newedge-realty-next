@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 
   // Assuming commercialData is an array of items, each with an 'id' field
   return response?.data.map((item) => ({
-    id: item.id.toString(), // Ensure the id is a string
+    id: item.route.toString(), // Ensure the id is a string
   }));
 }
 
