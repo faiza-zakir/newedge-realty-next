@@ -10,14 +10,14 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams() {
-  // Fetch a list of all possible 'id' values you want to pre-render
-  const response = await fatchProjectList();
-  // Assuming commercialData is an array of items, each with an 'id' field
-  return response?.data.map((item) => ({
-    id: item.route.toString(), // Ensure the id is a string
-  }));
-}
+// export async function generateStaticParams() {
+//   // Fetch a list of all possible 'id' values you want to pre-render
+//   const response = await fatchProjectList();
+//   // Assuming commercialData is an array of items, each with an 'id' field
+//   return response?.data.map((item) => ({
+//     id: item.route.toString(), // Ensure the id is a string
+//   }));
+// }
 
 export default function ResidentialInner() {
   return <ProjectsInner />;

@@ -10,20 +10,20 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams() {
-  try {
-    const response = await fetchBlogData();
+// export async function generateStaticParams() {
+//   try {
+//     const response = await fetchBlogData();
 
-    const paths = response?.data.map((item) => ({
-      id: item.route.toString(), // Ensure the id is a string
-    }));
+//     const paths = response?.data.map((item) => ({
+//       id: item.route.toString(), // Ensure the id is a string
+//     }));
 
-    return paths;
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    return []; // Return an empty array if the API call fails
-  }
-}
+//     return paths;
+//   } catch (error) {
+//     console.error("Error generating static params:", error);
+//     return []; // Return an empty array if the API call fails
+//   }
+// }
 
 const BlogInner = () => {
   return <PageContent />;
