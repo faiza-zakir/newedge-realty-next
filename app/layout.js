@@ -48,15 +48,21 @@ export default function RootLayout({ children }) {
         <NextTopLoader color="#fff" showSpinner={false} />
         {/* Google Analytics Tag (gtag.js) */}
         <Script
+          async
+          defer
+          fetchpriority="low"
           src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
           strategy="afterInteractive" // Ensures the script is loaded after page interaction
         />
         <Script id="gtag-init" strategy="afterInteractive">
-          {`
+          {` 
+        setTimeout(function () {
+        (function (c, l, a, r, i, t, y) {        
        window.dataLayer = window.dataLayer || [];
        function gtag(){dataLayer.push(arguments);}
        gtag('js', new Date());
        gtag('config', 'G-GJRR5HNPK9');
+        }, 18000);
      `}
         </Script>
         {children}
