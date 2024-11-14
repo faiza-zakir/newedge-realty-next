@@ -47,7 +47,7 @@ const BannerVideo = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoadForm(true);
-    }, 8000);
+    }, 5000);
   }, []);
 
   useEffect(() => {
