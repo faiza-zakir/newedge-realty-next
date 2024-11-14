@@ -25,4 +25,4 @@ const DeveloperInner = () => {
 };
 
 export default DeveloperInner;
-export const dynamicParams = false;
+// export const dynamicParams = false;

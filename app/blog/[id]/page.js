@@ -30,4 +30,4 @@ const BlogInner = () => {
 };
 
 export default BlogInner;
-export const dynamicParams = false;
+// export const dynamicParams = false;

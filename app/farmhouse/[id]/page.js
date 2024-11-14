@@ -23,4 +23,4 @@ export async function generateMetadata({ params }) {
 export default function FarmHouseInner() {
   return <ProjectsInner />;
 }
-export const dynamicParams = false;
+// export const dynamicParams = false;

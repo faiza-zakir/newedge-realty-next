@@ -23,4 +23,4 @@ export async function generateMetadata({ params }) {
 export default function PreLeasedInner() {
   return <ProjectsInner />;
 }
-export const dynamicParams = false;
+// export const dynamicParams = false;
