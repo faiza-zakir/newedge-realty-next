@@ -56,7 +56,15 @@ const PageContent = () => {
         indexpage="Home"
         indexvisit="/"
         activepage={singleBlog?.title}
-        bgImg={bannerImg}
+        bgImg={
+          singleBlog?.banner_image
+            ? {
+                src:
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  singleBlog?.banner_image,
+              }
+            : bannerImg
+        }
       />
       <Details singleBlog={singleBlog} />
       <RelatedBlogs blogData={relatedBlog} />

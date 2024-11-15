@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
           content="n-rQF-ODd8b22mm93u2ScOOLG4GFOZDb86ai7EUzCPE"
         />
         <link
-          fetchpriority="high"
+          fetchPriority="high"
           rel="preload"
           as="image"
           href="https://prismcloudhosting.com/NewEdgeApis/public/images/galleries/1731416272.webp"
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive" // Ensures the script is loaded after page interaction
           async
           defer
-          fetchpriority="low"
+          fetchPriority="low"
           src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
         />
 

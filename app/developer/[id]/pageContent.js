@@ -39,7 +39,15 @@ const PageContent = () => {
         indexpage="Home"
         indexvisit="/"
         activepage={singleDeveloper?.name}
-        bgImg={bannerImg}
+        bgImg={
+          singleDeveloper?.banner_image
+            ? {
+                src:
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  singleDeveloper?.banner_image,
+              }
+            : bannerImg
+        }
       />
       <Overview singleDeveloper={singleDeveloper} />
       <PortfolioSlider singleDeveloper={singleDeveloper} />
