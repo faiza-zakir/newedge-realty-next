@@ -45,11 +45,11 @@ const Investors = ({ investorsData }) => {
               {investorsData?.logos?.map((item, i) => (
                 <div className="investors_item" key={i}>
                   <Image
-                    src={item?.img}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.img}`}
                     width={150}
                     height={150}
-                    alt={item?.img_alt}
-                    title={item?.img_title}
+                    alt={item?.title}
+                    title={item?.title}
                   />
                 </div>
               ))}

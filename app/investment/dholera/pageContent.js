@@ -18,6 +18,8 @@ import { investmentData } from "../../db/investmentData";
 import { useEffect, useState } from "react";
 import { fatchPagesContent } from "@/app/apis/commonApi";
 
+import Loader from "@/app/components/common/loader/Loader";
+
 const PageContent = () => {
   const { dholera } = investmentData;
   const {
@@ -36,7 +38,6 @@ const PageContent = () => {
   } = dholera;
 
   const [pageData, setPageData] = useState({});
-  console.log("🚀 ~ PageContent ~ pageData:", pageData);
   const [isLoading, setIsLoading] = useState(true);
 
   const getPageData = async () => {
@@ -57,53 +58,67 @@ const PageContent = () => {
 
   return (
     <>
-      <Banner
-        name="DHOLERA SIR"
-        indexpage="Home"
-        indexvisit="/"
-        activepage="Investment"
-        // bgImg={bannerImg}
-        bgImg={
-          pageData?.content?.banner?.background_image
-            ? {
-                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
-              }
-            : bannerImg
-        }
-      />
-      <Intro introData={pageData?.content?.intro} />
-      <Maps
-        mapsData={{
-          title: "Maps",
-          location1: pageData?.content?.location1,
-          location2: pageData?.content?.location2,
-        }}
-      />
-      <MoreFeatures
-        title="Advantages of Dholera"
-        moreFeaturesData={pageData?.content?.advatnages}
-      />
-      <Detail detailData={pageData?.content?.industries} />
-      <DevelopmentPlan content={pageData?.content?.plan} devPlanData={plan} />
-      <Dmic content={pageData?.content?.dmic} dmicData={dmic} />
-      <Airport airportData={pageData?.content?.airport} />
-      <Detail detailData={pageData?.content?.advantage} />
-      <MoreFeatures
-        title="What to Expect When You Invest in Dholera?"
-        moreFeaturesData={expectations}
-      />
-      <MoreFeatures
-        title="Permissible Industrial Sectors"
-        moreFeaturesData={sectors}
-      />
-      <PhasesSlider
-        title="Market Potential"
-        subTitle="Dholera Special Investment Region (SIR) offers immense market potential for investors due to its strategic location, well-planned infrastructure, and government-backed initiatives. Here are some key factors highlighting its investment potential:"
-        phasesData={benefits}
-      />
-      <Investors investorsData={investors} />
-      <ContactSection />
-      <FAQSection />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Banner
+            name="DHOLERA SIR"
+            indexpage="Home"
+            indexvisit="/"
+            activepage="Investment"
+            // bgImg={bannerImg}
+            bgImg={
+              pageData?.content?.banner?.background_image
+                ? {
+                    src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+                  }
+                : bannerImg
+            }
+          />
+          <Intro introData={pageData?.content?.intro} />
+          <Maps
+            mapsData={{
+              title: "Maps",
+              location1: pageData?.content?.location1,
+              location2: pageData?.content?.location2,
+            }}
+          />
+          <MoreFeatures
+            title="Advantages of Dholera"
+            moreFeaturesData={pageData?.content?.advatnages}
+          />
+          <Detail detailData={pageData?.content?.industries} />
+          <DevelopmentPlan
+            content={pageData?.content?.plan}
+            devPlanData={plan}
+          />
+          <Dmic content={pageData?.content?.dmic} dmicData={dmic} />
+          <Airport airportData={pageData?.content?.airport} />
+          <Detail detailData={pageData?.content?.advantage} />
+          <MoreFeatures
+            title="What to Expect When You Invest in Dholera?"
+            moreFeaturesData={pageData?.content?.expectations}
+          />
+          <MoreFeatures
+            title="Permissible Industrial Sectors"
+            moreFeaturesData={pageData?.content?.sectors}
+          />
+          <PhasesSlider
+            title="Market Potential"
+            subTitle="Dholera Special Investment Region (SIR) offers immense market potential for investors due to its strategic location, well-planned infrastructure, and government-backed initiatives. Here are some key factors highlighting its investment potential:"
+            phasesData={pageData?.content?.benefits}
+          />
+          <Investors
+            investorsData={{
+              title: "Our Giant Investors",
+              logos: pageData?.content?.investors,
+            }}
+          />
+          <ContactSection />
+          <FAQSection content={pageData?.content?.faqs} />
+        </>
+      )}
     </>
   );
 };

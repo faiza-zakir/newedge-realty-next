@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { fatchPagesContent } from "@/app/apis/commonApi";
 
+import Loader from "@/app/components/common/loader/Loader";
+
 const PageContent = () => {
   const { ahmadabad } = investmentData;
   const { intro, benefits, locations } = ahmadabad;
@@ -38,30 +40,36 @@ const PageContent = () => {
 
   return (
     <>
-      <Banner
-        name="AHMEDABAD"
-        indexpage="Home"
-        indexvisit="/"
-        activepage="Investment"
-        bgImg={
-          pageData?.content?.banner?.background_image
-            ? {
-                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
-              }
-            : bannerImg
-        }
-      />
-      <Intro introData={pageData?.content?.intro} />
-      <KeyBenefitsSlider keyBenefitsData={pageData?.content?.benefits} />
-      <Maps
-        mapsData={{
-          title: "Locations",
-          location1: pageData?.content?.location1,
-          location2: pageData?.content?.location2,
-        }}
-      />
-      <ContactSection />
-      <FAQSection content={pageData?.content?.faqs} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Banner
+            name="AHMEDABAD"
+            indexpage="Home"
+            indexvisit="/"
+            activepage="Investment"
+            bgImg={
+              pageData?.content?.banner?.background_image
+                ? {
+                    src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+                  }
+                : bannerImg
+            }
+          />
+          <Intro introData={pageData?.content?.intro} />
+          <KeyBenefitsSlider keyBenefitsData={pageData?.content?.benefits} />
+          <Maps
+            mapsData={{
+              title: "Locations",
+              location1: pageData?.content?.location1,
+              location2: pageData?.content?.location2,
+            }}
+          />
+          <ContactSection />
+          <FAQSection content={pageData?.content?.faqs} />
+        </>
+      )}
     </>
   );
 };
