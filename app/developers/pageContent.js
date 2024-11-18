@@ -6,14 +6,30 @@ import DevelopersList from "../components/developers/developers-list/DevelopersL
 import ContactSection from "../components/home/contact-section/ContactSection";
 import FAQSection from "../components/home/faq-section/FAQSection";
 // api
-import { fatchDeveloperList } from "../apis/commonApi";
+import { fatchDeveloperList, fatchPagesContent } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/developerbanner.webp";
+import { toast } from "react-toastify";
 
 const PageContent = () => {
   const [developerData, setDeveloperData] = useState([]);
   const [filters, setFilters] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const [pageData, setPageData] = useState({});
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("developers");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +43,7 @@ const PageContent = () => {
         setIsLoading(false); // Hide the loader
       }
     };
-
+    getPageData();
     fetchData();
   }, []);
 
@@ -50,11 +66,17 @@ const PageContent = () => {
   return (
     <>
       <Banner
-        name="Developers"
+        name={pageData?.content?.banner?.title}
         indexpage="Home"
         indexvisit="/"
         activepage="Developers"
-        bgImg={bannerImg}
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
       />
       <FilterSection
         developerList={developerData}

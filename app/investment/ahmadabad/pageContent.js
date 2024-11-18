@@ -40,23 +40,23 @@ const PageContent = () => {
 
   return (
     <>
+      <Banner
+        name="AHMEDABAD"
+        indexpage="Home"
+        indexvisit="/"
+        activepage="Investment"
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
+      />
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <Banner
-            name="AHMEDABAD"
-            indexpage="Home"
-            indexvisit="/"
-            activepage="Investment"
-            bgImg={
-              pageData?.content?.banner?.background_image
-                ? {
-                    src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
-                  }
-                : bannerImg
-            }
-          />
           <Intro introData={pageData?.content?.intro} />
           <KeyBenefitsSlider keyBenefitsData={pageData?.content?.benefits} />
           <Maps

@@ -1,13 +1,14 @@
-import Banner from "../components/common/common-banner/CommonBanner";
-import RefundIntro from "../components/common/refund-intro/RefundIntro";
-// img
-import bannerImg from "../assets/banner/refundbanner.webp";
-
+import { fatchPagesContent } from "../apis/commonApi";
+import PageContent from "./PageContent";
 // Generate metadata for the page
 export async function generateMetadata() {
+  const { data } = await fatchPagesContent("refund-policy");
   return {
-    title: "Refund Policy | NewEdge Realty - Hassle-Free Real Estate Services",
+    title:
+      data?.content?.seo?.meta_title ||
+      "Refund Policy | NewEdge Realty - Hassle-Free Real Estate Services",
     description:
+      data?.content?.seo?.meta_description ||
       "Discover NewEdge Realty's clear and transparent refund policy. Learn how we ensure a seamless experience in real estate services, prioritizing customer satisfaction.",
   };
 }
@@ -15,14 +16,7 @@ export async function generateMetadata() {
 const RefundPolicy = () => {
   return (
     <div>
-      <Banner
-        name="Cancellation & Refund Policy"
-        indexpage="Home"
-        indexvisit="/"
-        activepage="Cancellation & Refund Policy"
-        bgImg={bannerImg}
-      />
-      <RefundIntro />
+      <PageContent />
     </div>
   );
 };

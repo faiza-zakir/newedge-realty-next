@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { fatchPagesContent } from "../apis/commonApi";
 import { toast } from "react-toastify";
 
-import Loader from "../components/common/loader/Loader";
+import Loader from "@/app/components/common/loader/Loader";
 
 const PageContent = () => {
   const {

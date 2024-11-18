@@ -7,9 +7,10 @@ import LocationsList from "../components/locations/locations-list/LocationsList"
 import ContactSection from "../components/home/contact-section/ContactSection";
 import FAQSection from "../components/home/faq-section/FAQSection";
 // api
-import { fatchProjectList } from "../apis/commonApi";
+import { fatchPagesContent, fatchProjectList } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/locationsbanner.webp";
+import { toast } from "react-toastify";
 
 const PageContent = () => {
   const searchParams = useSearchParams();
@@ -17,6 +18,21 @@ const PageContent = () => {
   const [locationData, setLocationData] = useState([]);
   const [filters, setFilters] = useState({ zone: "zone-1" });
   const [isLoading, setIsLoading] = useState(false);
+
+  const [pageData, setPageData] = useState({});
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("locations");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const fetchProjectListData = async () => {
@@ -34,6 +50,7 @@ const PageContent = () => {
         setIsLoading(false); // Hide the loader
       }
     };
+    getPageData();
     fetchProjectListData();
   }, [filters.zone]);
 
@@ -77,11 +94,17 @@ const PageContent = () => {
   return (
     <>
       <Banner
-        name="Locations"
+        name={pageData?.content?.banner?.title}
         indexpage="Home"
         indexvisit="/"
         activepage="Locations"
-        bgImg={bannerImg}
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
       />
       <FilterSection
         onFilterChange={handleFilterChange}

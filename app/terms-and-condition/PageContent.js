@@ -1,22 +1,22 @@
 "use client";
-import Banner from "../components/common/common-banner/CommonBanner";
-import ContactInfoSection from "../components/contact/contact-info-section/ContactInfoSection";
-import ContactFormSection from "../components/contact/contact-form-section/ContactFormSection";
-import FAQSection from "../components/home/faq-section/FAQSection";
-// img
-import bannerImg from "../assets/banner/contactbanner.webp";
-import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
-import { fatchPagesContent } from "../apis/commonApi";
 
-const PageContent = () => {
+import React, { useEffect, useState } from "react";
+import Banner from "../components/common/common-banner/CommonBanner";
+import TermsIntro from "../components/common/terms-intro/TermsIntro";
+// img
+import bannerImg from "../assets/banner/termsbanner.webp";
+import Loader from "@/app/components/common/loader/Loader";
+import { fatchPagesContent } from "../apis/commonApi";
+import { toast } from "react-toastify";
+
+function PageContent() {
   const [pageData, setPageData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const getPageData = async () => {
     try {
       setIsLoading(true);
-      const resp = await fatchPagesContent("contact");
+      const resp = await fatchPagesContent("terms-and-condition");
       setPageData(resp?.data);
     } catch (err) {
       toast.error("Opps!, something went wrong, please try again later");
@@ -29,12 +29,13 @@ const PageContent = () => {
     getPageData();
   }, []);
   return (
-    <>
+    <div>
+      {" "}
       <Banner
         name={pageData?.content?.banner?.title}
         indexpage="Home"
         indexvisit="/"
-        activepage="Contact Us"
+        activepage="Terms & Condition"
         bgImg={
           pageData?.content?.banner?.background_image
             ? {
@@ -43,11 +44,9 @@ const PageContent = () => {
             : bannerImg
         }
       />
-      <ContactInfoSection />
-      <ContactFormSection />
-      <FAQSection />
-    </>
+      <TermsIntro content={pageData?.content?.intro} />
+    </div>
   );
-};
+}
 
 export default PageContent;

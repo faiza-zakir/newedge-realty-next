@@ -11,7 +11,7 @@ import Founder from "../components/about/founder/Founder";
 import TeamList from "../components/about/team/TeamList";
 import FAQSection from "../components/home/faq-section/FAQSection";
 // api
-import { fatchAboutData } from "../apis/commonApi";
+import { fatchAboutData, fatchPagesContent } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
@@ -20,7 +20,24 @@ import { homeData } from "../db/homeData";
 const PageContent = () => {
   const { whyChoose } = homeData;
   const [aboutUsData, setAboutUsData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  const [pageData, setPageData] = useState({});
+  console.log("🚀 ~ PageContent ~ pageData:", pageData);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("about");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const fetchAboutPageData = async () => {
@@ -34,18 +51,24 @@ const PageContent = () => {
         setIsLoading(false); // Hide the loader
       }
     };
-
-    fetchAboutPageData();
+    getPageData();
+    // fetchAboutPageData();
   }, []);
 
   return (
     <>
       <Banner
-        name="About Us"
+        name={pageData?.content?.banner?.title}
         indexpage="Home"
         indexvisit="/"
         activepage="About Us"
-        bgImg={bannerImg}
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
       />
       <Intro introData={aboutUsData?.about} />
       <CountsSection countsData={aboutUsData?.counts} />
