@@ -5,8 +5,29 @@ import CountUp from "react-countup";
 // css
 import "./styles.scss";
 
+// Preprocess countsData to split numeric value, unit, and tag
+const preprocessCountsData = (data) => {
+  return data?.map((item) => {
+    const match = item?.value?.match(/^([\d.]+)([a-zA-Z\s.+]*)$/);
+    const numericValue = match ? parseFloat(match[1]) : 0;
+    const suffix = match ? match[2].trim() : "";
+
+    // Assign "Mn Sq.Ft" to `unit` and any other suffix to `tag`
+    const unit = suffix.includes("Mn Sq.Ft") ? "Mn Sq.Ft" : "";
+    const tag = unit ? suffix.replace("Mn Sq.Ft", "").trim() : suffix;
+
+    return {
+      ...item,
+      numericValue,
+      unit,
+      tag,
+    };
+  });
+};
 const AboutSection = ({ aboutData, countsData }) => {
   const router = useRouter();
+  const processedData = preprocessCountsData(countsData);
+
   return (
     <div className="about_sec mt-60">
       <Container>
@@ -19,16 +40,16 @@ const AboutSection = ({ aboutData, countsData }) => {
               dangerouslySetInnerHTML={{ __html: aboutData?.description }}
             ></p>
             <Row>
-              {countsData?.map((item) => (
+              {processedData?.map((item) => (
                 <Col xs={6} lg={4} key={item?.id}>
                   <div className="counts_wrap">
                     <h3 className="main_sec_heading">
                       <CountUp
                         enableScrollSpy={true}
                         start={0}
-                        end={item?.title}
+                        end={item?.numericValue}
                         duration={4}
-                        decimals={1} // This will ensure one decimal points
+                        decimals={item?.numericValue % 1 !== 0 ? 1 : 0} // This will ensure one decimal points
                         decimal="." // This sets the decimal separator
                       >
                         {({ countUpRef }) => <span ref={countUpRef} />}
@@ -36,7 +57,7 @@ const AboutSection = ({ aboutData, countsData }) => {
                       {item?.tag}
                       {item?.unit && <span className="unit">{item?.unit}</span>}
                     </h3>
-                    <p className="para_comm">{item?.details}</p>
+                    <p className="para_comm">{item?.title}</p>
                   </div>
                 </Col>
               ))}

@@ -154,7 +154,10 @@ const Home = () => {
           <BannerForm />
         </Container> */}
       </section>
-      <AboutSection aboutData={pageData?.content?.intro} countsData={counts} />
+      <AboutSection
+        aboutData={pageData?.content?.intro}
+        countsData={pageData?.content?.counts}
+      />
       <div ref={ref} style={{ minHeight: "20px" }}></div>
       {inView ? (
         <>

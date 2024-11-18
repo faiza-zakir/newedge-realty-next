@@ -23,7 +23,6 @@ const PageContent = () => {
   // const [isLoading, setIsLoading] = useState(false);
 
   const [pageData, setPageData] = useState({});
-  console.log("🚀 ~ PageContent ~ pageData:", pageData);
   const [isLoading, setIsLoading] = useState(true);
 
   const getPageData = async () => {
