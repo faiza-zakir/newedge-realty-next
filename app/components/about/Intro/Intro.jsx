@@ -22,7 +22,7 @@ const Intro = ({ introData }) => {
               <Image
                 src={
                   process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
-                  introData?.featured_image
+                  introData?.featured_img
                 }
                 layout="fill"
                 objectFit="cover"

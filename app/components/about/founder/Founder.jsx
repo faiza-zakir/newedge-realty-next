@@ -13,7 +13,7 @@ const Founder = ({ founderData }) => {
               <Image
                 src={
                   process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
-                  founderData?.featured_image
+                  founderData?.featured_img
                 }
                 layout="fill"
                 objectFit="cover"

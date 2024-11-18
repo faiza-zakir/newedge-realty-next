@@ -22,7 +22,7 @@ const Vision = ({ visionData }) => {
               <Image
                 src={
                   process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
-                  visionData?.featured_image
+                  visionData?.featured_img
                 }
                 layout="fill"
                 objectFit="cover"

@@ -13,7 +13,7 @@ const Mission = ({ missionData }) => {
               <Image
                 src={
                   process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
-                  missionData?.featured_image
+                  missionData?.featured_img
                 }
                 layout="fill"
                 objectFit="cover"

@@ -70,13 +70,13 @@ const PageContent = () => {
             : bannerImg
         }
       />
-      <Intro introData={aboutUsData?.about} />
-      <CountsSection countsData={aboutUsData?.counts} />
+      <Intro introData={pageData?.content?.intro} />
+      <CountsSection countsData={pageData?.content?.counts} />
       <WhyChooseSection whyChooseData={whyChoose} />
-      <Mission missionData={aboutUsData?.mission} />
-      <Vision visionData={aboutUsData?.vision} />
-      <Founder founderData={aboutUsData?.founder} />
-      <TeamList teamData={aboutUsData?.team} />
+      <Mission missionData={pageData?.content?.mission} />
+      <Vision visionData={pageData?.content?.vision} />
+      <Founder founderData={pageData?.content?.founder} />
+      <TeamList teamData={pageData?.content?.team} />
       <ContactSection />
       <FAQSection />
     </>
