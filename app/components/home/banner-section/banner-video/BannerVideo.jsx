@@ -7,20 +7,16 @@ const BannerForm = dynamic(() => import("../banner-form/BannerForm"));
 // data
 import { homeData } from "../../../../db/homeData";
 // css
-import { fatchHomeBannerVideo } from "@/app/apis/commonApi";
 import bannerImg1 from "@/app/assets/banner/homebanner1.webp";
 
 import "./styles.scss";
 
-const BannerVideo = () => {
+const BannerVideo = ({ content }) => {
   const { bannerData } = homeData;
   const router = useRouter();
   const videoRef = useRef(null);
   const [loadForm, setLoadForm] = useState(true);
 
-  const [bannerVideo, setBannerVideo] = useState({
-    video_thumbnail: bannerImg1,
-  });
   const autoPlay = () => {
     if (videoRef.current) {
       const video = videoRef.current;
@@ -30,39 +26,21 @@ const BannerVideo = () => {
     }
   };
 
-  const getData = async () => {
-    try {
-      const resp = await fatchHomeBannerVideo();
-      let NewData = resp?.data?.[resp?.data?.length - 1];
-      let UpdatedData = {};
-      UpdatedData.video_thumbnail =
-        process.env.NEXT_PUBLIC_IMAGE_BASE_URL + NewData?.video_thumbnail;
-      UpdatedData.video_url = NewData?.video_url;
-      setBannerVideo(UpdatedData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    getData();
-  }, []);
-
-  useEffect(() => {
-    if (bannerVideo?.video_url) {
+    if (content?.video_url) {
       autoPlay();
     }
-  }, [bannerVideo]);
+  }, [content?.video_url]);
 
   return (
     <div
       className="banner-video-area"
       style={{
-        backgroundImage: `url(${bannerVideo?.video_thumbnail})`,
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${content?.thumbnail})`,
         backgroundSize: "cover",
       }}
     >
-      {bannerVideo?.video_url ? (
+      {content?.video_url ? (
         <video
           // id="myVideo"
           autoPlay
@@ -73,12 +51,12 @@ const BannerVideo = () => {
           webkit-playsinline="true"
           fetchPriority="high"
           // poster={bannerData?.bg}
-          poster={bannerVideo?.video_thumbnail}
+          poster={process.env.NEXT_PUBLIC_IMAGE_BASE_URL + content?.thumbnail}
           ref={videoRef}
         >
           <source
             // src="https://newedge-realty.prismcloudhosting.com/bannerVideo.mp4"
-            src={bannerVideo?.video_url}
+            src={process.env.NEXT_PUBLIC_IMAGE_BASE_URL + content?.video_url}
             // type="video/mp4"
             type="video/webm"
           />
@@ -92,7 +70,7 @@ const BannerVideo = () => {
           <div className="bannerDetails">
             <div className="content_wrap">
               <span className="tag_line">{bannerData?.tagLine}</span>
-              <h1>{bannerData?.title}</h1>
+              <h1>{content?.title}</h1>
               <button
                 className="theme_btn"
                 onClick={() => router.push(bannerData?.link)}

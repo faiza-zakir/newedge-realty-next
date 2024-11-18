@@ -14,7 +14,10 @@ const AboutSection = ({ aboutData, countsData }) => {
           <Col lg={6}>
             <span className="tag_line">{aboutData?.tagLine}</span>
             <h2 className="main_sec_heading">{aboutData?.title}</h2>
-            <p className="para_comm">{aboutData?.detail}</p>
+            <p
+              className="para_comm"
+              dangerouslySetInnerHTML={{ __html: aboutData?.description }}
+            ></p>
             <Row>
               {countsData?.map((item) => (
                 <Col xs={6} lg={4} key={item?.id}>
@@ -49,20 +52,26 @@ const AboutSection = ({ aboutData, countsData }) => {
             <div className="img_wrap">
               <figure className="about_img1">
                 <Image
-                  src={aboutData?.featured_img2}
+                  src={
+                    process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                    aboutData?.featured_img2
+                  }
                   layout="fill"
                   objectFit="cover"
-                  alt={aboutData?.img_alt2}
-                  title={aboutData?.img_title2}
+                  alt={aboutData?.title}
+                  title={aboutData?.title}
                 />
               </figure>
               <figure className="about_img2">
                 <Image
-                  src={aboutData?.featured_img1}
+                  src={
+                    process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                    aboutData?.featured_img1
+                  }
                   layout="fill"
                   objectFit="cover"
-                  alt={aboutData?.img_alt1}
-                  title={aboutData?.img_title1}
+                  alt={aboutData?.title}
+                  title={aboutData?.title}
                 />
               </figure>
             </div>

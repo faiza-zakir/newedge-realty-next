@@ -14,7 +14,8 @@ const BannerForm = dynamic(() =>
 // data
 import { homeData } from "./db/homeData";
 // api
-import { fatchProjectList } from "./apis/commonApi";
+import { fatchPagesContent, fatchProjectList } from "./apis/commonApi";
+import { toast } from "react-toastify";
 //
 // import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
 const TaglinePopup = dynamic(() =>
@@ -88,6 +89,22 @@ const Home = () => {
 
   const handleModalClose = () => setShowModal(false);
 
+  const [pageData, setPageData] = useState({});
+  console.log("🚀 ~ Home ~ pageData:", pageData);
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("home");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     const fetchProjectListData = async () => {
       try {
@@ -110,6 +127,7 @@ const Home = () => {
         setIsLoading(false); // Hide the loader
       }
     };
+    getPageData();
     fetchProjectListData();
   }, []);
 
@@ -130,13 +148,13 @@ const Home = () => {
 
   return (
     <>
-      <BannerVideo />
+      <BannerVideo content={pageData?.content?.banner} />
       <section className="form_mobile_view mt-60">
         {/* <Container>
           <BannerForm />
         </Container> */}
       </section>
-      <AboutSection aboutData={about} countsData={counts} />
+      <AboutSection aboutData={pageData?.content?.intro} countsData={counts} />
       <div ref={ref} style={{ minHeight: "20px" }}></div>
       {inView ? (
         <>
