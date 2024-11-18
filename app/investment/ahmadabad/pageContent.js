@@ -1,9 +1,8 @@
 "use client";
 import Banner from "../../components/common/common-banner/CommonBanner";
 import Intro from "../../components/investment/Intro/Intro";
-import WhyInvest from "../../components/investment/why-invest/WhyInvest";
 import Maps from "../../components/dholera/maps/Maps";
-import KeyFeaturesSlider from "../../components/investment/key-features-slider/KeyFeaturesSlider";
+import KeyBenefitsSlider from "@/app/components/ahmadabad/key-benefits-slider/KeyBenefitsSlider";
 import ContactSection from "../../components/home/contact-section/ContactSection";
 import FAQSection from "../../components/investment/faq-section/FAQSection";
 // img
@@ -13,7 +12,7 @@ import { investmentData } from "../../db/investmentData";
 
 const PageContent = () => {
   const { ahmadabad } = investmentData;
-  const { intro, benefits, whyInvest, benefits2, locations } = ahmadabad;
+  const { intro, benefits, locations } = ahmadabad;
 
   return (
     <>
@@ -25,17 +24,7 @@ const PageContent = () => {
         bgImg={bannerImg}
       />
       <Intro introData={intro} />
-      <KeyFeaturesSlider
-        title="Key Benefits of Ahmedabad"
-        subTitle=""
-        keyFeaturesData={benefits}
-      />
-      <WhyInvest whyInvestData={whyInvest} />
-      <KeyFeaturesSlider
-        title="Key Benefits of  Sabarmati Riverfront"
-        subTitle=""
-        keyFeaturesData={benefits2}
-      />
+      <KeyBenefitsSlider keyBenefitsData={benefits} />
       <Maps mapsData={locations} />
       <ContactSection />
       <FAQSection />
