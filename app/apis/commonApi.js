@@ -80,3 +80,9 @@ export const fatchZonesList = () => {
 export const fatchHomeBannerVideo = () => {
   return API.get("/video-contents");
 };
+
+//  Pages API
+
+export const fatchPagesContent = (route) => {
+  return API.get(`/pages/${route}`);
+};
