@@ -35,7 +35,7 @@ const PageContent = () => {
   return (
     <>
       <Banner
-        name=""
+        name={singleDeveloper?.name}
         indexpage="Home"
         indexvisit="/"
         activepage={singleDeveloper?.name}

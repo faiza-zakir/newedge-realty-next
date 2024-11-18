@@ -14,6 +14,7 @@ import bannerImg from "../../assets/banner/blogbanner.webp";
 const PageContent = () => {
   const { id } = useParams();
   const [singleBlog, setSingleBlog] = useState({});
+  console.log("🚀 ~ PageContent ~ singleBlog:", singleBlog);
   const [relatedBlog, setRelatedBlog] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,7 +53,7 @@ const PageContent = () => {
   return (
     <>
       <Banner
-        name=""
+        name={singleBlog?.title}
         indexpage="Home"
         indexvisit="/"
         activepage={singleBlog?.title}
