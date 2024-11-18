@@ -1,5 +1,5 @@
 import { fatchPagesContent } from "../apis/commonApi";
-import PageContentData from "./pageContent";
+import PageContentData from "./PageContent";
 // Generate metadata for the page
 export async function generateMetadata() {
   const { data } = await fatchPagesContent("privacy-policy");

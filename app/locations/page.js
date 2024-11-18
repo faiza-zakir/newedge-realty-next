@@ -1,3 +1,4 @@
+import { fatchPagesContent } from "../apis/commonApi";
 import PageContent from "./pageContent";
 
 export async function generateMetadata() {

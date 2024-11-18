@@ -9,7 +9,7 @@ import { fatchPagesContent } from "../apis/commonApi";
 import Loader from "@/app/components/common/loader/Loader";
 import { toast } from "react-toastify";
 
-function pageContent() {
+function PageContent() {
   const [pageData, setPageData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,4 +55,4 @@ function pageContent() {
   );
 }
 
-export default pageContent;
+export default PageContent;
