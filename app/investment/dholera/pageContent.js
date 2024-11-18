@@ -15,6 +15,8 @@ import FAQSection from "../../components/investment/faq-section/FAQSection";
 import bannerImg from "../../assets/banner/dholerabanner.webp";
 // data
 import { investmentData } from "../../db/investmentData";
+import { useEffect, useState } from "react";
+import { fatchPagesContent } from "@/app/apis/commonApi";
 
 const PageContent = () => {
   const { dholera } = investmentData;
@@ -33,6 +35,26 @@ const PageContent = () => {
     investors,
   } = dholera;
 
+  const [pageData, setPageData] = useState({});
+  console.log("🚀 ~ PageContent ~ pageData:", pageData);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("dholera");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    getPageData();
+  }, []);
+
   return (
     <>
       <Banner
@@ -40,19 +62,32 @@ const PageContent = () => {
         indexpage="Home"
         indexvisit="/"
         activepage="Investment"
-        bgImg={bannerImg}
+        // bgImg={bannerImg}
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
       />
-      <Intro introData={intro} />
-      <Maps mapsData={maps} />
+      <Intro introData={pageData?.content?.intro} />
+      <Maps
+        mapsData={{
+          title: "Maps",
+          location1: pageData?.content?.location1,
+          location2: pageData?.content?.location2,
+        }}
+      />
       <MoreFeatures
         title="Advantages of Dholera"
-        moreFeaturesData={advatnages}
+        moreFeaturesData={pageData?.content?.advatnages}
       />
-      <Detail detailData={industries} />
-      <DevelopmentPlan devPlanData={plan} />
-      <Dmic dmicData={dmic} />
-      <Airport airportData={airport} />
-      <Detail detailData={advantage} />
+      <Detail detailData={pageData?.content?.industries} />
+      <DevelopmentPlan content={pageData?.content?.plan} devPlanData={plan} />
+      <Dmic content={pageData?.content?.dmic} dmicData={dmic} />
+      <Airport airportData={pageData?.content?.airport} />
+      <Detail detailData={pageData?.content?.advantage} />
       <MoreFeatures
         title="What to Expect When You Invest in Dholera?"
         moreFeaturesData={expectations}

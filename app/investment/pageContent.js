@@ -34,7 +34,6 @@ const PageContent = () => {
   } = investmentData;
 
   const [pageData, setPageData] = useState({});
-  console.log("🚀 ~ PageContent ~ pageData:", pageData?.content);
   const [isLoading, setIsLoading] = useState(true);
 
   const getPageData = async () => {

@@ -9,7 +9,7 @@ const Detail = ({ detailData }) => {
         <h2 className="main_sec_heading">{detailData?.title}</h2>
         <div
           className="general-details"
-          dangerouslySetInnerHTML={{ __html: detailData?.detail }}
+          dangerouslySetInnerHTML={{ __html: detailData?.description }}
         />
       </Container>
     </div>

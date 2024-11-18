@@ -15,20 +15,20 @@ const Maps = ({ mapsData }) => {
             <div
               className="map_item"
               onClick={() =>
-                router.push(`/locations?location=${mapsData?.map1?.link}`)
+                router.push(`/locations?location=${mapsData?.location1?.link}`)
               }
             >
               <figure>
                 <Image
-                  src={mapsData?.map1?.featured_img}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${mapsData?.location1?.featured_img}`}
                   layout="fill"
                   objectFit="cover"
-                  alt={mapsData?.map1?.img_alt}
-                  title={mapsData?.map1?.img_title}
+                  alt={mapsData?.location1?.title}
+                  title={mapsData?.location1?.title}
                 />
               </figure>
               <div className="content_sec">
-                <h3 className="sub_heading">{mapsData?.map1?.title}</h3>
+                <h3 className="sub_heading">{mapsData?.location1?.title}</h3>
               </div>
             </div>
           </Col>
@@ -36,20 +36,20 @@ const Maps = ({ mapsData }) => {
             <div
               className="map_item"
               onClick={() =>
-                router.push(`/locations?location=${mapsData?.map2?.link}`)
+                router.push(`/locations?location=${mapsData?.location2?.link}`)
               }
             >
               <figure>
                 <Image
-                  src={mapsData?.map2?.featured_img}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${mapsData?.location2?.featured_img}`}
                   layout="fill"
                   objectFit="cover"
-                  alt={mapsData?.map2?.img_alt}
-                  title={mapsData?.map2?.img_title}
+                  alt={mapsData?.location2?.title}
+                  title={mapsData?.location2?.title}
                 />
               </figure>
               <div className="content_sec">
-                <h3 className="sub_heading">{mapsData?.map2?.title}</h3>
+                <h3 className="sub_heading">{mapsData?.location2?.title}</h3>
               </div>
             </div>
           </Col>

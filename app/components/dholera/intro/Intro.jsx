@@ -11,11 +11,11 @@ const Intro = ({ introData }) => {
           <Col sm={12}>
             <figure>
               <Image
-                src={introData?.featured_img}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${introData?.featured_img}`}
                 layout="fill"
                 objectFit="cover"
-                alt={introData?.img_alt}
-                title={introData?.img_title}
+                alt={introData?.title}
+                title={introData?.title}
               />
             </figure>
           </Col>
@@ -23,7 +23,7 @@ const Intro = ({ introData }) => {
             <h2 className="main_sec_heading">{introData?.title}</h2>
             <div
               className="general-details"
-              dangerouslySetInnerHTML={{ __html: introData?.detail }}
+              dangerouslySetInnerHTML={{ __html: introData?.description }}
             />
           </Col>
         </Row>

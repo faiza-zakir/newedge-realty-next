@@ -90,16 +90,19 @@ const KeyBenefitsSlider = ({ keyBenefitsData }) => {
                 <Col lg={6}>
                   <span className="tag_line">{item?.tagLine}</span>
                   <h2 className="main_sec_heading">{item?.title}</h2>
-                  <p className="para_comm">{item?.detail}</p>
+                  <p
+                    className="para_comm"
+                    dangerouslySetInnerHTML={{ __html: item?.description }}
+                  ></p>
                 </Col>
                 <Col lg={6}>
                   <figure>
                     <Image
-                      src={item?.featured_img}
+                      src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.featured_img}`}
                       layout="fill"
                       objectFit="cover"
-                      alt={item?.img_alt}
-                      title={item?.img_title}
+                      alt={item?.title}
+                      title={item?.title}
                     />
                   </figure>
                 </Col>

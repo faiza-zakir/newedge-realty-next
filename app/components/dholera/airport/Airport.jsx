@@ -11,11 +11,11 @@ const Airport = ({ airportData }) => {
           <Col lg={6}>
             <figure>
               <Image
-                src={airportData?.featured_img}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${airportData?.featured_img}`}
                 layout="fill"
                 objectFit="cover"
-                alt={airportData?.img_alt}
-                title={airportData?.img_title}
+                alt={airportData?.title}
+                title={airportData?.title}
               />
             </figure>
           </Col>
@@ -23,7 +23,7 @@ const Airport = ({ airportData }) => {
             <h2 className="main_sec_heading">{airportData?.title}</h2>
             <div
               className="general-details"
-              dangerouslySetInnerHTML={{ __html: airportData?.detail }}
+              dangerouslySetInnerHTML={{ __html: airportData?.description }}
             />
           </Col>
         </Row>

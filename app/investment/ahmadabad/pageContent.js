@@ -9,10 +9,32 @@ import FAQSection from "../../components/investment/faq-section/FAQSection";
 import bannerImg from "../../assets/banner/ahmadabadbanner.webp";
 // data
 import { investmentData } from "../../db/investmentData";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { fatchPagesContent } from "@/app/apis/commonApi";
 
 const PageContent = () => {
   const { ahmadabad } = investmentData;
   const { intro, benefits, locations } = ahmadabad;
+
+  const [pageData, setPageData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getPageData = async () => {
+    try {
+      setIsLoading(true);
+      const resp = await fatchPagesContent("ahmadabad");
+      setPageData(resp?.data);
+    } catch (err) {
+      toast.error("Opps!, something went wrong, please try again later");
+      console.log("Err: ", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  useEffect(() => {
+    getPageData();
+  }, []);
 
   return (
     <>
@@ -21,13 +43,25 @@ const PageContent = () => {
         indexpage="Home"
         indexvisit="/"
         activepage="Investment"
-        bgImg={bannerImg}
+        bgImg={
+          pageData?.content?.banner?.background_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${pageData?.content?.banner?.background_image}`,
+              }
+            : bannerImg
+        }
       />
-      <Intro introData={intro} />
-      <KeyBenefitsSlider keyBenefitsData={benefits} />
-      <Maps mapsData={locations} />
+      <Intro introData={pageData?.content?.intro} />
+      <KeyBenefitsSlider keyBenefitsData={pageData?.content?.benefits} />
+      <Maps
+        mapsData={{
+          title: "Locations",
+          location1: pageData?.content?.location1,
+          location2: pageData?.content?.location2,
+        }}
+      />
       <ContactSection />
-      <FAQSection />
+      <FAQSection content={pageData?.content?.faqs} />
     </>
   );
 };

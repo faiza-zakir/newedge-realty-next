@@ -12,7 +12,12 @@ const MoreFeatures = ({ title, moreFeaturesData }) => {
           {moreFeaturesData?.map((item, i) => (
             <Col sm={6} lg={4} key={i}>
               <div className="more_features_item">
-                <Image src={item?.icon} alt={item?.name} />
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.icon}`}
+                  alt={item?.name}
+                  width={12}
+                  height={12}
+                />
                 <div>
                   <h3>{item?.name}</h3>
                 </div>
