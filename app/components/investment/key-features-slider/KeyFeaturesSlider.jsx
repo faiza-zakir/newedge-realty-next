@@ -99,17 +99,20 @@ const KeyFeaturesSlider = ({ title, subTitle, keyFeaturesData }) => {
           ref={sliderRef}
           afterChange={(index) => setCurrentSlide(index)}
         >
-          {keyFeaturesData?.map((item) => (
-            <div className="key_feature_wrap" key={item?.id}>
+          {keyFeaturesData?.map((item, i) => (
+            <div className="key_feature_wrap" key={i + "tfr"}>
               <div className="key_feature_item">
                 <div>
                   <figure>
                     <Image
-                      src={item?.featured_img}
+                      src={
+                        process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                        item?.featured_img
+                      }
                       layout="fill"
                       objectFit="cover"
-                      alt={item?.img_alt}
-                      title={item?.img_title}
+                      alt={item?.title}
+                      title={item?.title}
                     />
                   </figure>
                 </div>
@@ -117,7 +120,7 @@ const KeyFeaturesSlider = ({ title, subTitle, keyFeaturesData }) => {
                   <h3>{item?.title}</h3>
                   <div
                     className="general-details"
-                    dangerouslySetInnerHTML={{ __html: item?.detail }}
+                    dangerouslySetInnerHTML={{ __html: item?.description }}
                   />
                 </div>
               </div>

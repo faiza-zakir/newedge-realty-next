@@ -32,7 +32,7 @@ const faqsData = [
   },
 ];
 
-const FAQSection = () => {
+const FAQSection = ({ content }) => {
   const router = useRouter();
   return (
     <div className="mt-60 faqs-area">
@@ -49,14 +49,31 @@ const FAQSection = () => {
           </div>
         </div>
         <Accordion defaultActiveKey={1} flush>
-          {faqsData?.map((item, i) => (
-            <Accordion.Item eventKey={i + 1} key={item?.id}>
-              <Accordion.Header>{item?.question}</Accordion.Header>
-              <Accordion.Body>
-                <div>{item?.answer}</div>
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
+          {content?.length ? (
+            <>
+              {content?.map((item, i) => (
+                <Accordion.Item eventKey={i + 1} key={item?.id}>
+                  <Accordion.Header>{item?.title}</Accordion.Header>
+                  <Accordion.Body>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    ></div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </>
+          ) : (
+            <>
+              {faqsData?.map((item, i) => (
+                <Accordion.Item eventKey={i + 1} key={item?.id}>
+                  <Accordion.Header>{item?.question}</Accordion.Header>
+                  <Accordion.Body>
+                    <div>{item?.answer}</div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </>
+          )}
         </Accordion>
         <div className="mobile_view">
           <button className="theme_btn2" onClick={() => router.push("/faqs")}>

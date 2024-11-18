@@ -93,8 +93,8 @@ const Features = ({ title, featuresData }) => {
           ref={sliderRef}
           afterChange={(index) => setCurrentSlide(index)}
         >
-          {featuresData?.map((item) => (
-            <div className="feature_wrap" key={item?.id}>
+          {featuresData?.map((item, i) => (
+            <div className="feature_wrap" key={i + "fjdik"}>
               <div className="feature_item">
                 {/* <Image
                   src={item?.icon}
@@ -103,7 +103,9 @@ const Features = ({ title, featuresData }) => {
                 /> */}
                 <div>
                   <h3>{item?.title}</h3>
-                  <p>{item?.detail}</p>
+                  <p dangerouslySetInnerHTML={{ __html: item?.description }}>
+                    {/* {item?.detail} */}
+                  </p>
                 </div>
               </div>
             </div>

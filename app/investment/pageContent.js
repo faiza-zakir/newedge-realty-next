@@ -73,24 +73,39 @@ const PageContent = () => {
                 : bannerImg
             }
           />
-          <Intro introData={intro} />
+          <Intro introData={pageData?.content?.intro} />
           <Features
             title="KEY BENEFITS OF LAND INVESTMENT"
-            featuresData={key_details}
+            featuresData={pageData?.content?.benefits}
           />
           <KeyFeaturesSlider
             title="KEY FACTORS TO CONSIDER WHEN INVESTING IN LAND"
             subTitle="To make the most out of your land investments, here are some essential factors to keep in mind:"
-            keyFeaturesData={factors}
+            keyFeaturesData={pageData?.content?.factors}
           />
-          <ExpertTips expertTipsData={expertTips} />
-          <PhasesSlider title="LAND APPRECIATION PHASES" phasesData={phases} />
-          <WhyInvest whyInvestData={whyInvest} />
-          <Features title="How We Help You Succeed" featuresData={offerings} />
-          <Opportunities opportunitiesData={opportunities} />
+          <ExpertTips
+            content={pageData?.content?.expertTips}
+            expertTipsData={expertTips}
+          />
+          <PhasesSlider
+            title="LAND APPRECIATION PHASES"
+            phasesData={pageData?.content?.phases}
+          />
+          <WhyInvest whyInvestData={pageData?.content?.whyInvest} />
+          <Features
+            title="How We Help You Succeed"
+            featuresData={pageData?.content?.offerings}
+          />
+          <Opportunities
+            opportunitiesData={{
+              title: "CURRENT OPPORTUNITIES",
+              opportunity1: pageData?.content?.opportunity1,
+              opportunity2: pageData?.content?.opportunity2,
+            }}
+          />
           <TestimonialsSection testimonialsData={testimonials} />
           <ContactSection />
-          <FAQSection />
+          <FAQSection content={pageData?.content?.faqs} />
         </>
       )}
     </>

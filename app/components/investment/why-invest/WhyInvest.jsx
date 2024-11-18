@@ -11,16 +11,22 @@ const WhyInvest = ({ whyInvestData }) => {
           <Col lg={6}>
             <span className="tag_line">{whyInvestData?.tagLine}</span>
             <h2 className="main_sec_heading">{whyInvestData?.title}</h2>
-            <p className="para_comm">{whyInvestData?.detail}</p>
+            <p
+              className="para_comm"
+              dangerouslySetInnerHTML={{ __html: whyInvestData?.description }}
+            ></p>
           </Col>
           <Col lg={6}>
             <figure>
               <Image
-                src={whyInvestData?.featured_img}
+                src={
+                  process.env.NEXT_PUBLIC_IMAGE_BASE_URL +
+                  whyInvestData?.featured_img
+                }
                 layout="fill"
                 objectFit="cover"
-                alt={whyInvestData?.img_alt}
-                title={whyInvestData?.img_title}
+                alt={whyInvestData?.title}
+                title={whyInvestData?.title}
               />
             </figure>
           </Col>

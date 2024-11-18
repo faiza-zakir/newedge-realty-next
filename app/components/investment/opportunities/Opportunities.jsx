@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import "./styles.scss";
 
 const Opportunities = ({ opportunitiesData }) => {
+  console.log("🚀 ~ Opportunities ~ opportunitiesData:", opportunitiesData);
   const router = useRouter();
   return (
     <div className="opportunities_sec mt-60">
@@ -18,11 +19,11 @@ const Opportunities = ({ opportunitiesData }) => {
             >
               <figure>
                 <Image
-                  src={opportunitiesData?.opportunity1?.featured_img}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${opportunitiesData?.opportunity1?.featured_img}`}
                   layout="fill"
                   objectFit="cover"
-                  alt={opportunitiesData?.opportunity1?.img_alt}
-                  title={opportunitiesData?.opportunity1?.img_title}
+                  alt={opportunitiesData?.opportunity1?.title}
+                  title={opportunitiesData?.opportunity1?.title}
                 />
               </figure>
               <div className="content_sec">
@@ -39,11 +40,11 @@ const Opportunities = ({ opportunitiesData }) => {
             >
               <figure>
                 <Image
-                  src={opportunitiesData?.opportunity2?.featured_img}
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${opportunitiesData?.opportunity2?.featured_img}`}
                   layout="fill"
                   objectFit="cover"
-                  alt={opportunitiesData?.opportunity2?.img_alt}
-                  title={opportunitiesData?.opportunity2?.img_title}
+                  alt={opportunitiesData?.opportunity2?.title}
+                  title={opportunitiesData?.opportunity2?.title}
                 />
               </figure>
               <div className="content_sec">

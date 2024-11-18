@@ -92,13 +92,13 @@ const PhasesSlider = ({ title, subTitle, phasesData }) => {
           ref={sliderRef}
           afterChange={(index) => setCurrentSlide(index)}
         >
-          {phasesData?.map((item) => (
-            <div className="phases_wrap" key={item?.id}>
+          {phasesData?.map((item, i) => (
+            <div className="phases_wrap" key={i + "dkd"}>
               <div className="phases_item">
                 <h3>{item?.title}</h3>
                 <div
                   className="general-details"
-                  dangerouslySetInnerHTML={{ __html: item?.detail }}
+                  dangerouslySetInnerHTML={{ __html: item?.description }}
                 />
               </div>
             </div>
