@@ -45,7 +45,10 @@ function ProjectSlider({ sliderData }) {
         {sliderData?.map((item, i) => (
           <div key={i}>
             <figure>
-              <Image src={item} alt="project" />
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item}`}
+                alt="project"
+              />
             </figure>
           </div>
         ))}
