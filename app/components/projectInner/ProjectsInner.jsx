@@ -19,6 +19,7 @@ import bannerImg from "../../assets/banner/contactbanner.webp";
 const ProjectsInner = () => {
   const { id } = useParams();
   const [singleProject, setSingleProject] = useState({});
+  console.log("🚀 ~ ProjectsInner ~ singleProject:", singleProject);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -39,13 +40,15 @@ const ProjectsInner = () => {
   return (
     <>
       <Banner
-        name=""
+        name={singleProject?.title}
         indexpage="Home"
         indexvisit="/"
         activepage={singleProject?.title}
         bgImg={
-          singleProject?.property_type?.banner_image
-            ? singleProject?.property_type?.banner_image
+          singleProject?.banner_image
+            ? {
+                src: ` ${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${singleProject?.banner_image}`,
+              }
             : bannerImg
         }
       />

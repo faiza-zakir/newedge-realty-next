@@ -10,6 +10,9 @@
       padding: 1rem;
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 16px;
+      .general-details {
+        min-height: 250px;
+      }
       hr {
         border-color: rgba(0, 0, 0, 0.16);
         opacity: 1;
