@@ -55,7 +55,7 @@ const ProjectsInner = () => {
       {singleProject?.video_url && (
         <ProjectVideo projectVideo={singleProject?.video_url} />
       )}
-      {singleProject?.key_details?.length > 0 && (
+      {singleProject?.slider_image?.length > 0 && (
         <ProjectSlider sliderData={singleProject?.slider_image} />
       )}
       <Details singleProject={singleProject} />
