@@ -5,7 +5,7 @@ import AboutDeveloper from "../../components/projectInner/about-developer/AboutD
 import Banner from "../../components/common/common-banner/CommonBanner";
 import Overview from "../../components/projectInner/Overview/Overview";
 import ProjectVideo from "../../components/projectInner/project-video/ProjectVideo";
-// import ProjectSlider from "../../components/projectInner/project-slider/ProjectSlider";
+import ProjectSlider from "../../components/projectInner/project-slider/ProjectSlider";
 import Details from "../../components/projectInner/details/Details";
 import MoreDetails from "../../components/projectInner/more-details/MoreDetails";
 import ProjectGallery from "../../components/projectInner/project-gallery/ProjectGallery";
@@ -19,7 +19,6 @@ import bannerImg from "../../assets/banner/contactbanner.webp";
 const ProjectsInner = () => {
   const { id } = useParams();
   const [singleProject, setSingleProject] = useState({});
-  console.log("🚀 ~ ProjectsInner ~ singleProject:", singleProject);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -56,7 +55,9 @@ const ProjectsInner = () => {
       {singleProject?.video_url && (
         <ProjectVideo projectVideo={singleProject?.video_url} />
       )}
-      {/* <ProjectSlider sliderData={singleProject?.slider_image} /> */}
+      {singleProject?.key_details?.length > 0 && (
+        <ProjectSlider sliderData={singleProject?.slider_image} />
+      )}
       <Details singleProject={singleProject} />
       {singleProject?.key_details?.length > 0 && (
         <MoreDetails
