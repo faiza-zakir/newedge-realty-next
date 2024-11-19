@@ -6,7 +6,7 @@ import BrochureForm from "../../common/brochure-form/BrochureForm";
 // css
 import "./styles.scss";
 
-const AboutDeveloper = ({ developerData, propertyType }) => {
+const AboutDeveloper = ({ developerData, propertyType, brochureUrl }) => {
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -28,7 +28,7 @@ const AboutDeveloper = ({ developerData, propertyType }) => {
               }}
             />
             <div className="btn_wrap">
-              {developerData?.brochure && (
+              {brochureUrl && (
                 <button className="theme_btn2" onClick={handleModalShow}>
                   Download Brochure
                 </button>
@@ -56,11 +56,11 @@ const AboutDeveloper = ({ developerData, propertyType }) => {
           handleClose={handleClose}
           propertyType={propertyType}
         />
-        {developerData?.brochure && (
+        {brochureUrl && (
           <BrochureForm
             show={showModal}
             handleClose={handleModalClose}
-            brochureLink={developerData?.brochure}
+            brochureLink={brochureUrl}
             propertyType={propertyType}
           />
         )}

@@ -77,6 +77,7 @@ const ProjectsInner = () => {
       <AboutDeveloper
         developerData={singleProject?.developer}
         propertyType={singleProject?.property_type?.title}
+        brochureUrl={singleProject?.brochure}
       />
       <ContactSection />
       <FAQSection />
