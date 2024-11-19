@@ -15,7 +15,7 @@ const BannerVideo = ({ content }) => {
   const { bannerData } = homeData;
   const router = useRouter();
   const videoRef = useRef(null);
-  const [loadForm, setLoadForm] = useState(true);
+  const [loadForm, setLoadForm] = useState(false);
 
   const autoPlay = () => {
     if (videoRef.current) {
@@ -27,6 +27,9 @@ const BannerVideo = ({ content }) => {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoadForm(true);
+    }, 2000);
     if (content?.video_url) {
       autoPlay();
     }
@@ -70,7 +73,11 @@ const BannerVideo = ({ content }) => {
           <div className="bannerDetails">
             <div className="content_wrap">
               <span className="tag_line">{bannerData?.tagLine}</span>
-              <h1>{content?.title}</h1>
+              <h1>
+                {content?.title
+                  ? content?.title
+                  : "Trusted Solutions for Businesses, Projects, and Homeowners Since 1997"}
+              </h1>
               <button
                 className="theme_btn"
                 onClick={() => router.push(bannerData?.link)}
