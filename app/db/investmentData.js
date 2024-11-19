@@ -436,6 +436,14 @@ export const investmentData = {
         "“Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus sed dignissim, metus nec “Porem ipsum dolor sit amet, consectetur adipiscing elit.”",
     },
     {
+      id: 6,
+      name: "Bojoer",
+      designation: "from Duisbarg",
+      user_img: userImg,
+      review:
+        "“Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus sed dignissim, metus nec “Porem ipsum dolor sit amet, consectetur adipiscing elit.”",
+    },
+    {
       id: 2,
       name: "Bojoer",
       designation: "from Duisbarg",
@@ -461,14 +469,6 @@ export const investmentData = {
     },
     {
       id: 5,
-      name: "Bojoer",
-      designation: "from Duisbarg",
-      user_img: userImg,
-      review:
-        "“Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus sed dignissim, metus nec “Porem ipsum dolor sit amet, consectetur adipiscing elit.”",
-    },
-    {
-      id: 6,
       name: "Bojoer",
       designation: "from Duisbarg",
       user_img: userImg,
