@@ -15,8 +15,8 @@ const MoreFeatures = ({ title, moreFeaturesData }) => {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.icon}`}
                   alt={item?.name}
-                  width={12}
-                  height={12}
+                  width={60}
+                  height={60}
                 />
                 <div>
                   <h3>{item?.name}</h3>
