@@ -117,7 +117,8 @@ const Footer = () => {
       </div>
       <Container>
         <div className="footer-bottom py-4">
-          <p>
+          <p>RERA No.</p>
+          <p className="prism_div">
             © 2024 Designed And Managed By{" "}
             <a
               href="https://www.prism-me.com"

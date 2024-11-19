@@ -51,6 +51,10 @@
     @media (max-width: 768px) {
       justify-content: center;
     }
+    .prism_div {
+      opacity: 0;
+      visibility: hidden;
+    }
     p {
       margin: 0;
       font-size: 14px;
