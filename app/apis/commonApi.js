@@ -86,3 +86,9 @@ export const fatchHomeBannerVideo = () => {
 export const fatchPagesContent = (route) => {
   return API.get(`/pages/${route}`);
 };
+
+//  Clients & Credentials API
+
+export const fatchCredentialsClients = () => {
+  return API.get(`/credentials`);
+};

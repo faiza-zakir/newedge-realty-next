@@ -3,37 +3,10 @@ import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-// images
-import client1 from "../../../assets/clients/cred1.png";
-import client2 from "../../../assets/clients/cred2.png";
-import client3 from "../../../assets/clients/cred3.png";
-import client4 from "../../../assets/clients/cred4.png";
-import client5 from "../../../assets/clients/cred5.jpg";
-import client6 from "../../../assets/clients/cred6.png";
-
+// api
+import { fatchCredentialsClients } from "../../../apis/commonApi";
 // css
 import "./styles.scss";
-
-const credData = [
-  {
-    img: client1,
-  },
-  {
-    img: client2,
-  },
-  {
-    img: client3,
-  },
-  {
-    img: client4,
-  },
-  {
-    img: client5,
-  },
-  {
-    img: client6,
-  },
-];
 
 const settings = {
   dots: false,
@@ -65,6 +38,28 @@ const settings = {
 
 const OurCredentials = () => {
   const sliderRef = useRef();
+  const [credentialsData, setCredentialsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchCredentialsListData = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await fatchCredentialsClients();
+
+        let updatedData = [...data]?.filter(
+          (item) => item?.type === "credentials"
+        );
+        setCredentialsData(updatedData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCredentialsListData();
+  }, []);
   const [currentSlide, setCurrentSlide] = useState(0);
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -80,7 +75,7 @@ const OurCredentials = () => {
     }
   };
 
-  const showArrows = credData?.length > settings.slidesToShow;
+  const showArrows = credentialsData?.length > settings.slidesToShow;
 
   const PrevArrow = () => (
     <button
@@ -96,7 +91,7 @@ const OurCredentials = () => {
     <button
       className="slider_custom_arrows ms-3"
       onClick={nextSlide}
-      disabled={currentSlide >= credData?.length - settings.slidesToShow}
+      disabled={currentSlide >= credentialsData?.length - settings.slidesToShow}
     >
       <FaAngleRight fontSize={"24px"} />
     </button>
@@ -113,25 +108,28 @@ const OurCredentials = () => {
             </div>
           )}
         </div>
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {credData?.map((item, i) => (
-            <div className="cred_item mt-4" key={i}>
-              <div className="img_wrap">
-                <Image
-                  // src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.img}`}
-                  src={item?.img}
-                  width={100}
-                  height={160}
-                  alt="client"
-                />
+        {isLoading ? (
+          <p className="para_comm text-center">loading...</p>
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {credentialsData?.map((item, i) => (
+              <div className="cred_item mt-4" key={i}>
+                <div className="img_wrap">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.credential}`}
+                    width={100}
+                    height={160}
+                    alt="client"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
         {showArrows && (
           <div className="mobile_view">
             <PrevArrow />

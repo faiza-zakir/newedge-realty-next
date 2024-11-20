@@ -3,37 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-// images
-import client1 from "../../../assets/clients/benetton.jpg";
-import client2 from "../../../assets/clients/ginger.jpg";
-import client3 from "../../../assets/clients/lifestyle.jpg";
-import client4 from "../../../assets/clients/fabindia.jpg";
-import client5 from "../../../assets/clients/fasttrack.jpg";
-import client6 from "../../../assets/clients/future-group.jpg";
+// api
+import { fatchCredentialsClients } from "../../../apis/commonApi";
 
 // css
 import "./styles.scss";
-
-const clientsData = [
-  {
-    img: client1,
-  },
-  {
-    img: client2,
-  },
-  {
-    img: client3,
-  },
-  {
-    img: client4,
-  },
-  {
-    img: client5,
-  },
-  {
-    img: client6,
-  },
-];
 
 const settings = {
   dots: false,
@@ -65,6 +39,27 @@ const settings = {
 
 const OurClients = () => {
   const sliderRef = useRef();
+  const [clientsData, setClientsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchClientsListData = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await fatchCredentialsClients();
+
+        let updatedData = [...data]?.filter((item) => item?.type === "clients");
+        setClientsData(updatedData);
+      } catch (error) {
+        console.error("Error fetching Data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchClientsListData();
+  }, []);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const nextSlide = () => {
     if (sliderRef.current) {
@@ -113,25 +108,28 @@ const OurClients = () => {
             </div>
           )}
         </div>
-        <Slider
-          {...settings}
-          ref={sliderRef}
-          afterChange={(index) => setCurrentSlide(index)}
-        >
-          {clientsData?.map((item, i) => (
-            <div className="clients_item mt-4" key={i}>
-              <div className="img_wrap">
-                <Image
-                  // src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.img}`}
-                  src={item?.img}
-                  width={170}
-                  height={60}
-                  alt="client"
-                />
+        {isLoading ? (
+          <p className="para_comm text-center">loading...</p>
+        ) : (
+          <Slider
+            {...settings}
+            ref={sliderRef}
+            afterChange={(index) => setCurrentSlide(index)}
+          >
+            {clientsData?.map((item, i) => (
+              <div className="clients_item mt-4" key={i}>
+                <div className="img_wrap">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.credential}`}
+                    width={170}
+                    height={60}
+                    alt="client"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
         {showArrows && (
           <div className="mobile_view">
             <PrevArrow />
