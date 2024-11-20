@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
-
 import AboutSection from "./components/home/about-section/AboutSection";
 import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
 // import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
@@ -16,6 +15,7 @@ import { homeData } from "./db/homeData";
 // api
 import { fatchPagesContent, fatchProjectList } from "./apis/commonApi";
 import { toast } from "react-toastify";
+
 //
 // import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
 const TaglinePopup = dynamic(() =>
@@ -47,6 +47,12 @@ const ProjectSlider = dynamic(() =>
 const WhyChooseSection = dynamic(() =>
   import("./components/home/why-choose-section/WhyChooseSection")
 );
+const OurClients = dynamic(() =>
+  import("./components/home/our-clients/OurClients")
+);
+const OurCredentials = dynamic(() =>
+  import("./components/home/our-credentials/OurCredentials")
+);
 //
 
 // import AppointmentSection from "./components/home/appointment-section/AppointmentSection";
@@ -59,14 +65,7 @@ const WhyChooseSection = dynamic(() =>
 // import WhyChooseSection from "./components/home/why-choose-section/WhyChooseSection";
 
 const Home = () => {
-  const {
-    about,
-    counts,
-    appointment,
-    whyChoose,
-    testimonials,
-    testimonialsVideo,
-  } = homeData;
+  const { appointment, whyChoose, testimonials, testimonialsVideo } = homeData;
   const [showModal, setShowModal] = useState(false);
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
@@ -90,7 +89,6 @@ const Home = () => {
   const handleModalClose = () => setShowModal(false);
 
   const [pageData, setPageData] = useState({});
-  console.log("🚀 ~ Home ~ pageData:", pageData);
 
   const getPageData = async () => {
     try {
@@ -179,6 +177,8 @@ const Home = () => {
           <WhyChooseSection whyChooseData={whyChoose} />
           <TestimonialsSection testimonialsData={testimonials} />
           <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
+          <OurClients />
+          <OurCredentials />
           <BlogSection />
           <ContactSection />
           <FAQSection />

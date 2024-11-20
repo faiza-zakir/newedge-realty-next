@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // api
 import { fetchTestimonialData } from "../../../apis/commonApi";
