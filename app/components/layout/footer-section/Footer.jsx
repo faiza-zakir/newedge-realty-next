@@ -117,7 +117,10 @@ const Footer = () => {
       </div>
       <Container>
         <div className="footer-bottom py-4">
-          <p>RERA No.</p>
+          <p>
+            Newedge Realty Pvt Ltd RERA Reg. No.: AG/GJ/AHMEDABAD/AHMADABAD
+            CITY/AUDA/AA00128/060228R2
+          </p>
           <p className="prism_div">
             © 2024 Designed And Managed By{" "}
             <a
