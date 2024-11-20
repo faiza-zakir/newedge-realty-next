@@ -12,7 +12,7 @@ const settings = {
   dots: false,
   arrows: false,
   infinite: true,
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
   speed: 800,
   lazyLoad: true,

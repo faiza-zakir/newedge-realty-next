@@ -9,9 +9,10 @@ import Mission from "../components/about/mission/Mission";
 import Vision from "../components/about/vision/Vision";
 import Founder from "../components/about/founder/Founder";
 import TeamList from "../components/about/team/TeamList";
+import OurCredentials from "../components/home/our-credentials/OurCredentials";
 import FAQSection from "../components/home/faq-section/FAQSection";
 // api
-import { fatchAboutData, fatchPagesContent } from "../apis/commonApi";
+import { fatchPagesContent } from "../apis/commonApi";
 // img
 import bannerImg from "../assets/banner/aboutbanner.webp";
 // data
@@ -19,9 +20,6 @@ import { homeData } from "../db/homeData";
 
 const PageContent = () => {
   const { whyChoose } = homeData;
-  const [aboutUsData, setAboutUsData] = useState({});
-  // const [isLoading, setIsLoading] = useState(false);
-
   const [pageData, setPageData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,19 +37,7 @@ const PageContent = () => {
   };
 
   useEffect(() => {
-    const fetchAboutPageData = async () => {
-      try {
-        setIsLoading(true); // Show the loader
-        const { data } = await fatchAboutData();
-        setAboutUsData(data);
-      } catch (error) {
-        console.error("Error fetching Data:", error);
-      } finally {
-        setIsLoading(false); // Hide the loader
-      }
-    };
     getPageData();
-    // fetchAboutPageData();
   }, []);
 
   return (
@@ -76,6 +62,7 @@ const PageContent = () => {
       <Vision visionData={pageData?.content?.vision} />
       <Founder founderData={pageData?.content?.founder} />
       <TeamList teamData={pageData?.content?.team} />
+      <OurCredentials />
       <ContactSection />
       <FAQSection />
     </>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Slider from "react-slick";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // api
@@ -13,10 +13,12 @@ const settings = {
   dots: false,
   arrows: false,
   infinite: true,
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
   speed: 800,
   lazyLoad: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
   responsive: [
     {
       breakpoint: 992,
@@ -30,8 +32,6 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
       },
     },
   ],
@@ -99,43 +99,35 @@ const OurClients = () => {
   return (
     <div className="clients_sec mt-60">
       <Container>
-        <div className="header_wrap">
-          <h2 className="main_sec_heading">Some of Our Client Includes</h2>
-          {showArrows && (
-            <div className="desktop_view">
-              <PrevArrow />
-              <NextArrow />
-            </div>
-          )}
-        </div>
-        {isLoading ? (
-          <p className="para_comm text-center">loading...</p>
-        ) : (
-          <Slider
-            {...settings}
-            ref={sliderRef}
-            afterChange={(index) => setCurrentSlide(index)}
-          >
-            {clientsData?.map((item, i) => (
-              <div className="clients_item mt-4" key={i}>
-                <div className="img_wrap">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.credential}`}
-                    width={170}
-                    height={60}
-                    alt="client"
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        )}
-        {showArrows && (
-          <div className="mobile_view">
-            <PrevArrow />
-            <NextArrow />
-          </div>
-        )}
+        <Row className="gy-5 gx-lg-5 align-items-center">
+          <Col lg={3}>
+            <h2 className="main_sec_heading">Our Clients</h2>
+          </Col>
+          <Col lg={9}>
+            {isLoading ? (
+              <p className="para_comm text-center">loading...</p>
+            ) : (
+              <Slider
+                {...settings}
+                ref={sliderRef}
+                afterChange={(index) => setCurrentSlide(index)}
+              >
+                {clientsData?.map((item, i) => (
+                  <div className="clients_item" key={i}>
+                    <div className="img_wrap">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item?.credential}`}
+                        width={170}
+                        height={60}
+                        alt="client"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            )}
+          </Col>
+        </Row>
       </Container>
     </div>
   );

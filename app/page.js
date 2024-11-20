@@ -50,10 +50,6 @@ const WhyChooseSection = dynamic(() =>
 const OurClients = dynamic(() =>
   import("./components/home/our-clients/OurClients")
 );
-const OurCredentials = dynamic(() =>
-  import("./components/home/our-credentials/OurCredentials")
-);
-//
 
 // import AppointmentSection from "./components/home/appointment-section/AppointmentSection";
 // import BlogSection from "./components/home/blog-section/BlogSection";
@@ -150,8 +146,9 @@ const Home = () => {
       <section className="form_mobile_view mt-60">
         {/* <Container>
           <BannerForm />
-        </Container> */}
+          </Container> */}
       </section>
+      <OurClients />
       <AboutSection
         aboutData={pageData?.content?.intro}
         countsData={pageData?.content?.counts}
@@ -177,8 +174,6 @@ const Home = () => {
           <WhyChooseSection whyChooseData={whyChoose} />
           <TestimonialsSection testimonialsData={testimonials} />
           <VideoTestimonialsSection testimonialsData={testimonialsVideo} />
-          <OurClients />
-          <OurCredentials />
           <BlogSection />
           <ContactSection />
           <FAQSection />
