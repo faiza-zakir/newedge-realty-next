@@ -7,7 +7,7 @@ import logo from "../../../assets/logo/logo.svg";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 // api
-import { fatchPagesContent } from "../apis/commonApi";
+import { fatchPagesContent } from "../../../apis/commonApi";
 // css
 import "./style.scss";
 
