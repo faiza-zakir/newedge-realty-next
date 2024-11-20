@@ -9,6 +9,19 @@ import { FaXTwitter } from "react-icons/fa6";
 import "./style.scss";
 
 const Footer = () => {
+  const [contactData, setContactData] = useState({});
+
+  const getPageData = async () => {
+    try {
+      const resp = await fatchPagesContent("contact");
+      setContactData(resp?.data?.info);
+    } catch (err) {
+      console.log("Err: ", err);
+    }
+  };
+  useEffect(() => {
+    getPageData();
+  }, []);
   return (
     <div className="mt-60 footer-area">
       <div className="ptb-60">
@@ -58,17 +71,16 @@ const Footer = () => {
               <h3>Contact</h3>
               <ul>
                 <li>
-                  <a href="tel:+917940307106">+91 79 4030 7106</a>
-                </li>
-                <li>
-                  <a href="mailto:info@newedgerealty.in">
-                    info@newedgerealty.in
+                  <a href={`tel:${contactData?.phone?.replace(/\s+/g, "")}`}>
+                    {contactData?.phone}
                   </a>
                 </li>
                 <li>
-                  212-214, Platinum Plaza, Opp IOC Petrol Pump,
-                  Bodakdev,Ahmedabad -380054
+                  <a href={`mailto:${contactData?.email}`}>
+                    {contactData?.email}
+                  </a>
                 </li>
+                <li>{contactData?.address}</li>
               </ul>
             </Col>
             <Col xs={12} sm={6} md={6} lg>
