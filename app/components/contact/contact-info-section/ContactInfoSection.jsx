@@ -5,7 +5,7 @@ import { GrLocation } from "react-icons/gr";
 // css
 import "./styles.scss";
 
-const ContactInfoSection = () => {
+const ContactInfoSection = ({ infoData }) => {
   return (
     <div className="contact-info-area mt-60">
       <Container>
@@ -19,7 +19,7 @@ const ContactInfoSection = () => {
               <p className="para_comm">
                 Reach out to us for any inquiries or support
               </p>
-              <a href="mailto:info@newedgerealty.in">info@newedgerealty.in</a>
+              <a href={`mailto:${infoData?.email}`}>{infoData?.email}</a>
             </div>
           </Col>
           <Col md={6} lg={4}>
@@ -29,7 +29,9 @@ const ContactInfoSection = () => {
               <p className="para_comm">
                 Call us for immediate assistance and information.
               </p>
-              <a href="tel:+917940307106">+91 79 4030 7106</a>
+              <a href={`tel:${infoData?.phone.replace(/\s+/g, "")}`}>
+                {infoData?.phone}
+              </a>
             </div>
           </Col>
           <Col md={6} lg={4}>
@@ -44,8 +46,7 @@ const ContactInfoSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                212-214, Platinum Plaza, Opp. I.O.C. Petrol Pump, Bodakdev,
-                Ahmedabad-380054, Gujarat, India.
+                {infoData?.address}
               </a>
             </div>
           </Col>

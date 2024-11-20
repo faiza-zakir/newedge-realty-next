@@ -43,7 +43,7 @@ const PageContent = () => {
             : bannerImg
         }
       />
-      <ContactInfoSection />
+      <ContactInfoSection infoData={pageData?.content?.info} />
       <ContactFormSection />
       <FAQSection />
     </>
