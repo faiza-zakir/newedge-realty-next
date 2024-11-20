@@ -17,7 +17,7 @@ const Footer = () => {
   const getPageData = async () => {
     try {
       const resp = await fatchPagesContent("contact");
-      setContactData(resp?.data?.info);
+      setContactData(resp?.data?.content?.info);
     } catch (err) {
       console.log("Err: ", err);
     }
