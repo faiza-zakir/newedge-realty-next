@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
-// api
-import { fatchPagesContent } from "../apis/commonApi";
 // css
 import "./styles.scss";
 

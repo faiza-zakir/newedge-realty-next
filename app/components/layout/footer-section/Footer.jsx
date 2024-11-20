@@ -1,10 +1,13 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import logo from "../../../assets/logo/logo.svg";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+// api
+import { fatchPagesContent } from "../apis/commonApi";
 // css
 import "./style.scss";
 
