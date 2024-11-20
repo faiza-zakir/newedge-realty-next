@@ -9,7 +9,7 @@ import posterImg from "../../../assets/home/comslider1.webp";
 // css
 import "./styles.scss";
 
-const ProjectVideo = ({ projectVideo }) => {
+const ProjectVideo = ({ projectVideo, videoThumbnail }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -17,7 +17,14 @@ const ProjectVideo = ({ projectVideo }) => {
       <Container>
         <div className="video_container">
           <figure>
-            <Image src={posterImg} alt="project" />
+            <Image
+              src={
+                videoThumbnail
+                  ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL + videoThumbnail
+                  : posterImg
+              }
+              alt="project"
+            />
           </figure>
           <div className="icon_wrape" onClick={() => setOpen(true)}>
             <FaCirclePlay className="icon_style" />
