@@ -213,14 +213,14 @@ const ContactFormSection = () => {
         <Row className="gx-lg-5 gy-5 gy-lg-0">
           <Col lg={6} className="order-last order-lg-first">
             <Form
-              action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+              action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I000001Clyf"
               method="POST"
               className="contact_form_wrap"
               onSubmit={handleSubmit}
             >
               <p className="para_comm">Fill the below form to contact us:</p>
               {/* Hidden Salesforce fields */}
-              <input type="hidden" name="oid" value="00D9I0000016bIr" />
+              <input type="hidden" name="oid" value="00D9I000001Clyf" />
               <input
                 type="hidden"
                 name="retURL"

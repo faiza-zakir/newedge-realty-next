@@ -230,7 +230,7 @@ const BrochureForm = ({
       </Modal.Header>
       <Modal.Body>
         <Form
-          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I000001Clyf"
           method="POST"
           className="brochure_form_sec"
           onSubmit={handleSubmit}
@@ -241,7 +241,7 @@ const BrochureForm = ({
             <p className="para_comm">Fill the below form to get your copy.</p>
           )}
           {/* Hidden Salesforce fields */}
-          <input type="hidden" name="oid" value="00D9I0000016bIr" />
+          <input type="hidden" name="oid" value="00D9I000001Clyf" />
           <input
             type="hidden"
             name="retURL"
