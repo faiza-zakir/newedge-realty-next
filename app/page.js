@@ -148,6 +148,7 @@ const Home = () => {
   return (
     <>
       <BannerVideo
+        showForm={showForm}
         setShowForm={setShowForm}
         content={pageData?.content?.banner}
       />
