@@ -9,7 +9,7 @@ import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fatchProjectList } from "../../apis/commonApi";
 // img
-import bannerImg from "../../assets/banner/contactbanner.webp";
+import bannerImg from "../../assets/banner/commercialbanner.webp";
 
 const Projects = () => {
   const pathname = usePathname();
