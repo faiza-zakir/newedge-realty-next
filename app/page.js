@@ -10,7 +10,7 @@ import { homeData } from "./db/homeData";
 // api
 import { fatchPagesContent, fatchProjectList } from "./apis/commonApi";
 import { toast } from "react-toastify";
-
+import Loader from "@/app/components/common/loader/DataLoader";
 //
 const BannerForm = dynamic(() =>
   import("./components/home/banner-section/banner-form/BannerForm")
@@ -63,6 +63,7 @@ const Home = () => {
   const [residentialProjects, setResidentialProjects] = useState([]);
   const [commercialProjects, setCommercialProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -76,6 +77,13 @@ const Home = () => {
     }, 3000); // 3 seconds delay
 
     // Clean up the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // setShowForm(true);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -116,6 +124,7 @@ const Home = () => {
         console.error("Error fetching Data:", error);
       } finally {
         setIsLoading(false); // Hide the loader
+        setShowForm(true);
       }
     };
     getPageData();
@@ -141,18 +150,18 @@ const Home = () => {
     <>
       <BannerVideo content={pageData?.content?.banner} />
       <section className="form_mobile_view mt-60">
-        <Container>
-          <BannerForm />
-        </Container>
+        <Container>{showForm && <BannerForm />}</Container>
       </section>
       <OurClients />
-      <AboutSection
-        aboutData={pageData?.content?.intro}
-        countsData={pageData?.content?.counts}
-      />
+
       <div ref={ref} style={{ minHeight: "20px" }}></div>
+
       {inView ? (
         <>
+          <AboutSection
+            aboutData={pageData?.content?.intro}
+            countsData={pageData?.content?.counts}
+          />
           <ProjectSlider
             tagLine="Discover"
             title="Residential Properties"
