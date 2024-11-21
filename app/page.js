@@ -124,7 +124,6 @@ const Home = () => {
         console.error("Error fetching Data:", error);
       } finally {
         setIsLoading(false); // Hide the loader
-        setShowForm(true);
       }
     };
     getPageData();
@@ -148,7 +147,10 @@ const Home = () => {
 
   return (
     <>
-      <BannerVideo content={pageData?.content?.banner} />
+      <BannerVideo
+        setShowForm={setShowForm}
+        content={pageData?.content?.banner}
+      />
       <section className="form_mobile_view mt-60">
         <Container>{showForm && <BannerForm />}</Container>
       </section>
