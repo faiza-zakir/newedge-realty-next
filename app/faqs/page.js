@@ -11,6 +11,9 @@ export async function generateMetadata() {
     description:
       data?.content?.seo?.meta_description ||
       "Got questions about buying commercial real estate? Our FAQs provide quick answers on property for sale, financing options, zoning regulations, and the purchasing process.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/faqs",
+    },
   };
 }
 

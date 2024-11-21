@@ -5,11 +5,6 @@ import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
 import AboutSection from "./components/home/about-section/AboutSection";
 import BannerVideo from "./components/home/banner-section/banner-video/BannerVideo";
-// import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
-// import TaglinePopup from "./components/common/tagline-popup/TaglinePopup";
-const BannerForm = dynamic(() =>
-  import("./components/home/banner-section/banner-form/BannerForm")
-);
 // data
 import { homeData } from "./db/homeData";
 // api
@@ -17,7 +12,9 @@ import { fatchPagesContent, fatchProjectList } from "./apis/commonApi";
 import { toast } from "react-toastify";
 
 //
-// import BannerForm from "./components/home/banner-section/banner-form/BannerForm";
+const BannerForm = dynamic(() =>
+  import("./components/home/banner-section/banner-form/BannerForm")
+);
 const TaglinePopup = dynamic(() =>
   import("./components/common/tagline-popup/TaglinePopup")
 );
@@ -144,9 +141,9 @@ const Home = () => {
     <>
       <BannerVideo content={pageData?.content?.banner} />
       <section className="form_mobile_view mt-60">
-        {/* <Container>
+        <Container>
           <BannerForm />
-          </Container> */}
+        </Container>
       </section>
       <OurClients />
       <AboutSection

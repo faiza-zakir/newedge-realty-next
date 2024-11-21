@@ -7,6 +7,9 @@ export async function generateMetadata() {
       "Pre-Leased Property for Sale | Secure Investment Opportunities | Newedge Realty",
     description:
       "Invest in high-return pre-leased properties with Newedge Realty. Call us today! Newedge Realty.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/pre-leased",
+    },
   };
 }
 

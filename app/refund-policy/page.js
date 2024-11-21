@@ -10,6 +10,9 @@ export async function generateMetadata() {
     description:
       data?.content?.seo?.meta_description ||
       "Discover NewEdge Realty's clear and transparent refund policy. Learn how we ensure a seamless experience in real estate services, prioritizing customer satisfaction.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/refund-policy",
+    },
   };
 }
 

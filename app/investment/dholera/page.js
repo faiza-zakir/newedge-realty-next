@@ -11,6 +11,9 @@ export async function generateMetadata() {
     description:
       data?.content?.seo?.meta_description ||
       "Ready to take your investment to the next level? Discover Dholera Special Investment Region (DSIR) with Newedge!",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/investment/dholera",
+    },
   };
 }
 

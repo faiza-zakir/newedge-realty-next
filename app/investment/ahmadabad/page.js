@@ -11,6 +11,9 @@ export async function generateMetadata() {
     description:
       data?.content?.seo?.meta_description ||
       "Looking to buy property in Ahmedabad? Newedge provides SEO-optimized listings, market insights, and expert advice for residential and commercial investments.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/investment/ahmadabad",
+    },
   };
 }
 

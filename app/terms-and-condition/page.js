@@ -11,6 +11,9 @@ export async function generateMetadata() {
     description:
       data?.content?.seo?.meta_description ||
       "Read NewEdge Realty's terms and conditions. We offer a trustworthy and transparent real estate service that puts your interests first in every transaction.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/terms-and-condition",
+    },
   };
 }
 

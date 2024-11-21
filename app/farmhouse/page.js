@@ -7,6 +7,9 @@ export async function generateMetadata() {
       "Luxury Farmhouse Retreats in India | Tranquil Getaways| Newedge Realty",
     description:
       "Discover exquisite luxury farmhouses in India, where serene landscapes meet modern comforts. Perfect for investment.",
+    alternates: {
+      canonical: "https://newedge-realty-next.vercel.app/farmhouse",
+    },
   };
 }
 
