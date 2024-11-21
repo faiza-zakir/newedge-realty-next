@@ -83,6 +83,18 @@
           font-size: 16px;
         }
       }
+      .DesktopBTNTHEME {
+        @media (max-width: 576px) {
+          display: none;
+        }
+      }
+      .MobileBTNTHEME {
+        margin-top: 10px;
+        display: none;
+        @media (max-width: 576px) {
+          display: block;
+        }
+      }
       .banner_form_wrap {
         width: 70%;
         @media (max-width: 1280px) {
