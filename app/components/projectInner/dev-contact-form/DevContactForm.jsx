@@ -13,9 +13,10 @@ const initailObject = {
   last_name: "",
   phone: "",
   email: "",
+  property_name: "",
   message: "",
 };
-const DevContactForm = ({ show, handleClose, propertyType }) => {
+const DevContactForm = ({ show, handleClose, propertyType, propertyName }) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -42,6 +43,7 @@ const DevContactForm = ({ show, handleClose, propertyType }) => {
       last_name: updatedData?.last_name,
       phone: updatedData?.phone,
       email: updatedData?.email,
+      property_name: propertyName,
       message: updatedData?.message,
     };
 
@@ -140,6 +142,18 @@ const DevContactForm = ({ show, handleClose, propertyType }) => {
             id="00N9I000000vPGD"
             name="00N9I000000vPGD"
             value={formValues?.recordType}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9nt"
+            name="00N9I000000s9nt"
+            alue={formValues?.property_name}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9eD"
+            name="00N9I000000s9eD"
+            alue={formValues?.message}
           />
           <Row className="g-0 gx-lg-2">
             <Col lg={6}>

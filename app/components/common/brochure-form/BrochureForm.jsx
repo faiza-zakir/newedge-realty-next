@@ -18,9 +18,16 @@ const initailObject = {
   last_name: "",
   phone: "",
   email: "",
+  property_name: "",
 };
 
-const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
+const BrochureForm = ({
+  show,
+  handleClose,
+  brochureLink,
+  propertyType,
+  propertyName,
+}) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -148,6 +155,7 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
       last_name: updatedData?.last_name,
       phone: updatedData?.phone,
       email: updatedData?.email,
+      property_name: propertyName,
     };
     try {
       const response = await postBrochureForm(payload);
@@ -254,6 +262,12 @@ const BrochureForm = ({ show, handleClose, brochureLink, propertyType }) => {
             id="00N9I000000vPGD"
             name="00N9I000000vPGD"
             value={formValues?.recordType}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9nt"
+            name="00N9I000000s9nt"
+            alue={formValues?.property_name}
           />
           {FormDataSent ? (
             <>

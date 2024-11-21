@@ -81,6 +81,7 @@ const ProjectsInner = () => {
         developerData={singleProject?.developer}
         propertyType={singleProject?.property_type?.title}
         brochureUrl={singleProject?.brochure}
+        propertyName={singleProject?.title}
       />
       <ContactSection />
       <FAQSection />

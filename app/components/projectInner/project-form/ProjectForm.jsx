@@ -75,9 +75,10 @@ const initailObject = {
   max_budget: "",
   recordType: "",
   lead_source: "Website",
+  property_name: "",
   message: "",
 };
-const ProjectForm = ({ show, handleClose, propertyType }) => {
+const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -142,6 +143,8 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
         min_budget: parseFloat(updatedData?.min_budget).toFixed(2),
         max_budget: parseFloat(updatedData?.max_budget).toFixed(2),
         recordType: updatedData?.recordType,
+        property_name: propertyName,
+        message: updatedData?.message,
       };
 
       const response = await postLeadForm(payload);
@@ -170,6 +173,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       property_for,
       min_budget,
       max_budget,
+      message,
     } = formValues;
     const errors = {};
     if (!first_name) {
@@ -192,6 +196,8 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       errors.min_budget = "Please Select Min. Budget.";
     } else if (!max_budget) {
       errors.max_budget = "Please Select Max. Budget.";
+    } else if (!message) {
+      errors.message = "Please Enter Message.";
     } else if (!captchaToken) {
       errors.captcha = "Please Complete the CAPTCHA.";
     }
@@ -278,6 +284,18 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
             id="00N9I000000vPGD"
             name="00N9I000000vPGD"
             value={formValues?.recordType}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9nt"
+            name="00N9I000000s9nt"
+            alue={formValues?.property_name}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9eD"
+            name="00N9I000000s9eD"
+            alue={formValues?.message}
           />
           <Row className="g-0 gx-lg-2">
             <Col md={6} lg={6}>
