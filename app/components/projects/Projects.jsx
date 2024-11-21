@@ -9,7 +9,7 @@ import FAQSection from "../../components/home/faq-section/FAQSection";
 // api
 import { fatchProjectList } from "../../apis/commonApi";
 // img
-import bannerImg from "../../assets/banner/contactbanner.webp";
+import bannerImg from "../../assets/banner/commercialbanner.webp";
 
 const Projects = () => {
   const pathname = usePathname();
@@ -82,7 +82,9 @@ const Projects = () => {
         activepage={projectData?.[0]?.property_type?.title}
         bgImg={
           projectData?.[0]?.property_type?.banner_image
-            ? projectData?.[0]?.property_type?.banner_image
+            ? {
+                src: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${projectData?.[0]?.property_type?.banner_image}`,
+              }
             : bannerImg
         }
       />

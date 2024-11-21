@@ -48,6 +48,8 @@ function ProjectSlider({ sliderData }) {
               <Image
                 src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${item}`}
                 alt="project"
+                layout="fill"
+                objectFit="cover"
               />
             </figure>
           </div>
