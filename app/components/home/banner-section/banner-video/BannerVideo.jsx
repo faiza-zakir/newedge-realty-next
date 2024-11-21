@@ -11,7 +11,7 @@ import bannerImg1 from "@/app/assets/banner/homebanner1.webp";
 
 import "./styles.scss";
 
-const BannerVideo = ({ content, setShowForm }) => {
+const BannerVideo = ({ content, setShowForm, showForm }) => {
   const { bannerData } = homeData;
   const router = useRouter();
   const videoRef = useRef(null);
@@ -84,18 +84,22 @@ const BannerVideo = ({ content, setShowForm }) => {
               >
                 Learn More
               </button>
-              <button
-                className="theme_btn serchBTN DesktopBTNTHEME"
-                onClick={() => setLoadForm(true)}
-              >
-                Search Property
-              </button>
-              <button
-                className="theme_btn MobileBTNTHEME"
-                onClick={() => setShowForm(true)}
-              >
-                Search Property
-              </button>
+              {loadForm ? null : (
+                <button
+                  className="theme_btn serchBTN DesktopBTNTHEME"
+                  onClick={() => setLoadForm(true)}
+                >
+                  Search Property
+                </button>
+              )}
+              {showForm ? null : (
+                <button
+                  className="theme_btn MobileBTNTHEME"
+                  onClick={() => setShowForm(true)}
+                >
+                  Search Property
+                </button>
+              )}
             </div>
             <div className="banner_form_wrap form_desktop_view">
               {loadForm && <BannerForm />}

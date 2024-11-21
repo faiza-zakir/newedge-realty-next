@@ -156,8 +156,8 @@ const TestimonialsSection = () => {
                       <div
                         className="icon_wrape"
                         onClick={() => {
-                          setOpen(true);
                           setVideoLink(item?.video_url);
+                          setOpen(true);
                         }}
                       >
                         <FaCirclePlay
@@ -173,7 +173,7 @@ const TestimonialsSection = () => {
           </Slider>
         )}
         <ModalVideo
-          channel={"vimeo"}
+          channel={"youtube"}
           isOpen={isOpen}
           videoId={videoLink}
           allowFullScreen={true}
