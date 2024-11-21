@@ -24,7 +24,15 @@ const preprocessCountsData = (data) => {
     };
   });
 };
-const AboutSection = ({ aboutData, countsData }) => {
+const AboutSection = ({
+  aboutData = {
+    title:
+      "Trusted Solutions for Businesses, Projects, & Homeowners Since 1997",
+    description:
+      "<p>At Newedge Realty, we are leaders in premium property consultancy services. We guide our clients through the entire process by using our global network from identifying the right property, negotiating favorable terms, managing documentation to completing transactions. With over 25 years of experience, we make buying and selling of real estate transparent and secure. Our team of experts is proactive, analytical, and committed to providing tailor-made solutions for your unique real estate needs. Thank you for choosing us as your trusted and respected brand,</p>",
+  },
+  countsData,
+}) => {
   const router = useRouter();
   const processedData = preprocessCountsData(countsData);
 
