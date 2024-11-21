@@ -406,12 +406,18 @@ const BannerForm = () => {
               className="form-select"
             >
               <option value="">Type of Property</option>
-              <option value="Commercial">Commercial</option>
+              <option value="0129I000000CVo1">Commercial</option>
+              <option value="0129I000000CVpd">Farm House</option>
+              <option value="0129I000000CVrF">Industrial</option>
+              <option value="0129I000000CVsr">Land</option>
+              <option value="0129I000000D6Fm">Pre-leased Property</option>
+              <option value="0129I000000CVuT">Residential</option>
+              {/* <option value="Commercial">Commercial</option>
               <option value="Farm_House">Farm House</option>
               <option value="Industrial">Industrial</option>
               <option value="Pre_leased_Property">Pre-Leased Property</option>
               <option value="Land">Land</option>
-              <option value="Residential">Residential</option>
+              <option value="Residential">Residential</option> */}
             </select>
             <p className="mt-2 form_error_msg">{errors?.recordType}</p>
           </div>
