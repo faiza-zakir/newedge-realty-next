@@ -28,7 +28,7 @@ const BannerVideo = ({ content }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setLoadForm(true);
+      // setLoadForm(true);
     }, 2000);
     if (content?.video_url) {
       autoPlay();
@@ -83,6 +83,12 @@ const BannerVideo = ({ content }) => {
                 onClick={() => router.push(bannerData?.link)}
               >
                 Learn More
+              </button>
+              <button
+                className="theme_btn serchBTN"
+                onClick={() => setLoadForm(true)}
+              >
+                Search Property
               </button>
             </div>
             <div className="banner_form_wrap form_desktop_view">
