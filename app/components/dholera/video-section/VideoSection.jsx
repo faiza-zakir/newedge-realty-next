@@ -9,11 +9,11 @@ import posterImg from "../../../assets/home/comslider1.webp";
 // css
 import "./styles.scss";
 
-const ProjectVideo = ({ projectVideo, videoThumbnail }) => {
+const VideoSection = ({ videoUrl, videoThumbnail }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="project_video_area mtb-60">
+    <div className="video_area">
       <Container>
         <div className="video_container">
           <figure>
@@ -23,7 +23,7 @@ const ProjectVideo = ({ projectVideo, videoThumbnail }) => {
                   ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL + videoThumbnail
                   : posterImg
               }
-              alt="project"
+              alt="dholera"
               layout="fill"
               objectFit="cover"
             />
@@ -37,7 +37,7 @@ const ProjectVideo = ({ projectVideo, videoThumbnail }) => {
           channel="youtube"
           youtube={{ mute: 0, autoplay: 0 }}
           isOpen={isOpen}
-          videoId={projectVideo?.split("/")?.[3]}
+          videoId={videoUrl?.split("/")?.[3]}
           allowFullScreen={true}
           ratio="16:9"
           onClose={() => setOpen(false)}
@@ -47,4 +47,4 @@ const ProjectVideo = ({ projectVideo, videoThumbnail }) => {
   );
 };
 
-export default ProjectVideo;
+export default VideoSection;

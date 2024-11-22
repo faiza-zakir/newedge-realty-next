@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Row, Col, Container } from "react-bootstrap";
+import VideoSection from "../video-section/VideoSection";
 // css
 import "./styles.scss";
 
@@ -9,15 +9,10 @@ const Intro = ({ introData }) => {
       <Container>
         <Row className="gy-5 gx-lg-5">
           <Col sm={12}>
-            <figure>
-              <Image
-                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${introData?.featured_img}`}
-                layout="fill"
-                objectFit="cover"
-                alt={introData?.title}
-                title={introData?.title}
-              />
-            </figure>
+            <VideoSection
+              videoThumbnail={introData?.featured_img}
+              videoUrl={introData?.video_url}
+            />
           </Col>
           <Col sm={12}>
             <h2 className="main_sec_heading">{introData?.title}</h2>
