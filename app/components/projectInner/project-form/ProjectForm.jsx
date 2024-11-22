@@ -212,7 +212,7 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
     let updatedData = {
       ...formValues,
       phone: mobileValue,
-      recordType: propertyType,
+      recordType: "0129I000000CVsr",
     };
     setLoading(true);
     PostLeadFormData(updatedData, form);
@@ -281,8 +281,8 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
           />
           <input
             type="hidden"
-            id="00N9I000000vPGD"
-            name="00N9I000000vPGD"
+            id="recordType"
+            name="recordType"
             value={formValues?.recordType}
           />
           <input

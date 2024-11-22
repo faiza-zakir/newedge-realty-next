@@ -216,12 +216,14 @@ const BannerForm = () => {
   };
   return (
     <form
+      //  action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
       action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I000001Clyf"
       method="POST"
       className="banner_form_sec"
       onSubmit={handleSubmit}
     >
       {/* Hidden Salesforce fields */}
+      {/* <input type="hidden" name="oid" value="00D9I0000016bIr" /> */}
       <input type="hidden" name="oid" value="00D9I000001Clyf" />
       <input
         type="hidden"
