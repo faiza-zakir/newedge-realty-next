@@ -6,7 +6,12 @@ import BrochureForm from "../../common/brochure-form/BrochureForm";
 // css
 import "./styles.scss";
 
-const AboutDeveloper = ({ developerData, propertyType, brochureUrl }) => {
+const AboutDeveloper = ({
+  developerData,
+  propertyType,
+  brochureUrl,
+  propertyName,
+}) => {
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -55,6 +60,7 @@ const AboutDeveloper = ({ developerData, propertyType, brochureUrl }) => {
           show={show}
           handleClose={handleClose}
           propertyType={propertyType}
+          propertyName={propertyName}
         />
         {brochureUrl && (
           <BrochureForm
@@ -62,6 +68,7 @@ const AboutDeveloper = ({ developerData, propertyType, brochureUrl }) => {
             handleClose={handleModalClose}
             brochureLink={brochureUrl}
             propertyType={propertyType}
+            propertyName={propertyName}
           />
         )}
       </Container>

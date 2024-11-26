@@ -49,6 +49,7 @@ const Details = ({ singleProject }) => {
           show={show}
           handleClose={handleClose}
           propertyType={singleProject?.property_type?.title}
+          propertyName={singleProject?.title}
         />
       </Container>
     </div>

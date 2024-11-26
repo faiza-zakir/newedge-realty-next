@@ -75,9 +75,10 @@ const initailObject = {
   max_budget: "",
   recordType: "",
   lead_source: "Website",
+  property_name: "",
   message: "",
 };
-const ProjectForm = ({ show, handleClose, propertyType }) => {
+const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
   const [formValues, setFormValues] = useState(initailObject);
   const [loading, setLoading] = useState(false);
   const [mobileValue, setMobileValue] = useState("");
@@ -142,6 +143,8 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
         min_budget: parseFloat(updatedData?.min_budget).toFixed(2),
         max_budget: parseFloat(updatedData?.max_budget).toFixed(2),
         recordType: updatedData?.recordType,
+        property_name: propertyName,
+        message: updatedData?.message,
       };
 
       const response = await postLeadForm(payload);
@@ -170,6 +173,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       property_for,
       min_budget,
       max_budget,
+      message,
     } = formValues;
     const errors = {};
     if (!first_name) {
@@ -192,6 +196,8 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       errors.min_budget = "Please Select Min. Budget.";
     } else if (!max_budget) {
       errors.max_budget = "Please Select Max. Budget.";
+    } else if (!message) {
+      errors.message = "Please Enter Message.";
     } else if (!captchaToken) {
       errors.captcha = "Please Complete the CAPTCHA.";
     }
@@ -206,7 +212,7 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
     let updatedData = {
       ...formValues,
       phone: mobileValue,
-      recordType: propertyType,
+      recordType: "0129I000000CVsr",
     };
     setLoading(true);
     PostLeadFormData(updatedData, form);
@@ -226,14 +232,14 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
       </Modal.Header>
       <Modal.Body>
         <Form
-          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+          action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I000001Clyf"
           method="POST"
           className="proj_form_sec"
           onSubmit={handleSubmit}
         >
           <p className="para_comm">Fill the below form to contact us:</p>
           {/* Hidden Salesforce fields */}
-          <input type="hidden" name="oid" value="00D9I0000016bIr" />
+          <input type="hidden" name="oid" value="00D9I000001Clyf" />
           <input
             type="hidden"
             name="retURL"
@@ -275,9 +281,21 @@ const ProjectForm = ({ show, handleClose, propertyType }) => {
           />
           <input
             type="hidden"
-            id="00N9I000000vPGD"
-            name="00N9I000000vPGD"
+            id="recordType"
+            name="recordType"
             value={formValues?.recordType}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9nt"
+            name="00N9I000000s9nt"
+            alue={formValues?.property_name}
+          />
+          <input
+            type="hidden"
+            id="00N9I000000s9eD"
+            name="00N9I000000s9eD"
+            alue={formValues?.message}
           />
           <Row className="g-0 gx-lg-2">
             <Col md={6} lg={6}>
