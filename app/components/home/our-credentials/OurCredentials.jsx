@@ -15,7 +15,9 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   speed: 800,
+  autoplaySpeed: 2000,
   lazyLoad: true,
+  autoplay: true,
   responsive: [
     {
       breakpoint: 992,
@@ -101,12 +103,12 @@ const OurCredentials = () => {
       <Container>
         <div className="header_wrap">
           <h2 className="main_sec_heading">Our Credentials</h2>
-          {showArrows && (
+          {/* {showArrows && (
             <div className="desktop_view">
               <PrevArrow />
               <NextArrow />
             </div>
-          )}
+          )} */}
         </div>
         {isLoading ? (
           <p className="para_comm text-center">loading...</p>

@@ -54,7 +54,6 @@ export default function RootLayout({ children }) {
           fetchPriority="low"
           src="https://www.googletagmanager.com/gtag/js?id=G-GJRR5HNPK9"
         />
-
         <Script id="gtag-init" strategy="afterInteractive">
           {` 
         setTimeout(function () {
@@ -66,6 +65,13 @@ export default function RootLayout({ children }) {
         }, 21000);
      `}
         </Script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1WNKTR5B0B"
+        ></script>{" "}
+        <script async defer>
+          {` window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1WNKTR5B0B');`}
+        </script>
         {children}
       </body>
     </html>

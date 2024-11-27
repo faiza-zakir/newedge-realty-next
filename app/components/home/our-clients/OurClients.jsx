@@ -16,9 +16,11 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   speed: 800,
-  lazyLoad: true,
+  // lazyLoad: true,
   autoplay: true,
-  autoplaySpeed: 2000,
+  speed: 3000,
+  autoplaySpeed: 3000,
+  cssEase: "linear",
   responsive: [
     {
       breakpoint: 992,
