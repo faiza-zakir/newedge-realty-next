@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-
 import ModalVideo from "react-modal-video";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
@@ -175,7 +174,7 @@ const TestimonialsSection = () => {
         <ModalVideo
           channel={"youtube"}
           isOpen={isOpen}
-          videoId={videoLink}
+          videoId={videoLink?.split("/")?.[4]}
           allowFullScreen={true}
           ratio="16:19"
           onClose={() => setOpen(false)}
