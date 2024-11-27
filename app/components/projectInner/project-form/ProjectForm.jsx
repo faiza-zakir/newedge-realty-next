@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Select from "react-select";
-import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
+// import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
 // api
 import { postLeadForm } from "../../../apis/commonApi";
 // data
@@ -73,7 +73,7 @@ const initailObject = {
   property_for: "",
   min_budget: "",
   max_budget: "",
-  recordType: "",
+  recordType: "Residential",
   lead_source: "Website",
   property_name: "",
   message: "",
@@ -198,9 +198,10 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
       errors.max_budget = "Please Select Max. Budget.";
     } else if (!message) {
       errors.message = "Please Enter Message.";
-    } else if (!captchaToken) {
-      errors.captcha = "Please Complete the CAPTCHA.";
     }
+    // else if (!captchaToken) {
+    //   errors.captcha = "Please Complete the CAPTCHA.";
+    // }
 
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
@@ -212,7 +213,7 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
     let updatedData = {
       ...formValues,
       phone: mobileValue,
-      recordType: "0129I000000CVsr",
+      recordType: propertyType,
     };
     setLoading(true);
     PostLeadFormData(updatedData, form);
@@ -246,7 +247,11 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
             value="https://newedge-realty-next.vercel.app/thankyou.html"
           />
           {/* <input type="hidden" name="debug" value="1" />
-      <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
+          <input
+            type="hidden"
+            name="debugEmail"
+            value="shivani.kolhe@cymetrixsoft.com"
+          /> */}
           <input
             type="hidden"
             id="lead_source"
@@ -281,8 +286,8 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
           />
           <input
             type="hidden"
-            id="recordType"
-            name="recordType"
+            id="00N9I000000vPGD"
+            name="00N9I000000vPGD"
             value={formValues?.recordType}
           />
           <input
@@ -455,7 +460,7 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
               </Form.Group>
             </Col>
             {/* Google reCAPTCHA */}
-            <Col sm={12}>
+            {/* <Col sm={12}>
               <div className="mb-4">
                 <ReCAPTCHA
                   sitekey="6LcV_WoqAAAAAF1KC63Gc6Rk0dYnogvW_4uiwe_w" // Add your site key here
@@ -463,7 +468,7 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
                 />
                 <p className="mt-2 form_error_msg">{errors?.captcha}</p>
               </div>
-            </Col>
+            </Col> */}
             <Col sm={12} className="text-center">
               <Button className="theme_btn2" disabled={loading} type="submit">
                 {loading ? "Sending..." : "Submit"}
