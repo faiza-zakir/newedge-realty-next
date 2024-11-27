@@ -216,7 +216,7 @@ const BannerForm = () => {
   };
   return (
     <form
-      //  action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
+      // action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I0000016bIr"
       action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D9I000001Clyf"
       method="POST"
       className="banner_form_sec"
@@ -231,7 +231,11 @@ const BannerForm = () => {
         value="https://newedge-realty-next.vercel.app/thankyou.html"
       />
       {/* <input type="hidden" name="debug" value="1" />
-      <input type="hidden" name="debugEmail" value="chetan@newedgerealty.in" /> */}
+      <input
+        type="hidden"
+        name="debugEmail"
+        value="shivani.kolhe@cymetrixsoft.com"
+      /> */}
       <input
         type="hidden"
         id="lead_source"
@@ -408,18 +412,18 @@ const BannerForm = () => {
               className="form-select"
             >
               <option value="">Type of Property</option>
-              <option value="0129I000000CVo1">Commercial</option>
+              {/* <option value="0129I000000CVo1">Commercial</option>
               <option value="0129I000000CVpd">Farm House</option>
               <option value="0129I000000CVrF">Industrial</option>
               <option value="0129I000000CVsr">Land</option>
               <option value="0129I000000D6Fm">Pre-leased Property</option>
-              <option value="0129I000000CVuT">Residential</option>
-              {/* <option value="Commercial">Commercial</option>
+              <option value="0129I000000CVuT">Residential</option> */}
+              <option value="Commercial">Commercial</option>
               <option value="Farm_House">Farm House</option>
               <option value="Industrial">Industrial</option>
               <option value="Pre_leased_Property">Pre-Leased Property</option>
               <option value="Land">Land</option>
-              <option value="Residential">Residential</option> */}
+              <option value="Residential">Residential</option>
             </select>
             <p className="mt-2 form_error_msg">{errors?.recordType}</p>
           </div>
