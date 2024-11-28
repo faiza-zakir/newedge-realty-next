@@ -66,6 +66,7 @@ export default function RootLayout({ children }) {
      `}
         </Script>
         <Script
+          id="gtag"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-1WNKTR5B0B"
         ></Script>
