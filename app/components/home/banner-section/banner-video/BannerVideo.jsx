@@ -59,8 +59,7 @@ const BannerVideo = ({ content, setShowForm, showForm }) => {
         >
           <source
             // src="https://newedge-realty.prismcloudhosting.com/bannerVideo.mp4"
-            // src={process.env.NEXT_PUBLIC_IMAGE_BASE_URL + content?.video_url}
-            src=""
+            src={process.env.NEXT_PUBLIC_IMAGE_BASE_URL + content?.video_url}
             type="video/mp4"
           />
           Your browser does not support the video tag.
