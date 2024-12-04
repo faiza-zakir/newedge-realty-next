@@ -247,12 +247,12 @@ const ProjectForm = ({ show, handleClose, propertyType, propertyName }) => {
             name="retURL"
             value="https://newedge-realty-next.vercel.app/thankyou.html"
           />
-          <input type="hidden" name="debug" value="1" />
+          {/* <input type="hidden" name="debug" value="1" />
           <input
             type="hidden"
             name="debugEmail"
             value="devteam3@prism-me.com"
-          />
+          /> */}
           <input
             type="hidden"
             id="lead_source"
